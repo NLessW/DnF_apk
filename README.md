@@ -9,4 +9,9 @@ Dungeon and Fighter apk code with neople api.
 <br/><br/>
 3일차<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/e07e3ead-0d48-4bdf-a620-589dfe4e4eaa)
+<br/><br/>
+4일차<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/511cf0a1-4a45-4b5d-bcfd-6ce729e6cc20)
+<br/>
+모험단을 추가했지만.. 허리가 고장나서 하루종일 고치다가 끝..
 
