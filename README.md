@@ -8,6 +8,8 @@ Dungeon and Fighter apk code with neople api.
 <br/><br/>
 2일차<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/b5f8545c-f9fd-4cd9-b9a8-2f70f9f590ab)
+<br/>
+강화/증폭 구분 후 수치 적용 + 닉네임 적용 
 <br/><br/>
 3일차<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/e07e3ead-0d48-4bdf-a620-589dfe4e4eaa)
