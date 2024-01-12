@@ -30,19 +30,19 @@ I'll keep my code open.<br/><br/>
 1일차(Day 1, 第1天, 1日目)<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/781d7924-48cd-4257-8325-3c55e2d9760b)
 <br/>
-기본적인 캐릭터 장비 UI 레이아웃 구성<br/>
-Configure basic character equipment UI layout<br/>
-配置基本字符設備UI佈局<br/>
+기본적인 캐릭터 장비 UI 레이아웃 구성<br/><br/>
+Configure basic character equipment UI layout<br/><br/>
+配置基本字符設備UI佈局<br/><br/>
 基本的な文字機器のUIレイアウトを設定します<br/>
 <br/><br/>
 
 2일차(Day 2, 第2天, 2日目)<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/b5f8545c-f9fd-4cd9-b9a8-2f70f9f590ab)
 <br/>
-강화/증폭 구분 후 수치 적용 + 닉네임 적용 <br/>
-Apply enhanced/amplified figures and nicknames<br/>
-應用增強/放大數字和暱稱<br/>
-
+강화/증폭 구분 후 수치 적용 + 닉네임 적용 <br/><br/>
+Apply enhanced/amplified figures and nicknames<br/><br/>
+應用增強/放大數字和暱稱<br/><br/>
+拡張または増幅された数値とニックネームを適用<br/>
 <br/><br/>
 3일차(Day 3, 第3天, 3日目)<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/e07e3ead-0d48-4bdf-a620-589dfe4e4eaa)
