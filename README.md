@@ -70,9 +70,9 @@ HTTP ERROR Code と警告ウィンドウが表示されません。<br/>
 4일차(Day 4, 第4天, 4日目)<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/511cf0a1-4a45-4b5d-bcfd-6ce729e6cc20)
 <br/>
-모험단을 추가했지만.. 허리가 고장나서 하루종일 고치다가 끝..<br/>
-I've added an adventure group, but the belt's gone wrong, so I've been fixing it all day, and it's over..<br/>
-我增加了一個冒險小組，但腰帶出了問題，所以我整日都在修理它，一切都結束了。<br/>
+모험단을 추가했지만.. 허리가 고장나서 하루종일 고치다가 끝..<br/><br/>
+I've added an adventure group, but the belt's gone wrong, so I've been fixing it all day, and it's over..<br/><br/>
+我增加了一個冒險小組，但腰帶出了問題，所以我整日都在修理它，一切都結束了。<br/><br/>
 アドベンチャーグループを追加したのですが、ベルトがおかしくなってしまい、一日中修理していたら終わりです..<br/>
 
 <br/><br/>
@@ -80,11 +80,11 @@ I've added an adventure group, but the belt's gone wrong, so I've been fixing it
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/acbaf51b-8561-4653-866b-0af3cf074dae)
 <br/>
 길드, 서버, 전직이름 구현, 미스트 기어 장비 여부 추가<br/>
-(허리 부분 작동 안한 이유 : 네오플 api 측 허리 제공 데이터 이름 허리 -> 벨트로 변경)<br/>
+(허리 부분 작동 안한 이유 : 네오플 api 측 허리 제공 데이터 이름 허리 -> 벨트로 변경)<br/><br/>
 Guild, server, implement ex-name, add mist gear or not<br/>
-(Reason for not working waist: Provide waist to neople api Data Name change to waist -> belt)<br/>
+(Reason for not working waist: Provide waist to neople api Data Name change to waist -> belt)<br/><br/>
 行會、服務器、實現前名、添加霧齒輪或不添加霧齒輪<br/>
-（不工作腰的原因:提供腰給neople api數據名稱改爲腰->腰帶）<br/>
+（不工作腰的原因:提供腰給neople api數據名稱改爲腰->腰帶）<br/><br/>
 ギルド、サーバー、元の名前を実装、ミストギアを追加するかどうか<br/>
 (腰が働かない理由: Neople api データ名を腰に変更 -> ベルト)<br/>
 
@@ -101,7 +101,7 @@ Apply the image in XML with id to fix it by applying it again in Java code<br/>
 <br/> 
 添加 TabHost UI。 在添加時繼續出現 nullPointer 問題。<br/>
 我重寫了這個部分。 應用它後，聲譽圖標圖像消失。<br/>
-在 XML 中使用 id 應用圖像，通過在 Java 代碼中再次應用它來修復它。<br/><br/>
+在 XML 中使用 id 應用圖像，通過在 Java 代碼中再次應用它來修復它。<br/>
 
 TabHost UIを追加します。 追加中にnullPointerの問題が発生し続けます。<br/>
 問題の部分を書き直しました。 適用すると評判アイコンの画像が消えます。<br/>
