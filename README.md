@@ -20,3 +20,7 @@ Dungeon and Fighter apk code with neople api.
 <br/>
 길드, 서버, 전직이름 구현, 미스트 기어 장비 여부 추가<br/>
 (허리 부분 작동 안한 이유 : 네오플 api 측 허리 제공 데이터 이름 허리 -> 벨트로 변경)
+<br/><br/>
+6일차 (진행중)<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/71f39a7d-af12-42f6-959e-ad43bb49aef9)
+TabHost UI 추가
