@@ -19,3 +19,8 @@ Dungeon and Fighter apk code with neople api.
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/caa47158-417c-4d0d-b1d7-810e36b73e75)
 <br/>
 원인 발견 : 네오플 api 측 허리 제공 데이터 이름 허리 -> 벨트로 변경
+<br/><br/>
+5일차 연장<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/acbaf51b-8561-4653-866b-0af3cf074dae)
+<br/>
+길드, 서버, 전직이름 구현, 미스트 기어 장비 여부 추가
