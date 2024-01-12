@@ -14,4 +14,8 @@ Dungeon and Fighter apk code with neople api.
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/511cf0a1-4a45-4b5d-bcfd-6ce729e6cc20)
 <br/>
 모험단을 추가했지만.. 허리가 고장나서 하루종일 고치다가 끝..
-
+<br/><br/>
+5일차<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/caa47158-417c-4d0d-b1d7-810e36b73e75)
+<br/>
+원인 발견 : 네오플 api 측 허리 제공 데이터 이름 허리 -> 벨트로 변경
