@@ -1,16 +1,19 @@
 package com.cookandroid.dnf;
 
 import android.app.Activity;
+import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.util.Pair;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +32,7 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class characterInfo extends AppCompatActivity {
+public class characterInfo extends TabActivity {
     String characterName, server;
     String apiKey;
     TextView shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce, weaponReinForce, weaponInfo, handReinForce,
@@ -113,24 +116,50 @@ public class characterInfo extends AppCompatActivity {
         stoneMist = findViewById(R.id.stoneMist);
         userName.setText(characterName);
 
+        ImageView famepng = findViewById(R.id.famepng);
+        famepng.setImageDrawable(getResources().getDrawable(R.drawable.fame));
+
+        TabHost tabHost = getTabHost();
+
+        TabHost.TabSpec spec1 = tabHost.newTabSpec("Stats").setIndicator("Stats");;
+        spec1.setContent(R.id.tab1);
+
+        TabHost.TabSpec spec2 = tabHost.newTabSpec("tab2").setIndicator("Tab 2");
+        spec2.setContent(R.id.tab2);
+
+        TabHost.TabSpec spec3 = tabHost.newTabSpec("tab3").setIndicator("Tab 3");
+        spec3.setContent(R.id.tab3);
+
+        tabHost.addTab(spec1);
+        tabHost.addTab(spec2);
+        tabHost.addTab(spec3);
+        tabHost.setCurrentTab(0);
 
         if(server.equals("cain")){
             serve.setText("서버 : 카인");
-        }else if(server.equals("diregie")){
+        }
+        else if(server.equals("diregie")){
             serve.setText("서버 : 디레지에");
-        }else if(server.equals("siroco")){
+        }
+        else if(server.equals("siroco")){
             serve.setText("서버 : 시로코");
-        }else if(server.equals("prey")){
+        }
+        else if(server.equals("prey")){
             serve.setText("서버 : 프레이");
-        }else if(server.equals("casillas")){
+        }
+        else if(server.equals("casillas")){
             serve.setText("서버 : 카시야스");
-        }else if(server.equals("hilder")){
+        }
+        else if(server.equals("hilder")){
             serve.setText("서버 : 힐더");
-        }else if(server.equals("anton")){
+        }
+        else if(server.equals("anton")){
             serve.setText("서버 : 안톤");
-        }else if(server.equals("bakal")){
+        }
+        else if(server.equals("bakal")){
             serve.setText("서버 : 바칼");
-        }else{
+        }
+        else{
             serve.setText("아라드주민?");
         }
 
@@ -1177,7 +1206,6 @@ public class characterInfo extends AppCompatActivity {
             }).start();
         }
 
-
         private static Bitmap getBitmapFromURL(String url) {
             try {
                 HttpsURLConnection httpURLConnection = (HttpsURLConnection) new URL(url).openConnection();
@@ -1195,4 +1223,3 @@ public class characterInfo extends AppCompatActivity {
         }
     }
 }
-
