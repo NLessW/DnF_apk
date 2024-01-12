@@ -1,4 +1,3 @@
-<!-- This XML file is still incomplete and will be revised continuously. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -10,8 +9,8 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@drawable/dbg"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,21 +23,210 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/eShd"
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/shoulder" />
+                    android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/eShirt"
+                    <ImageView
+                        android:id="@+id/eShd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/shoulder" />
+
+                    <ImageView
+                        android:id="@+id/shdMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eShd"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+
+                    <TextView
+                        android:id="@+id/shdReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eShd"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/shdMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="29dp"
+                        android:layout_marginTop="40dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/shirt" />
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/eShirt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/shirt" />
+                    <ImageView
+                        android:id="@+id/shirtMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eShirt"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+                    <TextView
+                        android:id="@+id/shirtReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eShirt"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/shirtMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="29dp"
+                        android:layout_marginTop="40dp"
+                        android:background="#80000000"
+                        android:text="융합"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ePants"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/pants" />
+
+                    <ImageView
+                        android:id="@+id/pantsMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/ePants"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+                    <TextView
+                        android:id="@+id/pantsReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/ePants"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/pantsMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="29dp"
+                        android:layout_marginTop="40dp"
+                        android:background="#80000000"
+                        android:text="융합"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/eBelt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/belt" />
+                    <ImageView
+                        android:id="@+id/beltMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eBelt"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+                    <TextView
+                        android:id="@+id/beltReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eBelt"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/beltMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="29dp"
+                        android:layout_marginTop="40dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -46,47 +234,109 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/ePants"
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/pants" />
+                    android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/eBelt"
+                    <ImageView
+                        android:id="@+id/eShoe"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/shoes" />
+                    <ImageView
+                        android:id="@+id/shoeMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eShoe"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+
+                    <TextView
+                        android:id="@+id/shoeReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eShoe"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/shoeMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28.5dp"
+                        android:layout_marginTop="39dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/belt" />
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/shoes" />
+                </RelativeLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="110dp"
-                android:layout_height="60dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:layout_gravity="bottom"
+                android:layout_margin="1dp"
+                android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/eShoe"
-                    android:layout_width="110dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/shoes" />
-
-                <ImageView
-                    android:id="@+id/imageView7"
+                <TextView
+                    android:id="@+id/serve"
                     android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:visibility="invisible"
-                    app:srcCompat="@drawable/shoes" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/dnfmidium"
+                    android:gravity="top"
+                    android:text="서버 : "
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
 
+                <TextView
+                    android:id="@+id/guild"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="80dp"
+                    android:fontFamily="@font/dnfmidium"
+                    android:gravity="top"
+                    android:text="길드 : "
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -95,16 +345,106 @@
             android:layout_weight="1.5"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/charPicture"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:visibility="visible"
-                app:srcCompat="@drawable/loading"
-                />
+                android:layout_height="60dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1">
 
+                <ImageView
+                    android:id="@+id/charPicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/loading" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="53dp"
+                    android:gravity="bottom|center"
+                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/advName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:fontFamily="@font/dnfbold"
+                    android:text="advName"
+                    android:visibility="visible"
+                    android:textColor="#A2CAA6"
+                    android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/jobName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/dnfbold"
+                        android:text="jobName"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25dp"
+                    android:gravity="bottom|center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/dnfbold"
+                        android:text="NickName"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="bottom|center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/famepng"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:srcCompat="@drawable/fame" />
+
+                    <TextView
+                        android:id="@+id/fameNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/nexon"
+                        android:text="0"
+                        android:textColor="#ffffff"
+                        android:textSize="12.5sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -119,13 +459,65 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/eWeapon"
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/weapon" />
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/eWeapon"
+                        android:layout_width="110dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/weapon" />
+
+                    <TextView
+                        android:id="@+id/weaponReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eWeapon"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/weaponMix"
+                        android:layout_width="36dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:text="융합융"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+
+
+                    <TextView
+                        android:id="@+id/weaponInfo"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eWeapon"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="/ 0"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/eTitle"
@@ -141,21 +533,139 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/eHand"
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/hand" />
+                    android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/eNeck"
+                    <ImageView
+                        android:id="@+id/eHand"
+                        android:layout_width="110dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/hand" />
+
+                    <ImageView
+                        android:id="@+id/handMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eHand"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+                    <TextView
+                        android:id="@+id/handReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eHand"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/handMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/handSun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#171717"
+                        android:fontFamily="@font/dnfbold"
+                        android:text=" 仙 "
+                        android:textColor="#ff00"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/neck" />
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/eNeck"
+                        android:layout_width="110dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/neck" />
+                    <ImageView
+                        android:id="@+id/neckMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eNeck"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+
+                    <TextView
+                        android:id="@+id/neckReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eNeck"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/neckMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+                    <TextView
+                        android:id="@+id/neckSun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#171717"
+                        android:fontFamily="@font/dnfbold"
+                        android:text=" 仙 "
+                        android:textColor="#ff00"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -163,21 +673,138 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/eSub"
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/sub" />
+                    android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/eRing"
+                    <ImageView
+                        android:id="@+id/eSub"
+                        android:layout_width="110dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/sub" />
+                    <ImageView
+                        android:id="@+id/subMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eSub"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+                    <TextView
+                        android:id="@+id/subReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eSub"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/subMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/subSun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#171717"
+                        android:fontFamily="@font/dnfbold"
+                        android:text=" 仙 "
+                        android:textColor="#ff00"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ring" />
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/eRing"
+                        android:layout_width="110dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ring" />
+
+                    <ImageView
+                        android:id="@+id/ringMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eRing"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+                    <TextView
+                        android:id="@+id/ringReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eRing"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/ringMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#80000000"
+                        android:text="융합"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+                    <TextView
+                        android:id="@+id/ringSun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#171717"
+                        android:fontFamily="@font/dnfbold"
+                        android:text=" 仙 "
+                        android:textColor="#ff00"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -185,25 +812,156 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/eEar"
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ear" />
+                    android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/eStone"
+                    <ImageView
+                        android:id="@+id/eEar"
+                        android:layout_width="110dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/ear" />
+
+                    <ImageView
+                        android:id="@+id/earMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eEar"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+                    <TextView
+                        android:id="@+id/earReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eEar"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/earMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#80000000"
+                        android:text="융합"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/earSun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#171717"
+                        android:fontFamily="@font/dnfbold"
+                        android:text=" 仙 "
+                        android:textColor="#ff00"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/stone" />
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/eStone"
+                        android:layout_width="110dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/stone" />
+                    <ImageView
+                        android:id="@+id/stoneMist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eStone"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/mist" />
+                    <TextView
+                        android:id="@+id/stoneReinForce"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/eStone"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#80000000"
+                        android:gravity="top"
+                        android:text="+0"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/stoneMix"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#80000000"
+                        android:text="융합"
+                        android:fontFamily="@font/dnfmidium"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:visibility="visible" />
+                    <TextView
+                        android:id="@+id/stoneSun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="38dp"
+                        android:background="#171717"
+                        android:fontFamily="@font/dnfbold"
+                        android:text=" 仙 "
+                        android:textColor="#ff00"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+                </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
 
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+    <TextView
+        android:id="@+id/stoneReinF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/eStone"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="3dp"
+        android:background="#80000000"
+        android:gravity="top"
+        android:text="Test Layout"
+        android:textColor="#ffffff"
+        android:textSize="13sp" />
+    </LinearLayout>
 </LinearLayout>
