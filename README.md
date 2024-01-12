@@ -1,6 +1,32 @@
 # DnF_apk
-Dungeon and Fighter apk code with neople api.
-<br/>
+Dungeon and Fighter apk code with neople api.<br/><br/>
+
+# README is..
+(한국어)<br/>
+이 README.md는 제가 앱을 개발하면서 적는 개발 일기장입니다.<br/>
+제작과정 및 발생했던 오류, 오류 해결했던 방식을 적어 기록하는 용도입니다.<br/>
+쓸모없는 README 이므로 관심이 있으시다면 읽으셔도 되고, 없으시다면 안 읽으셔도 무방합니다.<br/>
+제 코드는 공개해두겠습니다.<br/><br/>
+
+(Eng)<br/>
+This README.md is a development diary that I write while developing the app.<br/>
+It is intended to write down the manufacturing process, errors that occurred, and how errors were resolved.<br/>
+It's a useless README, so you can read it if you're interested, or if you're not, you don't have to.<br/>
+I'll keep my code open.<br/><br/>
+
+(中國語)<br/>
+這個 README.md 是我在開發應用程序時寫的一個開發日記。<br/> 簡體中文
+它旨在記錄製造過程，發生的錯誤以及如何解決錯誤。<br/> 簡體中文
+<br/> 媽媽,你若是不喜歡我,我一定不會去想你的。 <br/> <br/>
+我會打開我的代碼。聯繫我們
+<br/><br/>
+
+(日本語)<br/>
+このREADME.md は、アプリの開発中に書いている開発日誌です。<br/>
+製造プロセス、発生したエラー、およびエラーの解決方法を記録することを目的としています。<br/>
+役に立たないREADMEなので、興味があるなら読んでもいいし、ないなら読まなくてもいいです。<br/>
+コードを開いておきます。<br/><br/>
+
 1일차 <br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/781d7924-48cd-4257-8325-3c55e2d9760b)
 <br/>
