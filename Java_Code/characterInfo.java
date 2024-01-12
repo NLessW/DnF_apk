@@ -34,8 +34,11 @@ public class characterInfo extends AppCompatActivity {
     String apiKey;
     TextView shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce, weaponReinForce, weaponInfo, handReinForce,
             neckReinForce, subReinForce, ringReinForce, earReinForce, stoneReinForce,userName, fameNum, shdMix, shirtMix, pantsMix,
-            beltMix, shoeMix, weaponMix, handMix, neckMix, subMix, ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun, stoneSun, advName;
-    ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture;
+            beltMix, shoeMix, weaponMix, handMix, neckMix, subMix, ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun,
+            stoneSun, advName, jobName, serve, guild;
+
+    ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture,
+            shdMist, shirtMist, pantsMist, beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,6 @@ public class characterInfo extends AppCompatActivity {
         Intent intent = getIntent();
         characterName = intent.getStringExtra("nickName");
         server = intent.getStringExtra("serverSelect");
-        Log.d("cJava", "cName : " + characterName + "server : " + server);
         apiKey = "apiKey";
 
         eShd = findViewById(R.id.eShd);
@@ -95,13 +97,50 @@ public class characterInfo extends AppCompatActivity {
         stoneMix = findViewById(R.id.stoneMix);
         weaponMix = findViewById(R.id.weaponMix);
         advName = findViewById(R.id.advName);
+        jobName = findViewById(R.id.jobName);
+        serve = findViewById(R.id.serve);
+        guild = findViewById(R.id.guild);
+        shdMist = findViewById(R.id.shdMist);
+        shirtMist = findViewById(R.id.shirtMist);
+        pantsMist = findViewById(R.id.pantsMist);
+        beltMist = findViewById(R.id.beltMist);
+        shoeMist = findViewById(R.id.shoeMist);
+        handMist = findViewById(R.id.handMist);
+        neckMist = findViewById(R.id.neckMist);
+        subMist = findViewById(R.id.subMist);
+        ringMist = findViewById(R.id.ringMist);
+        earMist = findViewById(R.id.earMist);
+        stoneMist = findViewById(R.id.stoneMist);
         userName.setText(characterName);
 
+
+        if(server.equals("cain")){
+            serve.setText("서버 : 카인");
+        }else if(server.equals("diregie")){
+            serve.setText("서버 : 디레지에");
+        }else if(server.equals("siroco")){
+            serve.setText("서버 : 시로코");
+        }else if(server.equals("prey")){
+            serve.setText("서버 : 프레이");
+        }else if(server.equals("casillas")){
+            serve.setText("서버 : 카시야스");
+        }else if(server.equals("hilder")){
+            serve.setText("서버 : 힐더");
+        }else if(server.equals("anton")){
+            serve.setText("서버 : 안톤");
+        }else if(server.equals("bakal")){
+            serve.setText("서버 : 바칼");
+        }else{
+            serve.setText("아라드주민?");
+        }
+
+
         CharacterUtils.setCharWeapon(this, server, characterName, apiKey, eWeapon,
-                eTitle, eShirt, ePants, eShd, eBelt, eShoe, eHand, eNeck, eRing, eSub, eEar, eStone, charPicture,
+                eTitle, eShirt, ePants, eShd, eBelt, eShoe, eHand, eNeck, eRing, eSub, eEar, eStone, charPicture, shdMist, shirtMist, pantsMist,
+                beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist,
                 weaponReinForce, shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce, handReinForce, neckReinForce,
                 subReinForce, ringReinForce, earReinForce, stoneReinForce,weaponInfo, fameNum, shdMix, weaponMix, shirtMix, pantsMix, beltMix, shoeMix,
-                handMix, neckMix, subMix, ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun, stoneSun, advName);
+                handMix, neckMix, subMix, ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun, stoneSun, advName, jobName, guild);
 
 
     }
@@ -111,25 +150,19 @@ public class characterInfo extends AppCompatActivity {
         public static class CharacterInfo {
             private final String characterId;
             private final int fame;
-            private final String adventureName;
 
-            public CharacterInfo(String characterId, int fame, String adventureName) {
+            public CharacterInfo(String characterId, int fame) {
                 this.characterId = characterId;
                 this.fame = fame;
-                this.adventureName = adventureName;
             }
 
             public String getCharacterId() {
                 return characterId;
             }
-
             public int getFame() {
                 return fame;
             }
 
-            public String getAdvName() {
-                return adventureName;
-            }
         }
         public static CharacterInfo getCharacterInfo(Context context, String server, String characterName, String apiKey) {
             try {
@@ -145,8 +178,6 @@ public class characterInfo extends AppCompatActivity {
 
                 String responseBody = response.body();
                 JSONObject json = new JSONObject(responseBody);
-
-                // API 응답에서 rows 배열 추출
                 JSONArray rows = json.getJSONArray("rows");
 
                 if (rows.length() > 0) {
@@ -156,12 +187,7 @@ public class characterInfo extends AppCompatActivity {
                     if (!character.isNull("fame")) {
                         fame = character.getInt("fame");
                     }
-                    String advName = "";
-                    if (!character.isNull("adventureName")) {
-                        advName = character.getString("adventureName");
-                    }
-                    // CharacterInfo 객체 생성하여 반환
-                    return new CharacterInfo(characterId, fame, advName);
+                    return new CharacterInfo(characterId, fame);
                 } else {
                     return null;
                 }
@@ -175,20 +201,24 @@ public class characterInfo extends AppCompatActivity {
                                          ImageView eWeapon, ImageView eTitle, ImageView eShirt, ImageView ePants,
                                          ImageView eShd, ImageView eBelt, ImageView eShoe, ImageView eHand, ImageView eNeck,
                                          ImageView eRing, ImageView eSub, ImageView eEar, ImageView eStone, ImageView charPicture,
+                                         ImageView shdMist, ImageView shirtMist, ImageView pantsMist, ImageView beltMist, ImageView shoeMist,
+                                         ImageView handMist, ImageView neckMist, ImageView subMist, ImageView ringMist, ImageView earMist,
+                                         ImageView stoneMist,
                                          TextView weaponReinForce, TextView shdReinForce, TextView shirtReinForce, TextView pantsReinForce,
                                          TextView beltReinForce, TextView shoeReinForce, TextView handReinForce, TextView neckReinForce,
                                          TextView subReinForce, TextView ringReinForce, TextView earReinForce, TextView stoneReinForce,
                                          TextView weaponInfo, TextView fameNum, TextView shdMix, TextView weaponMix, TextView shirtMix,
                                          TextView pantsMix, TextView beltMix, TextView shoeMix, TextView handMix, TextView neckMix, TextView subMix,
                                          TextView ringMix, TextView earMix, TextView stoneMix, TextView handSun, TextView neckSun, TextView subSun,
-                                         TextView ringSun, TextView earSun, TextView stoneSun, TextView advName) {
+                                         TextView ringSun, TextView earSun, TextView stoneSun, TextView advName, TextView jobName,
+                                         TextView guild) {
             new Thread(() -> {
                 try {
                     CharacterInfo characterInfo = getCharacterInfo(context, server, characterName, apiKey);
                     String characterId = "";
 
                     if(characterInfo != null) {
-                       characterId = characterInfo.getCharacterId();
+                        characterId = characterInfo.getCharacterId();
                     }
 
                     Connection.Response response = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters/" + characterId + "/equip/equipment")
@@ -199,18 +229,49 @@ public class characterInfo extends AppCompatActivity {
 
                     if (characterInfo != null) {
                         int fame = characterInfo.getFame();
-                        String adventureName = characterInfo.getAdvName();
-
                         fameNum.post(() -> {
                             fameNum.setText(String.valueOf(fame));
                         });
 
+                        JSONObject jsonResponse = new JSONObject(response.body());
+                        JSONArray equipmentArray = jsonResponse.getJSONArray("equipment");
+                        final String adventureName;
+
+                        if (jsonResponse.has("adventureName")) {
+                            adventureName = jsonResponse.getString("adventureName");
+                        } else {
+                            adventureName = "";
+                        }
                         advName.post(() -> {
                             advName.setText(adventureName);
                         });
+                        final String jobGrowName;
+                        if (jsonResponse.has("jobGrowName")) {
+                            jobGrowName = jsonResponse.getString("jobGrowName");
+                        } else {
+                            jobGrowName = "";
+                        }
+                        jobName.post(() -> {
+                            jobName.setText(jobGrowName);
+                        });
+                        final String guildName;
+                        if (jsonResponse.has("guildName") && !jsonResponse.isNull("guildName")) {
+                            guildName = jsonResponse.getString("guildName");
+                        } else {
+                            guildName = null;
+                        }
 
-                        JSONObject jsonResponse = new JSONObject(response.body());
-                        JSONArray equipmentArray = jsonResponse.getJSONArray("equipment");
+                        guild.post(() -> {
+                            if (guild != null) {
+                                if (guildName != null) {
+                                    guild.setText("길드 : " + guildName);
+                                } else {
+                                    guild.setText("길드 : 없음");
+                                }
+                            }
+                        });
+
+
 
                         for (int i = 0; i < equipmentArray.length(); i++) {
                             JSONObject equipment = equipmentArray.getJSONObject(i);
@@ -218,9 +279,11 @@ public class characterInfo extends AppCompatActivity {
                             String slotName = equipment.getString("slotName");
                             String upgradeInfo = equipment.isNull("upgradeInfo") ? null : equipment.getString("upgradeInfo");
                             String amplificationName = equipment.isNull("amplificationName") ? null : equipment.getString("amplificationName");
+                            boolean pureMistGear = equipment.isNull("pureMistGear") ? false : equipment.getBoolean("pureMistGear");
+                            boolean refinedMistGear = equipment.isNull("refinedMistGear") ? false : equipment.getBoolean("refinedMistGear");
+                            boolean mistGear = equipment.isNull("mistGear") ? false : equipment.getBoolean("mistGear");
                             int reinforce = equipment.getInt("reinforce");
                             int refine = equipment.getInt("refine");
-
                             if ("무기".equals(slotName)) {
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap weaponBitmap = getBitmapFromURL(imageUrl);
@@ -307,6 +370,16 @@ public class characterInfo extends AppCompatActivity {
                                 eShirt.post(() -> {
                                     eShirt.setImageBitmap(scaledBitmap);
                                 });
+
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    shirtMist.post(() -> {
+                                        shirtMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    shirtMist.post(() -> {
+                                        shirtMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -365,6 +438,15 @@ public class characterInfo extends AppCompatActivity {
                                 ePants.post(() -> {
                                     ePants.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    pantsMist.post(() -> {
+                                        pantsMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    pantsMist.post(() -> {
+                                        pantsMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -420,6 +502,15 @@ public class characterInfo extends AppCompatActivity {
                                 eShd.post(() -> {
                                     eShd.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    shdMist.post(() -> {
+                                        shdMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    shdMist.post(() -> {
+                                        shdMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -465,61 +556,6 @@ public class characterInfo extends AppCompatActivity {
                                     });
                                 }
                             }
-                            else if ("허리".equals(slotName)) {
-                                String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                Bitmap beltBitmap = getBitmapFromURL(imageUrl);
-                                int width = eBelt.getWidth();
-                                int height = (int) (width / (float) beltBitmap.getWidth() * beltBitmap.getHeight());
-                                Bitmap scaledBitmap = Bitmap.createScaledBitmap(beltBitmap, width, height, true);
-                                eBelt.post(() -> {
-                                    eBelt.setImageBitmap(scaledBitmap);
-                                });
-                                if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
-                                    try {
-                                        JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
-                                        String itemName = upgradeInfoJson.getString("itemName");
-                                        String upgradeName = itemName.substring(0, 3);
-
-                                        beltMix.post(() -> {
-                                            beltMix.setText(upgradeName);
-                                            beltMix.setVisibility(View.VISIBLE);
-                                        });
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        beltMix.post(() -> {
-                                            beltMix.setText("");
-                                            beltMix.setVisibility(View.INVISIBLE);
-                                        });
-                                    }
-                                } else {
-                                    beltMix.post(() -> {
-                                        beltMix.setText("");
-                                        beltMix.setVisibility(View.INVISIBLE);
-                                    });
-                                }
-                                if (reinforce > 0) {
-                                    beltReinForce.post(() -> {
-                                        beltReinForce.setText("+" + reinforce);
-                                        beltReinForce.setTextColor(context.getResources().getColor(R.color.white));
-                                    });
-                                } else {
-                                    beltReinForce.post(() -> {
-                                        beltReinForce.setText("+0");
-                                    });
-                                }
-                                if (amplificationName != null) {
-                                    beltReinForce.post(() -> {
-                                        beltReinForce.setText("+" + reinforce);
-                                        beltReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
-                                    });
-                                } else {
-                                    beltReinForce.post(() -> {
-                                        beltReinForce.setText("+" + reinforce);
-                                        beltReinForce.setTextColor(context.getResources().getColor(R.color.white));
-                                    });
-                                }
-
-                            }
                             else if ("신발".equals(slotName)) {
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap shoeBitmap = getBitmapFromURL(imageUrl);
@@ -529,6 +565,15 @@ public class characterInfo extends AppCompatActivity {
                                 eShoe.post(() -> {
                                     eShoe.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    shoeMist.post(() -> {
+                                        shoeMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    shoeMist.post(() -> {
+                                        shoeMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -574,6 +619,73 @@ public class characterInfo extends AppCompatActivity {
                                     });
                                 }
                             }
+                            else if ("벨트".equals(slotName)) {
+                                String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                Bitmap beltBitmap = getBitmapFromURL(imageUrl);
+                                int width = eBelt.getWidth();
+                                int height = (int) (width / (float) beltBitmap.getWidth() * beltBitmap.getHeight());
+                                Bitmap scaledBitmap = Bitmap.createScaledBitmap(beltBitmap, width, height, true);
+
+                                eBelt.post(() -> {
+                                    eBelt.setImageBitmap(scaledBitmap);
+                                });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    beltMist.post(() -> {
+                                        beltMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    beltMist.post(() -> {
+                                        beltMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
+                                if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
+                                    try {
+                                        JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
+                                        String itemName = upgradeInfoJson.getString("itemName");
+                                        String upgradeName = itemName.substring(0, 3);
+
+                                        beltMix.post(() -> {
+                                            beltMix.setText(upgradeName);
+                                            beltMix.setVisibility(View.VISIBLE);
+                                        });
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+
+                                        beltMix.post(() -> {
+                                            beltMix.setText("");
+                                            beltMix.setVisibility(View.INVISIBLE);
+                                        });
+                                    }
+                                } else {
+                                    beltMix.post(() -> {
+                                        beltMix.setText("");
+                                        beltMix.setVisibility(View.INVISIBLE);
+                                    });
+                                }
+
+                                if (reinforce > 0) {
+                                    beltReinForce.post(() -> {
+                                        beltReinForce.setText("+" + reinforce);
+                                        beltReinForce.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
+                                } else {
+                                    beltReinForce.post(() -> {
+                                        beltReinForce.setText("+0");
+                                    });
+                                }
+
+                                if (amplificationName != null) {
+                                    beltReinForce.post(() -> {
+                                        beltReinForce.setText("+" + reinforce);
+                                        beltReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
+                                } else {
+                                    beltReinForce.post(() -> {
+                                        beltReinForce.setText("+" + reinforce);
+                                        beltReinForce.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
+                                }
+                            }
                             else if ("팔찌".equals(slotName)) {
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap handBitmap = getBitmapFromURL(imageUrl);
@@ -583,6 +695,15 @@ public class characterInfo extends AppCompatActivity {
                                 eHand.post(() -> {
                                     eHand.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    handMist.post(() -> {
+                                        handMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    handMist.post(() -> {
+                                        handMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -656,6 +777,15 @@ public class characterInfo extends AppCompatActivity {
                                 eNeck.post(() -> {
                                     eNeck.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    neckMist.post(() -> {
+                                        neckMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    neckMist.post(() -> {
+                                        neckMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -720,6 +850,15 @@ public class characterInfo extends AppCompatActivity {
                                 eRing.post(() -> {
                                     eRing.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    ringMist.post(() -> {
+                                        ringMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    ringMist.post(() -> {
+                                        ringMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -784,6 +923,15 @@ public class characterInfo extends AppCompatActivity {
                                 eSub.post(() -> {
                                     eSub.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    subMist.post(() -> {
+                                        subMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    subMist.post(() -> {
+                                        subMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -848,6 +996,15 @@ public class characterInfo extends AppCompatActivity {
                                 eEar.post(() -> {
                                     eEar.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    earMist.post(() -> {
+                                        earMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    earMist.post(() -> {
+                                        earMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -911,6 +1068,15 @@ public class characterInfo extends AppCompatActivity {
                                 eStone.post(() -> {
                                     eStone.setImageBitmap(scaledBitmap);
                                 });
+                                if (mistGear || pureMistGear || refinedMistGear) {
+                                    stoneMist.post(() -> {
+                                        stoneMist.setVisibility(View.VISIBLE);
+                                    });
+                                } else {
+                                    stoneMist.post(() -> {
+                                        stoneMist.setVisibility(View.INVISIBLE);
+                                    });
+                                }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
