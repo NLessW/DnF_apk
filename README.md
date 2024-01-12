@@ -89,7 +89,7 @@ Guild, server, implement ex-name, add mist gear or not<br/>
 (腰が働かない理由: Neople api データ名を腰に変更 -> ベルト)<br/>
 
 <br/><br/>
-6일차 진행중 (Day 6 in progress, 第6天 進行中, 1日目 進行中)<br/>
+6일차 진행중 (Day 6 in progress, 第6天 進行中, 6日目 進行中)<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/71f39a7d-af12-42f6-959e-ad43bb49aef9)
 TabHost UI 추가. 추가를 하는데 계속 NullPointer 문제 발생.<br/>
 문제되는 부분을 재작성하였음. 적용을 하고 나니 명성 아이콘 이미지가 사라짐.<br/>
