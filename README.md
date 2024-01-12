@@ -3,6 +3,8 @@ Dungeon and Fighter apk code with neople api.
 <br/>
 1일차 <br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/781d7924-48cd-4257-8325-3c55e2d9760b)
+<br/>
+기본적인 캐릭터 장비 UI 레이아웃 구성
 <br/><br/>
 2일차<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/b5f8545c-f9fd-4cd9-b9a8-2f70f9f590ab)
