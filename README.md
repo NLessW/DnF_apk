@@ -90,7 +90,7 @@ Guild, server, implement ex-name, add mist gear or not<br/>
 
 <br/><br/>
 6일차 진행중 (Day 6 in progress, 第6天 進行中, 6日目 進行中)<br/>
-![image](https://github.com/NLessW/DnF_apk/assets/63160418/71f39a7d-af12-42f6-959e-ad43bb49aef9)
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/eba28b54-ccb5-42ac-b909-3452865fd254)
 TabHost UI 추가. 추가를 하는데 계속 NullPointer 문제 발생.<br/>
 문제되는 부분을 재작성하였음. 적용을 하고 나니 명성 아이콘 이미지가 사라짐.<br/>
 XML에 있는 이미지를 id 적용시켜 Java 코드에서 한번 더 적용시켜서 고침<br/>
