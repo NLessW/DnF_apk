@@ -89,20 +89,25 @@ Guild, server, implement ex-name, add mist gear or not<br/>
 (腰が働かない理由: Neople api データ名を腰に変更 -> ベルト)<br/>
 
 <br/><br/>
-6일차 진행중 (Day 6 in progress, 第6天 進行中, 6日目 進行中)<br/>
-![image](https://github.com/NLessW/DnF_apk/assets/63160418/eba28b54-ccb5-42ac-b909-3452865fd254)
+6일차(Day 6, 第6天, 6日目)<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/6878e802-996a-42fd-8483-e67c3f3bcd92)
 TabHost UI 추가. 추가를 하는데 계속 NullPointer 문제 발생.<br/>
 문제되는 부분을 재작성하였음. 적용을 하고 나니 명성 아이콘 이미지가 사라짐.<br/>
 XML에 있는 이미지를 id 적용시켜 Java 코드에서 한번 더 적용시켜서 고침<br/>
-
+기본 스탯 제작 시작</br>
+<br/>
 Add TabHost UI. Continue to have nullPointer issues while adding.<br/>
 I've rewritten the part in question. After applying it, the reputation icon image disappears.<br/>
 Apply the image in XML with id to fix it by applying it again in Java code<br/>
+Start building basic capability values</br>
 <br/> 
 添加 TabHost UI。 在添加時繼續出現 nullPointer 問題。<br/>
 我重寫了這個部分。 應用它後，聲譽圖標圖像消失。<br/>
 在 XML 中使用 id 應用圖像，通過在 Java 代碼中再次應用它來修復它。<br/>
-
+開始建立基本能力值<br/>
+<br/>
 TabHost UIを追加します。 追加中にnullPointerの問題が発生し続けます。<br/>
 問題の部分を書き直しました。 適用すると評判アイコンの画像が消えます。<br/>
 ID を持つ XML でイメージを適用し、Java コードで再度適用して修正します<br/>
+基本的な機能値の構築を開始します<br/>
+
