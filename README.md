@@ -110,4 +110,7 @@ TabHost UIを追加します。 追加中にnullPointerの問題が発生し続�
 問題の部分を書き直しました。 適用すると評判アイコンの画像が消えます。<br/>
 ID を持つ XML でイメージを適用し、Java コードで再度適用して修正します<br/>
 基本的な機能値の構築を開始します<br/>
+<br/><br/>
+
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/a098985b-60d8-40fb-a86e-3dfc86cfae27)
 
