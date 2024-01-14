@@ -38,7 +38,8 @@ public class characterInfo extends TabActivity {
     TextView shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce, weaponReinForce, weaponInfo, handReinForce,
             neckReinForce, subReinForce, ringReinForce, earReinForce, stoneReinForce,userName, fameNum, shdMix, shirtMix, pantsMix,
             beltMix, shoeMix, weaponMix, handMix, neckMix, subMix, ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun,
-            stoneSun, advName, jobName, serve, guild;
+            stoneSun, advName, jobName, serve, guild, hp, mp, phyDefense, magDefense, strStat, healthStat, phyAttack, phyCritical, soloAttack,
+            brainStat, brainPower, magicAttack, magicCritical, attackSpeed, moveSpeed, castingSpeed;
 
     ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture,
             shdMist, shirtMist, pantsMist, beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist;
@@ -114,10 +115,38 @@ public class characterInfo extends TabActivity {
         ringMist = findViewById(R.id.ringMist);
         earMist = findViewById(R.id.earMist);
         stoneMist = findViewById(R.id.stoneMist);
+        hp = findViewById(R.id.hp);
+        mp = findViewById(R.id.mp);
+        phyDefense = findViewById(R.id.phyDefense);
+        magDefense = findViewById(R.id.magDefense);
+        strStat = findViewById(R.id.strStat);
+        healthStat = findViewById(R.id.healthStat);
+        phyAttack = findViewById(R.id.phyAttack);
+        phyCritical = findViewById(R.id.phyCritical);
+        soloAttack = findViewById(R.id.soloAttack);
+        brainStat = findViewById(R.id.brainStat);
+        brainPower = findViewById(R.id.brainPower);
+        magicAttack = findViewById(R.id.magicAttack);
+        magicCritical = findViewById(R.id.magicCritical);
+        attackSpeed = findViewById(R.id.attackSpeed);
+        moveSpeed = findViewById(R.id.moveSpeed);
+        castingSpeed = findViewById(R.id.castingSpeed);
+
         userName.setText(characterName);
 
         ImageView famepng = findViewById(R.id.famepng);
         famepng.setImageDrawable(getResources().getDrawable(R.drawable.fame));
+        shdMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        shirtMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        pantsMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        beltMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        shoeMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        handMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        neckMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        ringMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        subMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        earMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        stoneMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
 
         TabHost tabHost = getTabHost();
 
@@ -1223,3 +1252,4 @@ public class characterInfo extends TabActivity {
         }
     }
 }
+
