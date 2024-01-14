@@ -91,6 +91,7 @@ Guild, server, implement ex-name, add mist gear or not<br/>
 <br/><br/>
 6일차(Day 6, 第6天, 6日目)<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/6878e802-996a-42fd-8483-e67c3f3bcd92)
+<br/>
 TabHost UI 추가. 추가를 하는데 계속 NullPointer 문제 발생.<br/>
 문제되는 부분을 재작성하였음. 적용을 하고 나니 명성 아이콘 이미지가 사라짐.<br/>
 XML에 있는 이미지를 id 적용시켜 Java 코드에서 한번 더 적용시켜서 고침<br/>
@@ -112,5 +113,10 @@ ID を持つ XML でイメージを適用し、Java コードで再度適用し�
 基本的な機能値の構築を開始します<br/>
 <br/><br/>
 
+7일차 진행중 (Day 7 in progress, 第7天 進行中, 7日目 進行中)<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/a098985b-60d8-40fb-a86e-3dfc86cfae27)
-
+<br/>
+기본 스탯 레이아웃 완성<br/><br/>
+Complete the default capability layout<br/><br/>
+完成默認能力佈局<br/><br/>
+デフォルトの機能レイアウトを完了します<br/>
