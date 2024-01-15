@@ -1095,7 +1095,7 @@
                                 android:id="@+id/soloAttack"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🔪 독립공격   + 0.0 %"
+                                android:text="🔪 독립공격   0"
                                 android:layout_marginBottom="3dp"
                                 android:textColor="#ffffff"
                                 android:fontFamily="@font/dnfmidium" />
@@ -1172,7 +1172,7 @@
                             android:layout_marginBottom="7dp"
                             android:orientation="vertical">
                             <TextView
-                                android:id="@+id/attackSpeed"
+                                android:id="@+id/atkSpeed"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="🤛 공격속도   0.0 %"
