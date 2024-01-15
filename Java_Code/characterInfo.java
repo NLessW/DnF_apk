@@ -6,17 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.util.Pair;
-import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +18,7 @@ import org.json.JSONObject;
 import org.jsoup.Connection;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
-import org.w3c.dom.Text;
+
 import androidx.appcompat.app.AlertDialog;
 
 import java.io.IOException;
@@ -35,12 +29,63 @@ import javax.net.ssl.HttpsURLConnection;
 public class characterInfo extends TabActivity {
     String characterName, server;
     String apiKey;
-    TextView shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce, weaponReinForce, weaponInfo, handReinForce,
-            neckReinForce, subReinForce, ringReinForce, earReinForce, stoneReinForce,userName, fameNum, shdMix, shirtMix, pantsMix,
-            beltMix, shoeMix, weaponMix, handMix, neckMix, subMix, ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun,
-            stoneSun, advName, jobName, serve, guild, hp, mp, phyDefense, magDefense, strStat, healthStat, phyAttack, phyCritical, soloAttack,
-            brainStat, brainPower, magicAttack, magicCritical, attackSpeed, moveSpeed, castingSpeed;
-
+    TextView shdReinForce;
+    TextView shirtReinForce;
+    TextView pantsReinForce;
+    TextView beltReinForce;
+    TextView shoeReinForce;
+    TextView weaponReinForce;
+    TextView weaponInfo;
+    TextView handReinForce;
+    TextView neckReinForce;
+    TextView subReinForce;
+    TextView ringReinForce;
+    TextView earReinForce;
+    TextView stoneReinForce;
+    TextView userName;
+    TextView fameNum;
+    TextView shdMix;
+    TextView shirtMix;
+    TextView pantsMix;
+    TextView beltMix;
+    TextView shoeMix;
+    TextView weaponMix;
+    TextView handMix;
+    TextView neckMix;
+    TextView subMix;
+    TextView ringMix;
+    TextView earMix;
+    TextView stoneMix;
+    TextView handSun;
+    TextView neckSun;
+    TextView subSun;
+    TextView ringSun;
+    TextView earSun;
+    TextView stoneSun;
+    TextView advName;
+    TextView jobName;
+    TextView serve;
+    TextView guild;
+    TextView hp;
+    TextView mp;
+    TextView phyDefense;
+    TextView magDefense;
+    TextView strStat;
+    TextView healthStat;
+    TextView phyAttack;
+    TextView phyCritical;
+    TextView soloAttack;
+    TextView brainStat;
+    TextView brainPower;
+    TextView magicAttack;
+    TextView magicCritical;
+    TextView atkSpeed;
+    TextView moveSpeed;
+    TextView castingSpeed;
+    TextView fire;
+    TextView water;
+    TextView light;
+    TextView dark;
     ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture,
             shdMist, shirtMist, pantsMist, beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist;
 
@@ -51,7 +96,7 @@ public class characterInfo extends TabActivity {
         Intent intent = getIntent();
         characterName = intent.getStringExtra("nickName");
         server = intent.getStringExtra("serverSelect");
-        apiKey = "apiKey";
+        apiKey = "your_apiKey";
 
         eShd = findViewById(R.id.eShd);
         eShirt = findViewById(R.id.eShirt);
@@ -128,10 +173,13 @@ public class characterInfo extends TabActivity {
         brainPower = findViewById(R.id.brainPower);
         magicAttack = findViewById(R.id.magicAttack);
         magicCritical = findViewById(R.id.magicCritical);
-        attackSpeed = findViewById(R.id.attackSpeed);
+        atkSpeed = findViewById(R.id.atkSpeed);
         moveSpeed = findViewById(R.id.moveSpeed);
         castingSpeed = findViewById(R.id.castingSpeed);
-
+        fire = findViewById(R.id.fire);
+        water = findViewById(R.id.water);
+        light = findViewById(R.id.light);
+        dark = findViewById(R.id.dark);
         userName.setText(characterName);
 
         ImageView famepng = findViewById(R.id.famepng);
@@ -200,6 +248,9 @@ public class characterInfo extends TabActivity {
                 subReinForce, ringReinForce, earReinForce, stoneReinForce,weaponInfo, fameNum, shdMix, weaponMix, shirtMix, pantsMix, beltMix, shoeMix,
                 handMix, neckMix, subMix, ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun, stoneSun, advName, jobName, guild);
 
+        CharacterUtils.setCharStats(this, server, characterName,apiKey, hp, mp, phyDefense, magDefense, strStat,
+                healthStat, phyAttack, phyCritical, soloAttack, brainStat, brainPower,
+                magicAttack, magicCritical, atkSpeed, moveSpeed, castingSpeed, fire, water, light, dark);
 
     }
 
@@ -254,7 +305,6 @@ public class characterInfo extends TabActivity {
                 return null;
             }
         }
-
         public static void setCharWeapon(Context context, String server, String characterName, String apiKey,
                                          ImageView eWeapon, ImageView eTitle, ImageView eShirt, ImageView ePants,
                                          ImageView eShd, ImageView eBelt, ImageView eShoe, ImageView eHand, ImageView eNeck,
@@ -1234,8 +1284,139 @@ public class characterInfo extends TabActivity {
 
             }).start();
         }
+        public static void setCharStats(Context context, String server, String characterName, String apiKey,
+                                        TextView hp, TextView mp, TextView phyDefense, TextView magDefense, TextView strStat,
+                                        TextView healthStat, TextView phyAttack, TextView phyCritical, TextView soloAttack,
+                                        TextView brainStat, TextView brainPower, TextView magicAttack, TextView magicCritical,
+                                        TextView atkSpeed, TextView moveSpeed, TextView castingSpeed, TextView fire, TextView water,
+                                        TextView light, TextView dark) {
+            new Thread(() -> {
+                try {
+                    CharacterInfo characterInfo = getCharacterInfo(context, server, characterName, apiKey);
+                    String characterId = "";
+                    if (characterInfo != null) {
+                        characterId = characterInfo.getCharacterId();
+                    }
 
-        private static Bitmap getBitmapFromURL(String url) {
+                    Connection.Response response = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters/" + characterId + "/status")
+                            .data("apikey", apiKey)
+                            .ignoreContentType(true)
+                            .method(Connection.Method.GET)
+                            .execute();
+                    String responseBody = response.body();
+                    JSONObject statusObject = new JSONObject(responseBody);
+                    JSONArray statusArray = statusObject.getJSONArray("status");
+                    for (int i = 0; i < statusArray.length(); i++) {
+                        JSONObject statusItem = statusArray.getJSONObject(i);
+                        String name = statusItem.getString("name");
+                        int value = statusItem.getInt("value");
+                        double fValue = statusItem.getDouble("value");
+
+                        if ("HP" .equals(name)) {
+                            hp.post(() -> hp.setText(String.valueOf("❤ HP   "+value)));
+                        }
+                        else if ("MP" .equals(name)) {
+                            mp.post(() -> mp.setText(String.valueOf("\uD83D\uDC99 MP   "+value)));
+                        }
+                        else if ("물리 방어율".equals(name)) {
+                            phyDefense.post(() -> {
+                                String formattedValue = String.format("\uD83D\uDEE1 물리방어률   %.1f %%", fValue);
+                                phyDefense.setText(formattedValue);
+                            });
+                        }
+                        else if ("마법 방어율".equals(name)){
+                            magDefense.post(() -> {
+                                String formattedValue = String.format("\uD83D\uDD2E 마법방어률   %.1f %%", (float) fValue);
+                                magDefense.setText(formattedValue);
+                            });
+                        }
+                        else if("힘".equals(name)){
+                            strStat.post(() -> {
+                                strStat.setText("\uD83D\uDCAA 힘   " + value);
+                            });
+                        }
+                        else if("지능".equals(name)){
+                            brainStat.post(() -> {
+                               brainStat.setText("\uD83D\uDC41 지능   "+value);
+                            });
+                        }
+                        else if("체력".equals(name)){
+                            healthStat.post(() -> {
+                                healthStat.setText("\uD83D\uDC64 체력   " + value);
+                            });
+                        }
+                        else if("정신력".equals(name)){
+                            brainPower.post(() -> {
+                                brainPower.setText("\uD83E\uDDE0 정신력   " + value);
+                            });
+                        }
+                        else if("물리 공격".equals(name)){
+                            phyAttack.post(() -> {
+                               phyAttack.setText("\uD83D\uDDE1 물리공격   " + value);
+                            });
+                        }
+                        else if("마법 공격".equals(name)){
+                            magicAttack.post(() -> {
+                                magicAttack.setText("\uD83E\uDE84 마법공격   " + value);
+                            });
+                        }
+                        else if("물리 크리티컬".equals(name)){
+                            phyCritical.post(() -> {
+                                phyCritical.setText("\uD83D\uDCA5 물리크리티컬   +"+ fValue + "%");
+                            });
+                        }
+                        else if("마법 크리티컬".equals(name)){
+                            magicCritical.post(() -> {
+                               magicCritical.setText("\uD83E\uDDFF 마법크리티컬   +"+fValue+"%");
+                            });
+                        }
+                        else if("독립 공격".equals(name)){
+                            soloAttack.post(() -> {
+                               soloAttack.setText("\uD83D\uDD2A 독립공격   "+value);
+                            });
+                        }
+                        else if("공격 속도".equals(name)){
+                            atkSpeed.post(() -> {
+                                atkSpeed.setText("\uD83E\uDD1B 공격속도   "+fValue +" %");
+                            });
+                        }
+                        else if("캐스팅 속도".equals(name)){
+                            castingSpeed.post(() -> {
+                                castingSpeed.setText("⚡ 캐스팅속도   "+fValue +" %");
+                            });
+                        }
+                        else if("이동 속도".equals(name)){
+                            moveSpeed.post(() -> {
+                               moveSpeed.setText("\uD83D\uDC5F 이동속도   " + fValue +" %");
+                            });
+                        }
+                        else if("화속성 강화".equals(name)){
+                            fire.post(() -> {
+                               fire.setText("화("+value+") / ");
+                            });
+                        }
+                        else if("수속성 강화".equals(name)){
+                            water.post(() -> {
+                               water.setText("수("+value+") / ");
+                            });
+                        }
+                        else if("명속성 강화".equals(name)){
+                            light.post(() -> {
+                               light.setText("명(" + value +") / ");
+                            });
+                        }
+                        else if("암속성 강화".equals(name)){
+                            dark.post(() -> {
+                               dark.setText("암("+value+")");
+                            });
+                        }
+                    }
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+            private static Bitmap getBitmapFromURL(String url) {
             try {
                 HttpsURLConnection httpURLConnection = (HttpsURLConnection) new URL(url).openConnection();
                 httpURLConnection.setConnectTimeout(3000);
@@ -1252,4 +1433,3 @@ public class characterInfo extends TabActivity {
         }
     }
 }
-
