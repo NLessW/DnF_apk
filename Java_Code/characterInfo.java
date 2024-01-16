@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
@@ -29,65 +30,20 @@ import javax.net.ssl.HttpsURLConnection;
 public class characterInfo extends TabActivity {
     String characterName, server;
     String apiKey;
-    TextView shdReinForce;
-    TextView shirtReinForce;
-    TextView pantsReinForce;
-    TextView beltReinForce;
-    TextView shoeReinForce;
-    TextView weaponReinForce;
-    TextView weaponInfo;
-    TextView handReinForce;
-    TextView neckReinForce;
-    TextView subReinForce;
-    TextView ringReinForce;
-    TextView earReinForce;
-    TextView stoneReinForce;
-    TextView userName;
-    TextView fameNum;
-    TextView shdMix;
-    TextView shirtMix;
-    TextView pantsMix;
-    TextView beltMix;
-    TextView shoeMix;
-    TextView weaponMix;
-    TextView handMix;
-    TextView neckMix;
-    TextView subMix;
-    TextView ringMix;
-    TextView earMix;
-    TextView stoneMix;
-    TextView handSun;
-    TextView neckSun;
-    TextView subSun;
-    TextView ringSun;
-    TextView earSun;
-    TextView stoneSun;
-    TextView advName;
-    TextView jobName;
-    TextView serve;
-    TextView guild;
-    TextView hp;
-    TextView mp;
-    TextView phyDefense;
-    TextView magDefense;
-    TextView strStat;
-    TextView healthStat;
-    TextView phyAttack;
-    TextView phyCritical;
-    TextView soloAttack;
-    TextView brainStat;
-    TextView brainPower;
-    TextView magicAttack;
-    TextView magicCritical;
-    TextView atkSpeed;
-    TextView moveSpeed;
-    TextView castingSpeed;
-    TextView fire;
-    TextView water;
-    TextView light;
-    TextView dark;
+    TextView shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce,
+            weaponReinForce, weaponInfo, handReinForce, neckReinForce, subReinForce,
+            ringReinForce, earReinForce, stoneReinForce, userName, fameNum, shdMix,
+            shirtMix, pantsMix, beltMix, shoeMix, weaponMix, handMix, neckMix, subMix,
+            ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun, stoneSun,
+            advName, jobName, serve, guild, hp, mp, phyDefense, magDefense, strStat,
+            healthStat, phyAttack, phyCritical, soloAttack, brainStat, brainPower,
+            magicAttack, magicCritical, atkSpeed, moveSpeed, castingSpeed, fire, water,
+            light, dark,buffWeaponName, buffShirtName, buffShdName, buffPantsName, buffBeltName, buffShoeName,
+            buffHandName, buffNeckName, buffRingName, buffSubName, buffEarName, buffStoneName,buffTitleName;
+
     ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture,
-            shdMist, shirtMist, pantsMist, beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist;
+            shdMist, shirtMist, pantsMist, beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist,
+            buffWeapon, buffTitle, buffShirt, buffPants, buffBelt, buffShoe, buffShd, buffHand, buffNeck, buffRing, buffSub, buffEar, buffStone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +52,7 @@ public class characterInfo extends TabActivity {
         Intent intent = getIntent();
         characterName = intent.getStringExtra("nickName");
         server = intent.getStringExtra("serverSelect");
-        apiKey = "your_apiKey";
+        apiKey = "apiKey";
 
         eShd = findViewById(R.id.eShd);
         eShirt = findViewById(R.id.eShirt);
@@ -176,12 +132,37 @@ public class characterInfo extends TabActivity {
         atkSpeed = findViewById(R.id.atkSpeed);
         moveSpeed = findViewById(R.id.moveSpeed);
         castingSpeed = findViewById(R.id.castingSpeed);
+        buffShirt = findViewById(R.id.buffShirt);
+        buffShirtName = findViewById(R.id.buffShirtName);
+        buffTitle = findViewById(R.id.buffTitle);
+        buffTitleName = findViewById(R.id.buffTitleName);
+        buffWeapon = findViewById(R.id.buffWeapon);
+        buffWeaponName = findViewById(R.id.buffWeaponName);
+        buffShd = findViewById(R.id.buffShd);
+        buffShdName = findViewById(R.id.buffShdName);
+        buffPants = findViewById(R.id.buffPants);
+        buffPantsName = findViewById(R.id.buffPantsName);
+        buffBelt = findViewById(R.id.buffBelt);
+        buffBeltName = findViewById(R.id.buffBeltName);
+        buffShoe = findViewById(R.id.buffShoe);
+        buffShoeName = findViewById(R.id.buffShoeName);
+        buffHand = findViewById(R.id.buffHand);
+        buffHandName = findViewById(R.id.buffHandName);
+        buffNeck = findViewById(R.id.buffNeck);
+        buffNeckName = findViewById(R.id.buffNeckName);
+        buffRing = findViewById(R.id.buffRing);
+        buffRingName = findViewById(R.id.buffRingName);
+        buffSub = findViewById(R.id.buffSub);
+        buffSubName = findViewById(R.id.buffSubName);
+        buffEar = findViewById(R.id.buffEar);
+        buffEarName = findViewById(R.id.buffEarName);
+        buffStone = findViewById(R.id.buffStone);
+        buffStoneName = findViewById(R.id.buffStoneName);
         fire = findViewById(R.id.fire);
         water = findViewById(R.id.water);
         light = findViewById(R.id.light);
         dark = findViewById(R.id.dark);
         userName.setText(characterName);
-
         ImageView famepng = findViewById(R.id.famepng);
         famepng.setImageDrawable(getResources().getDrawable(R.drawable.fame));
         shdMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
@@ -252,6 +233,9 @@ public class characterInfo extends TabActivity {
                 healthStat, phyAttack, phyCritical, soloAttack, brainStat, brainPower,
                 magicAttack, magicCritical, atkSpeed, moveSpeed, castingSpeed, fire, water, light, dark);
 
+        CharacterUtils.setCharBuff(this, server, characterName, apiKey, buffWeapon, buffShirt, buffShd, buffPants, buffBelt, buffTitle, buffShoe, buffHand, buffNeck,
+                buffSub, buffRing, buffEar, buffStone, buffWeaponName, buffShirtName, buffShdName, buffPantsName, buffBeltName, buffShoeName, buffTitleName, buffHandName, buffNeckName,
+                buffRingName, buffSubName, buffEarName, buffStoneName);
     }
 
     public static class CharacterUtils {
@@ -1415,6 +1399,59 @@ public class characterInfo extends TabActivity {
                     e.printStackTrace();
                 }
             }).start();
+        }
+
+        public static void setCharBuff(Context context, String server, String characterName, String apiKey,
+                                       ImageView buffWeapon, ImageView buffTitle, ImageView buffShirt, ImageView buffShd, ImageView buffPants, ImageView buffBelt,
+                                       ImageView buffShoe, ImageView buffHand, ImageView buffNeck, ImageView buffRing, ImageView buffSub, ImageView buffEar, ImageView buffStone,
+                                       TextView buffWeaponName, TextView buffTitleName, TextView buffShirtName, TextView buffShdName, TextView buffPantsName, TextView buffBeltName, TextView buffShoeName,
+                                       TextView buffHandName, TextView buffNeckName, TextView buffRingName, TextView buffSubName, TextView buffEarName, TextView buffStoneName){
+
+            new Thread(() -> {
+                try {
+                    CharacterInfo characterInfo = getCharacterInfo(context, server, characterName, apiKey);
+                    String characterId = "";
+                    if (characterInfo != null) {
+                        characterId = characterInfo.getCharacterId();
+                    }
+
+                    Connection.Response response = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters/" + characterId + "/skill/buff/equip/equipment")
+                            .data("apikey", apiKey)
+                            .ignoreContentType(true)
+                            .method(Connection.Method.GET)
+                            .execute();
+
+                    JSONObject jsonResponse = new JSONObject(response.body());
+                    JSONObject skillObject = jsonResponse.getJSONObject("skill");
+
+                    if (skillObject.has("equipment")) {
+                        JSONArray equipmentArray = skillObject.getJSONArray("equipment");
+
+                        for (int i = 0; i < equipmentArray.length(); i++) {
+                            JSONObject equipment = equipmentArray.getJSONObject(i);
+                            String itemId = equipment.getString("itemId");
+                            String slotName = equipment.getString("slotName");
+                            String itemName = equipment.getString("itemName");
+
+                            if ("무기".equals(slotName)) {
+                                String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                Bitmap buffWeaponBitmap = getBitmapFromURL(imageUrl);
+                                int width = buffWeapon.getWidth();
+                                int height = (int) (width / (float) buffWeaponBitmap.getWidth() * buffWeaponBitmap.getHeight());
+                                Bitmap scaledBitmap = Bitmap.createScaledBitmap(buffWeaponBitmap, width, height, true);
+                                buffWeapon.post(() -> {
+                                    buffWeapon.setImageBitmap(scaledBitmap);
+                                });
+                            }
+                        }
+                    }
+
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }).start();
+
         }
             private static Bitmap getBitmapFromURL(String url) {
             try {
