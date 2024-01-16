@@ -1,13 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:background="@drawable/dbg"
         android:baselineAligned="false"
         android:orientation="horizontal">
@@ -86,6 +86,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:srcCompat="@drawable/shirt" />
+
                     <ImageView
                         android:id="@+id/shirtMist"
                         android:layout_width="wrap_content"
@@ -95,6 +96,7 @@
                         android:layout_marginTop="4dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/mist" />
+
                     <TextView
                         android:id="@+id/shirtReinForce"
                         android:layout_width="24dp"
@@ -103,9 +105,9 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
                         android:text="+0"
-                        android:fontFamily="@font/dnfmidium"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -116,8 +118,8 @@
                         android:layout_marginLeft="29dp"
                         android:layout_marginTop="40dp"
                         android:background="#80000000"
-                        android:text="융합"
                         android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
                         android:textColor="#ffffff"
                         android:textSize="13sp"
                         android:visibility="visible" />
@@ -151,6 +153,7 @@
                         android:layout_marginTop="4dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/mist" />
+
                     <TextView
                         android:id="@+id/pantsReinForce"
                         android:layout_width="24dp"
@@ -172,8 +175,8 @@
                         android:layout_marginLeft="29dp"
                         android:layout_marginTop="40dp"
                         android:background="#80000000"
-                        android:text="융합"
                         android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
                         android:textColor="#ffffff"
                         android:textSize="13sp"
                         android:visibility="visible" />
@@ -190,6 +193,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:srcCompat="@drawable/belt" />
+
                     <ImageView
                         android:id="@+id/beltMist"
                         android:layout_width="wrap_content"
@@ -199,6 +203,7 @@
                         android:layout_marginTop="4dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/mist" />
+
                     <TextView
                         android:id="@+id/beltReinForce"
                         android:layout_width="24dp"
@@ -250,6 +255,7 @@
                         android:layout_marginBottom="1dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/shoes" />
+
                     <ImageView
                         android:id="@+id/shoeMist"
                         android:layout_width="wrap_content"
@@ -299,7 +305,10 @@
                         android:id="@+id/imageView7"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:layout_margin="1dp"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
                         android:layout_weight="1"
                         android:visibility="invisible"
                         app:srcCompat="@drawable/shoes" />
@@ -359,23 +368,25 @@
                     android:scaleType="centerCrop"
                     android:visibility="visible"
                     app:srcCompat="@drawable/loading" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="53dp"
                     android:gravity="bottom|center"
                     android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/advName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="2dp"
-                    android:fontFamily="@font/dnfbold"
-                    android:text="advName"
-                    android:visibility="visible"
-                    android:textColor="#A2CAA6"
-                    android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/advName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/dnfbold"
+                        android:text="advName"
+                        android:textColor="#A2CAA6"
+                        android:textSize="15sp"
+                        android:visibility="visible" />
 
 
                 </LinearLayout>
@@ -401,6 +412,7 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -484,9 +496,9 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
                         android:text="+0"
-                        android:fontFamily="@font/dnfmidium"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -512,9 +524,9 @@
                         android:layout_marginLeft="25dp"
                         android:layout_marginTop="3dp"
                         android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
                         android:text="/ 0"
-                        android:fontFamily="@font/dnfmidium"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
                 </RelativeLayout>
@@ -559,6 +571,7 @@
                         android:layout_marginTop="4dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/mist" />
+
                     <TextView
                         android:id="@+id/handReinForce"
                         android:layout_width="24dp"
@@ -567,9 +580,9 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
                         android:text="+0"
-                        android:fontFamily="@font/dnfmidium"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -617,6 +630,7 @@
                         android:layout_marginBottom="1dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/neck" />
+
                     <ImageView
                         android:id="@+id/neckMist"
                         android:layout_width="wrap_content"
@@ -635,9 +649,9 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
                         android:text="+0"
-                        android:fontFamily="@font/dnfmidium"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -653,6 +667,7 @@
                         android:textColor="#ffffff"
                         android:textSize="13sp"
                         android:visibility="visible" />
+
                     <TextView
                         android:id="@+id/neckSun"
                         android:layout_width="wrap_content"
@@ -689,6 +704,7 @@
                         android:layout_marginBottom="1dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/sub" />
+
                     <ImageView
                         android:id="@+id/subMist"
                         android:layout_width="wrap_content"
@@ -698,6 +714,7 @@
                         android:layout_marginTop="4dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/mist" />
+
                     <TextView
                         android:id="@+id/subReinForce"
                         android:layout_width="24dp"
@@ -706,9 +723,9 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
                         android:text="+0"
-                        android:fontFamily="@font/dnfmidium"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -766,6 +783,7 @@
                         android:layout_marginTop="4dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/mist" />
+
                     <TextView
                         android:id="@+id/ringReinForce"
                         android:layout_width="24dp"
@@ -774,9 +792,9 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
                         android:text="+0"
-                        android:fontFamily="@font/dnfmidium"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -787,11 +805,12 @@
                         android:layout_marginLeft="28dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
-                        android:text="융합"
                         android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
                         android:textColor="#ffffff"
                         android:textSize="13sp"
                         android:visibility="visible" />
+
                     <TextView
                         android:id="@+id/ringSun"
                         android:layout_width="wrap_content"
@@ -838,6 +857,7 @@
                         android:layout_marginTop="4dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/mist" />
+
                     <TextView
                         android:id="@+id/earReinForce"
                         android:layout_width="24dp"
@@ -846,9 +866,9 @@
                         android:layout_marginLeft="1dp"
                         android:layout_marginTop="3dp"
                         android:background="#80000000"
+                        android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
                         android:text="+0"
-                        android:fontFamily="@font/dnfmidium"
                         android:textColor="#ffffff"
                         android:textSize="13sp" />
 
@@ -859,8 +879,8 @@
                         android:layout_marginLeft="28dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
-                        android:text="융합"
                         android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
                         android:textColor="#ffffff"
                         android:textSize="13sp"
                         android:visibility="visible" />
@@ -895,6 +915,7 @@
                         android:layout_marginBottom="1dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/stone" />
+
                     <ImageView
                         android:id="@+id/stoneMist"
                         android:layout_width="wrap_content"
@@ -904,6 +925,7 @@
                         android:layout_marginTop="4dp"
                         android:visibility="visible"
                         app:srcCompat="@drawable/mist" />
+
                     <TextView
                         android:id="@+id/stoneReinForce"
                         android:layout_width="24dp"
@@ -924,11 +946,12 @@
                         android:layout_marginLeft="28dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
-                        android:text="융합"
                         android:fontFamily="@font/dnfmidium"
+                        android:text="융합"
                         android:textColor="#ffffff"
                         android:textSize="13sp"
                         android:visibility="visible" />
+
                     <TextView
                         android:id="@+id/stoneSun"
                         android:layout_width="wrap_content"
@@ -945,95 +968,101 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
             </TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
-                    android:layout_height="377dp"
+                    android:layout_height="match_parent"
                     android:background="#000000"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/borderbottom"
                         android:gravity="center"
-                        android:layout_margin="10dp"
-                        android:orientation="horizontal"
-                        android:background="@drawable/borderbottom">
-                       <LinearLayout
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:gravity="center"
-                           android:layout_marginLeft="40dp"
-                           android:layout_weight="1"
-                           android:layout_marginBottom="7dp"
-                           android:orientation="vertical">
-                           <TextView
-                               android:id="@+id/hp"
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content"
-                               android:text="❤ HP   0 / 0"
-                               android:layout_marginBottom="3dp"
-                               android:textColor="#ffffff"
-                               android:fontFamily="@font/dnfmidium" />
+                        android:orientation="horizontal">
 
-                           <TextView
-                               android:id="@+id/phyDefense"
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content"
-                               android:text="🛡 물리방어률   0.0 %"
-                               android:layout_marginBottom="3dp"
-                               android:textColor="#ffffff"
-                               android:fontFamily="@font/dnfmidium" />
-                       </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginBottom="7dp"
                             android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/hp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="❤ HP   0 / 0"
+                                android:textColor="#ffffff" />
+
+                            <TextView
+                                android:id="@+id/phyDefense"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="🛡 물리방어률   0.0 %"
+                                android:textColor="#ffffff" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="25dp"
                             android:layout_marginBottom="7dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/mp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="💙 MP   0 / 0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="💙 MP   0 / 0"
+                                android:textColor="#ffffff" />
 
                             <TextView
                                 android:id="@+id/magDefense"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🔮 마법방어률   0.0 %"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="🔮 마법방어률   0.0 %"
+                                android:textColor="#ffffff" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -1041,115 +1070,120 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="10dp"
                         android:background="@drawable/borderbottom"
+                        android:gravity="center"
                         android:orientation="horizontal">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
                             android:layout_marginLeft="40dp"
-                            android:layout_weight="1"
                             android:layout_marginBottom="7dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/strStat"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="💪 힘   0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="💪 힘   0"
+                                android:textColor="#ffffff" />
 
                             <TextView
                                 android:id="@+id/healthStat"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="👤 체력   0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="👤 체력   0"
+                                android:textColor="#ffffff" />
+
                             <TextView
                                 android:id="@+id/phyAttack"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🗡 물리공격   0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="🗡 물리공격   0"
+                                android:textColor="#ffffff" />
 
                             <TextView
                                 android:id="@+id/phyCritical"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="💥 물리크리티컬   + 0.0 %"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="💥 물리크리티컬   + 0.0 %"
+                                android:textColor="#ffffff" />
 
 
                             <TextView
                                 android:id="@+id/soloAttack"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🔪 독립공격   0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="🔪 독립공격   0"
+                                android:textColor="#ffffff" />
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_weight="1"
                             android:layout_marginLeft="25dp"
                             android:layout_marginBottom="7dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/brainStat"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="👁 지능   0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="👁 지능   0"
+                                android:textColor="#ffffff" />
 
                             <TextView
                                 android:id="@+id/brainPower"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🧠 정신력   0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="🧠 정신력   0"
+                                android:textColor="#ffffff" />
+
                             <TextView
                                 android:id="@+id/magicAttack"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🪄 마법공격   0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="🪄 마법공격   0"
+                                android:textColor="#ffffff" />
 
                             <TextView
                                 android:id="@+id/magicCritical"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🧿 마법크리티컬   0"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="🧿 마법크리티컬   0"
+                                android:textColor="#ffffff" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text=""
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text=""
+                                android:textColor="#ffffff" />
                         </LinearLayout>
 
 
@@ -1158,61 +1192,65 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal"
-                        android:background="@drawable/borderbottom">
+                        android:background="@drawable/borderbottom"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
                             android:layout_marginLeft="40dp"
-                            android:layout_weight="1"
                             android:layout_marginBottom="7dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/atkSpeed"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="🤛 공격속도   0.0 %"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="🤛 공격속도   0.0 %"
+                                android:textColor="#ffffff" />
 
                             <TextView
                                 android:id="@+id/moveSpeed"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="👟 이동속도   0.0 %"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="👟 이동속도   0.0 %"
+                                android:textColor="#ffffff" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_weight="1"
                             android:layout_marginLeft="25dp"
                             android:layout_marginBottom="7dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/castingSpeed"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="⚡ 캐스팅속도   0.0 %"
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text="⚡ 캐스팅속도   0.0 %"
+                                android:textColor="#ffffff" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text=""
                                 android:layout_marginBottom="3dp"
-                                android:textColor="#ffffff"
-                                android:fontFamily="@font/dnfmidium" />
+                                android:fontFamily="@font/dnfmidium"
+                                android:text=""
+                                android:textColor="#ffffff" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -1220,58 +1258,58 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="10dp"
+                        android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🔥 공격속성"
                             android:layout_marginLeft="40dp"
-                            android:layout_marginBottom="3dp"
                             android:layout_marginRight="20dp"
-                            android:textColor="#ffffff"
-                            android:fontFamily="@font/dnfmidium" />
+                            android:layout_marginBottom="3dp"
+                            android:fontFamily="@font/dnfmidium"
+                            android:text="🔥 공격속성"
+                            android:textColor="#ffffff" />
 
                         <TextView
                             android:id="@+id/fire"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="화(0) / "
                             android:layout_marginBottom="3dp"
-                            android:textColor="#ffffff"
-                            android:fontFamily="@font/dnfmidium" />
+                            android:fontFamily="@font/dnfmidium"
+                            android:text="화(0) / "
+                            android:textColor="#ffffff" />
 
                         <TextView
                             android:id="@+id/water"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="수(0) / "
                             android:layout_marginBottom="3dp"
-                            android:textColor="#ffffff"
-                            android:fontFamily="@font/dnfmidium" />
+                            android:fontFamily="@font/dnfmidium"
+                            android:text="수(0) / "
+                            android:textColor="#ffffff" />
 
                         <TextView
                             android:id="@+id/light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="명(0) / "
                             android:layout_marginBottom="3dp"
-                            android:textColor="#ffffff"
-                            android:fontFamily="@font/dnfmidium" />
+                            android:fontFamily="@font/dnfmidium"
+                            android:text="명(0) / "
+                            android:textColor="#ffffff" />
 
                         <TextView
                             android:id="@+id/dark"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="암(0)"
                             android:layout_marginBottom="3dp"
-                            android:textColor="#ffffff"
-                            android:fontFamily="@font/dnfmidium" />
+                            android:fontFamily="@font/dnfmidium"
+                            android:text="암(0)"
+                            android:textColor="#ffffff" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1285,7 +1323,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tab 2 Content"
+                        android:text="Tab 2 Contentasdf"
                         android:textColor="#ffffff" />
                 </LinearLayout>
 
