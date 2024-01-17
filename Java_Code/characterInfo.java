@@ -52,7 +52,7 @@ public class characterInfo extends TabActivity {
         Intent intent = getIntent();
         characterName = intent.getStringExtra("nickName");
         server = intent.getStringExtra("serverSelect");
-        apiKey = "apiKey";
+        apiKey = "HoEacyHR7eDWpqpmxzJ2Mf1z7ZXxKcfV";
 
         eShd = findViewById(R.id.eShd);
         eShirt = findViewById(R.id.eShirt);
@@ -1422,26 +1422,156 @@ public class characterInfo extends TabActivity {
                             .execute();
 
                     JSONObject jsonResponse = new JSONObject(response.body());
-                    JSONObject skillObject = jsonResponse.getJSONObject("skill");
 
-                    if (skillObject.has("equipment")) {
-                        JSONArray equipmentArray = skillObject.getJSONArray("equipment");
+                    if (jsonResponse.has("skill")) {
+                        JSONObject skillObject = jsonResponse.getJSONObject("skill");
 
-                        for (int i = 0; i < equipmentArray.length(); i++) {
-                            JSONObject equipment = equipmentArray.getJSONObject(i);
-                            String itemId = equipment.getString("itemId");
-                            String slotName = equipment.getString("slotName");
-                            String itemName = equipment.getString("itemName");
+                        if (skillObject.has("buff")) {
+                            JSONObject buffObject = skillObject.getJSONObject("buff");
 
-                            if ("무기".equals(slotName)) {
-                                String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                Bitmap buffWeaponBitmap = getBitmapFromURL(imageUrl);
-                                int width = buffWeapon.getWidth();
-                                int height = (int) (width / (float) buffWeaponBitmap.getWidth() * buffWeaponBitmap.getHeight());
-                                Bitmap scaledBitmap = Bitmap.createScaledBitmap(buffWeaponBitmap, width, height, true);
-                                buffWeapon.post(() -> {
-                                    buffWeapon.setImageBitmap(scaledBitmap);
-                                });
+                            if (buffObject.has("equipment")) {
+                                JSONArray equipmentArray = buffObject.getJSONArray("equipment");
+
+                                for (int i = 0; i < equipmentArray.length(); i++) {
+                                    JSONObject equipment = equipmentArray.getJSONObject(i);
+                                    String slotName = equipment.getString("slotName");
+                                    String itemName = equipment.getString("itemName");
+                                    String itemId = equipment.getString("itemId");
+                                    System.out.println("슬롯 : " + slotName + "사진 링크 : https://img-api.neople.co.kr/df/items/"+itemId);
+
+                                    if ("무기".equals(slotName)) {
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffWeaponBitmap = getBitmapFromURL(imageUrl);
+                                        buffWeapon.post(() -> {
+                                            buffWeapon.setImageBitmap(buffWeaponBitmap);
+                                        });
+                                        buffWeaponName.post(() -> {
+                                            buffWeaponName.setText(itemName);
+                                        });
+                                    }
+                                    else if("칭호".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffTitleBitmap = getBitmapFromURL(imageUrl);
+                                        buffTitle.post(() -> {
+                                            buffTitle.setImageBitmap(buffTitleBitmap);
+                                        });
+                                        buffTitleName.post(() -> {
+                                            buffTitleName.setText(itemName);
+                                        });
+                                    }
+                                    else if("상의".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffShirtBitmap = getBitmapFromURL(imageUrl);
+                                        buffShirt.post(() -> {
+                                            buffShirt.setImageBitmap(buffShirtBitmap);
+                                        });
+                                        buffShirtName.post(() -> {
+                                            buffShirtName.setText(itemName);
+                                        });
+                                    }
+                                    else if("머리어깨".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffShdBitmap = getBitmapFromURL(imageUrl);
+                                        buffShd.post(() -> {
+                                            buffShd.setImageBitmap(buffShdBitmap);
+                                        });
+                                        buffShdName.post(() -> {
+                                            buffShdName.setText(itemName);
+                                        });
+                                    }
+                                    else if("하의".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffPantsBitmap = getBitmapFromURL(imageUrl);
+                                        buffPants.post(() -> {
+                                            buffPants.setImageBitmap(buffPantsBitmap);
+                                        });
+                                        buffPantsName.post(() -> {
+                                            buffPantsName.setText(itemName);
+                                        });
+                                    }
+                                    else if("신발".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffShoeBitmap = getBitmapFromURL(imageUrl);
+                                        buffShoe.post(() -> {
+                                            buffShoe.setImageBitmap(buffShoeBitmap);
+                                        });
+                                        buffShoeName.post(() -> {
+                                            buffShoeName.setText(itemName);
+                                        });
+                                    }
+                                    else if("벨트".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffBeltBitmap = getBitmapFromURL(imageUrl);
+                                        buffBelt.post(() -> {
+                                            buffBelt.setImageBitmap(buffBeltBitmap);
+                                        });
+                                        buffBeltName.post(() -> {
+                                            buffBeltName.setText(itemName);
+                                        });
+                                    }
+                                    else if("목걸이".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffNeckBitmap = getBitmapFromURL(imageUrl);
+                                        buffNeck.post(() -> {
+                                            buffNeck.setImageBitmap(buffNeckBitmap);
+                                        });
+                                        buffNeckName.post(() -> {
+                                            buffNeckName.setText(itemName);
+                                        });
+                                    }
+                                    else if("팔찌".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffHandBitmap = getBitmapFromURL(imageUrl);
+                                        buffHand.post(() -> {
+                                            buffHand.setImageBitmap(buffHandBitmap);
+                                        });
+                                        buffHandName.post(() -> {
+                                            buffHandName.setText(itemName);
+                                        });
+                                    }
+
+                                    else if("반지".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffRingBitmap = getBitmapFromURL(imageUrl);
+                                        buffRing.post(() -> {
+                                            buffRing.setImageBitmap(buffRingBitmap);
+                                        });
+                                        buffRingName.post(() -> {
+                                            buffRingName.setText(itemName);
+                                        });
+                                    }
+                                    else if("보조장비".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffSubBitmap = getBitmapFromURL(imageUrl);
+                                        buffSub.post(() -> {
+                                            buffSub.setImageBitmap(buffSubBitmap);
+                                        });
+                                        buffSubName.post(() -> {
+                                            buffSubName.setText(itemName);
+                                        });
+                                    }
+                                    else if("마법석".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffStoneBitmap = getBitmapFromURL(imageUrl);
+                                        buffStone.post(() -> {
+                                            buffStone.setImageBitmap(buffStoneBitmap);
+                                        });
+                                        buffStoneName.post(() -> {
+                                            buffStoneName.setText(itemName);
+                                        });
+                                    }
+                                    else if("귀걸이".equals(slotName)){
+                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                        Bitmap buffEarBitmap = getBitmapFromURL(imageUrl);
+                                        buffEar.post(() -> {
+                                            buffEar.setImageBitmap(buffEarBitmap);
+                                        });
+                                        buffEarName.post(() -> {
+                                            buffEarName.setText(itemName);
+                                        });
+                                    }
+
+                                }
                             }
                         }
                     }
