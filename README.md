@@ -122,6 +122,9 @@ Complete basic stat layout and implementation<br/><br/>
 統計の基本的なレイアウトと実装の完了<br/>
 
 8일차 (Day 8, 第8天, 8日目)<br/>
-![image](https://github.com/NLessW/DnF_apk/assets/63160418/9f7c250e-c025-4bcf-9469-9769d63848e1)
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/ad9f181a-0b5a-4e6b-853c-e68e2ab4aaa1)
 <br/>
-버프 강화 추가중 
+버프 강화 추가 완료 및 기능 구현 중 순서와 사진, 이름이 꼬이는 현상 발생..<br/><br/>
+Buff enhancement additions completed and functional implementation, resulting in order, photos, and name twists..<br/><br/>
+Buff增強添加完成和功能實現，導致順序，照片和名稱扭曲。<br/><br/>
+バフ強化の追加が完了し、機能的な実装が完了し、結果として順序、写真、名前のねじれが発生します..<br/><br/>
