@@ -128,3 +128,7 @@ Complete basic stat layout and implementation<br/><br/>
 Buff enhancement additions completed and functional implementation, resulting in order, photos, and name twists..<br/><br/>
 Buff增強添加完成和功能實現，導致順序，照片和名稱扭曲。<br/><br/>
 バフ強化の追加が完了し、機能的な実装が完了し、結果として順序、写真、名前のねじれが発生します..<br/><br/>
+
+9일차 <br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/59064b8f-924f-4110-b09d-bb754ded0ee2)
+
