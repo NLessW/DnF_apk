@@ -24,13 +24,16 @@ import androidx.appcompat.app.AlertDialog;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.net.ssl.HttpsURLConnection;
 
 public class characterInfo extends TabActivity {
     String characterName, server;
     String apiKey;
-    TextView shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce,
+    public static TextView shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce,
             weaponReinForce, weaponInfo, handReinForce, neckReinForce, subReinForce,
             ringReinForce, earReinForce, stoneReinForce, userName, fameNum, shdMix,
             shirtMix, pantsMix, beltMix, shoeMix, weaponMix, handMix, neckMix, subMix,
@@ -39,11 +42,12 @@ public class characterInfo extends TabActivity {
             healthStat, phyAttack, phyCritical, soloAttack, brainStat, brainPower,
             magicAttack, magicCritical, atkSpeed, moveSpeed, castingSpeed, fire, water,
             light, dark,buffWeaponName, buffShirtName, buffShdName, buffPantsName, buffBeltName, buffShoeName,
-            buffHandName, buffNeckName, buffRingName, buffSubName, buffEarName, buffStoneName,buffTitleName;
+            buffHandName, buffNeckName, buffRingName, buffSubName, buffEarName, buffStoneName,buffTitleName, skillCri;
 
-    ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture,
+    public static ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture,
             shdMist, shirtMist, pantsMist, beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist,
-            buffWeapon, buffTitle, buffShirt, buffPants, buffBelt, buffShoe, buffShd, buffHand, buffNeck, buffRing, buffSub, buffEar, buffStone;
+            buffWeapon, buffTitle, buffShirt, buffPants, buffBelt, buffShoe, buffShd, buffHand, buffNeck, buffRing, buffSub, buffEar, buffStone
+            ,skillIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,6 +162,8 @@ public class characterInfo extends TabActivity {
         buffEarName = findViewById(R.id.buffEarName);
         buffStone = findViewById(R.id.buffStone);
         buffStoneName = findViewById(R.id.buffStoneName);
+        skillCri = findViewById(R.id.skillCri);
+        skillIcon = findViewById(R.id.skillIcon);
         fire = findViewById(R.id.fire);
         water = findViewById(R.id.water);
         light = findViewById(R.id.light);
@@ -182,7 +188,7 @@ public class characterInfo extends TabActivity {
         TabHost.TabSpec spec1 = tabHost.newTabSpec("Stats").setIndicator("Stats");;
         spec1.setContent(R.id.tab1);
 
-        TabHost.TabSpec spec2 = tabHost.newTabSpec("tab2").setIndicator("Tab 2");
+        TabHost.TabSpec spec2 = tabHost.newTabSpec("버프강화").setIndicator("버프강화");
         spec2.setContent(R.id.tab2);
 
         TabHost.TabSpec spec3 = tabHost.newTabSpec("tab3").setIndicator("Tab 3");
@@ -222,20 +228,11 @@ public class characterInfo extends TabActivity {
         }
 
 
-        CharacterUtils.setCharWeapon(this, server, characterName, apiKey, eWeapon,
-                eTitle, eShirt, ePants, eShd, eBelt, eShoe, eHand, eNeck, eRing, eSub, eEar, eStone, charPicture, shdMist, shirtMist, pantsMist,
-                beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist,
-                weaponReinForce, shdReinForce, shirtReinForce, pantsReinForce, beltReinForce, shoeReinForce, handReinForce, neckReinForce,
-                subReinForce, ringReinForce, earReinForce, stoneReinForce,weaponInfo, fameNum, shdMix, weaponMix, shirtMix, pantsMix, beltMix, shoeMix,
-                handMix, neckMix, subMix, ringMix, earMix, stoneMix, handSun, neckSun, subSun, ringSun, earSun, stoneSun, advName, jobName, guild);
+        CharacterUtils.setCharWeapon(this, server, characterName, apiKey);
 
-        CharacterUtils.setCharStats(this, server, characterName,apiKey, hp, mp, phyDefense, magDefense, strStat,
-                healthStat, phyAttack, phyCritical, soloAttack, brainStat, brainPower,
-                magicAttack, magicCritical, atkSpeed, moveSpeed, castingSpeed, fire, water, light, dark);
+        CharacterUtils.setCharStats(this, server, characterName,apiKey);
 
-        CharacterUtils.setCharBuff(this, server, characterName, apiKey, buffWeapon, buffShirt, buffShd, buffPants, buffBelt, buffTitle, buffShoe, buffHand, buffNeck,
-                buffSub, buffRing, buffEar, buffStone, buffWeaponName, buffShirtName, buffShdName, buffPantsName, buffBeltName, buffShoeName, buffTitleName, buffHandName, buffNeckName,
-                buffRingName, buffSubName, buffEarName, buffStoneName);
+        CharacterUtils.setCharBuff(this, server, characterName, apiKey);
     }
 
     public static class CharacterUtils {
@@ -289,21 +286,7 @@ public class characterInfo extends TabActivity {
                 return null;
             }
         }
-        public static void setCharWeapon(Context context, String server, String characterName, String apiKey,
-                                         ImageView eWeapon, ImageView eTitle, ImageView eShirt, ImageView ePants,
-                                         ImageView eShd, ImageView eBelt, ImageView eShoe, ImageView eHand, ImageView eNeck,
-                                         ImageView eRing, ImageView eSub, ImageView eEar, ImageView eStone, ImageView charPicture,
-                                         ImageView shdMist, ImageView shirtMist, ImageView pantsMist, ImageView beltMist, ImageView shoeMist,
-                                         ImageView handMist, ImageView neckMist, ImageView subMist, ImageView ringMist, ImageView earMist,
-                                         ImageView stoneMist,
-                                         TextView weaponReinForce, TextView shdReinForce, TextView shirtReinForce, TextView pantsReinForce,
-                                         TextView beltReinForce, TextView shoeReinForce, TextView handReinForce, TextView neckReinForce,
-                                         TextView subReinForce, TextView ringReinForce, TextView earReinForce, TextView stoneReinForce,
-                                         TextView weaponInfo, TextView fameNum, TextView shdMix, TextView weaponMix, TextView shirtMix,
-                                         TextView pantsMix, TextView beltMix, TextView shoeMix, TextView handMix, TextView neckMix, TextView subMix,
-                                         TextView ringMix, TextView earMix, TextView stoneMix, TextView handSun, TextView neckSun, TextView subSun,
-                                         TextView ringSun, TextView earSun, TextView stoneSun, TextView advName, TextView jobName,
-                                         TextView guild) {
+        public static void setCharWeapon(Context context, String server, String characterName, String apiKey) {
             new Thread(() -> {
                 try {
                     CharacterInfo characterInfo = getCharacterInfo(context, server, characterName, apiKey);
@@ -1268,12 +1251,7 @@ public class characterInfo extends TabActivity {
 
             }).start();
         }
-        public static void setCharStats(Context context, String server, String characterName, String apiKey,
-                                        TextView hp, TextView mp, TextView phyDefense, TextView magDefense, TextView strStat,
-                                        TextView healthStat, TextView phyAttack, TextView phyCritical, TextView soloAttack,
-                                        TextView brainStat, TextView brainPower, TextView magicAttack, TextView magicCritical,
-                                        TextView atkSpeed, TextView moveSpeed, TextView castingSpeed, TextView fire, TextView water,
-                                        TextView light, TextView dark) {
+        public static void setCharStats(Context context, String server, String characterName, String apiKey) {
             new Thread(() -> {
                 try {
                     CharacterInfo characterInfo = getCharacterInfo(context, server, characterName, apiKey);
@@ -1401,186 +1379,126 @@ public class characterInfo extends TabActivity {
             }).start();
         }
 
-        public static void setCharBuff(Context context, String server, String characterName, String apiKey,
-                                       ImageView buffWeapon, ImageView buffTitle, ImageView buffShirt, ImageView buffShd, ImageView buffPants, ImageView buffBelt,
-                                       ImageView buffShoe, ImageView buffHand, ImageView buffNeck, ImageView buffRing, ImageView buffSub, ImageView buffEar, ImageView buffStone,
-                                       TextView buffWeaponName, TextView buffTitleName, TextView buffShirtName, TextView buffShdName, TextView buffPantsName, TextView buffBeltName, TextView buffShoeName,
-                                       TextView buffHandName, TextView buffNeckName, TextView buffRingName, TextView buffSubName, TextView buffEarName, TextView buffStoneName){
+        public static void setCharBuff(Context context, String server, String characterName, String apiKey){
 
-            new Thread(() -> {
-                try {
-                    CharacterInfo characterInfo = getCharacterInfo(context, server, characterName, apiKey);
-                    String characterId = "";
-                    if (characterInfo != null) {
-                        characterId = characterInfo.getCharacterId();
-                    }
+            new ThreadTask<String, String>() {
 
-                    Connection.Response response = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters/" + characterId + "/skill/buff/equip/equipment")
-                            .data("apikey", apiKey)
-                            .ignoreContentType(true)
-                            .method(Connection.Method.GET)
-                            .execute();
+                ArrayList<String> nameArr = new ArrayList<String>();
+                ArrayList<Bitmap> bitmapArr = new ArrayList<Bitmap>();
 
-                    JSONObject jsonResponse = new JSONObject(response.body());
+                @Override
+                protected void onPreExecute() {
 
-                    if (jsonResponse.has("skill")) {
-                        JSONObject skillObject = jsonResponse.getJSONObject("skill");
+                }
 
-                        if (skillObject.has("buff")) {
-                            JSONObject buffObject = skillObject.getJSONObject("buff");
+                @Override
+                protected String doInBackground(String arg) {
+                    try {
+                        CharacterInfo characterInfo = getCharacterInfo(context, server, characterName, apiKey);
+                        String characterId = "";
+                        if (characterInfo != null) {
+                            characterId = characterInfo.getCharacterId();
+                        }
 
-                            if (buffObject.has("equipment")) {
-                                JSONArray equipmentArray = buffObject.getJSONArray("equipment");
+                        Connection.Response response = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters/" + characterId + "/skill/buff/equip/equipment")
+                                .data("apikey", apiKey)
+                                .ignoreContentType(true)
+                                .method(Connection.Method.GET)
+                                .execute();
 
-                                for (int i = 0; i < equipmentArray.length(); i++) {
-                                    JSONObject equipment = equipmentArray.getJSONObject(i);
-                                    String slotName = equipment.getString("slotName");
-                                    String itemName = equipment.getString("itemName");
-                                    String itemId = equipment.getString("itemId");
-                                    System.out.println("슬롯 : " + slotName + "사진 링크 : https://img-api.neople.co.kr/df/items/"+itemId);
+                        JSONObject jsonResponse = new JSONObject(response.body());
 
-                                    if ("무기".equals(slotName)) {
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffWeaponBitmap = getBitmapFromURL(imageUrl);
-                                        buffWeapon.post(() -> {
-                                            buffWeapon.setImageBitmap(buffWeaponBitmap);
-                                        });
-                                        buffWeaponName.post(() -> {
-                                            buffWeaponName.setText(itemName);
-                                        });
-                                    }
-                                    else if("칭호".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffTitleBitmap = getBitmapFromURL(imageUrl);
-                                        buffTitle.post(() -> {
-                                            buffTitle.setImageBitmap(buffTitleBitmap);
-                                        });
-                                        buffTitleName.post(() -> {
-                                            buffTitleName.setText(itemName);
-                                        });
-                                    }
-                                    else if("상의".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffShirtBitmap = getBitmapFromURL(imageUrl);
-                                        buffShirt.post(() -> {
-                                            buffShirt.setImageBitmap(buffShirtBitmap);
-                                        });
-                                        buffShirtName.post(() -> {
-                                            buffShirtName.setText(itemName);
-                                        });
-                                    }
-                                    else if("머리어깨".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffShdBitmap = getBitmapFromURL(imageUrl);
-                                        buffShd.post(() -> {
-                                            buffShd.setImageBitmap(buffShdBitmap);
-                                        });
-                                        buffShdName.post(() -> {
-                                            buffShdName.setText(itemName);
-                                        });
-                                    }
-                                    else if("하의".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffPantsBitmap = getBitmapFromURL(imageUrl);
-                                        buffPants.post(() -> {
-                                            buffPants.setImageBitmap(buffPantsBitmap);
-                                        });
-                                        buffPantsName.post(() -> {
-                                            buffPantsName.setText(itemName);
-                                        });
-                                    }
-                                    else if("신발".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffShoeBitmap = getBitmapFromURL(imageUrl);
-                                        buffShoe.post(() -> {
-                                            buffShoe.setImageBitmap(buffShoeBitmap);
-                                        });
-                                        buffShoeName.post(() -> {
-                                            buffShoeName.setText(itemName);
-                                        });
-                                    }
-                                    else if("벨트".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffBeltBitmap = getBitmapFromURL(imageUrl);
-                                        buffBelt.post(() -> {
-                                            buffBelt.setImageBitmap(buffBeltBitmap);
-                                        });
-                                        buffBeltName.post(() -> {
-                                            buffBeltName.setText(itemName);
-                                        });
-                                    }
-                                    else if("목걸이".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffNeckBitmap = getBitmapFromURL(imageUrl);
-                                        buffNeck.post(() -> {
-                                            buffNeck.setImageBitmap(buffNeckBitmap);
-                                        });
-                                        buffNeckName.post(() -> {
-                                            buffNeckName.setText(itemName);
-                                        });
-                                    }
-                                    else if("팔찌".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffHandBitmap = getBitmapFromURL(imageUrl);
-                                        buffHand.post(() -> {
-                                            buffHand.setImageBitmap(buffHandBitmap);
-                                        });
-                                        buffHandName.post(() -> {
-                                            buffHandName.setText(itemName);
-                                        });
-                                    }
+                        if (jsonResponse.has("skill")) {
+                            JSONObject skillObject = jsonResponse.getJSONObject("skill");
 
-                                    else if("반지".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffRingBitmap = getBitmapFromURL(imageUrl);
-                                        buffRing.post(() -> {
-                                            buffRing.setImageBitmap(buffRingBitmap);
-                                        });
-                                        buffRingName.post(() -> {
-                                            buffRingName.setText(itemName);
-                                        });
-                                    }
-                                    else if("보조장비".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffSubBitmap = getBitmapFromURL(imageUrl);
-                                        buffSub.post(() -> {
-                                            buffSub.setImageBitmap(buffSubBitmap);
-                                        });
-                                        buffSubName.post(() -> {
-                                            buffSubName.setText(itemName);
-                                        });
-                                    }
-                                    else if("마법석".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffStoneBitmap = getBitmapFromURL(imageUrl);
-                                        buffStone.post(() -> {
-                                            buffStone.setImageBitmap(buffStoneBitmap);
-                                        });
-                                        buffStoneName.post(() -> {
-                                            buffStoneName.setText(itemName);
-                                        });
-                                    }
-                                    else if("귀걸이".equals(slotName)){
-                                        String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
-                                        Bitmap buffEarBitmap = getBitmapFromURL(imageUrl);
-                                        buffEar.post(() -> {
-                                            buffEar.setImageBitmap(buffEarBitmap);
-                                        });
-                                        buffEarName.post(() -> {
-                                            buffEarName.setText(itemName);
-                                        });
-                                    }
+                            if (skillObject.has("buff")) {
+                                JSONObject buffObject = skillObject.getJSONObject("buff");
+                                if(buffObject.has("skillInfo")){
+                                    JSONObject sInfoObject = buffObject.getJSONObject("skillInfo");
+                                    String skillId = sInfoObject.getString("skillId");
+                                    String imageUrl = "https://img-api.neople.co.kr/df/items/" + skillId;
+                                    Bitmap weaponBitmap = getBitmapFromURL(imageUrl);
+                                    int width = eWeapon.getWidth();
+                                    int height = (int) (width / (float) weaponBitmap.getWidth() * weaponBitmap.getHeight());
+                                    Bitmap scaledBitmap = Bitmap.createScaledBitmap(weaponBitmap, width, height, true);
+                                    eWeapon.post(() -> {
+                                        eWeapon.setImageBitmap(scaledBitmap);
+                                    });
 
+                                }
+
+
+                                if (buffObject.has("equipment")) {
+                                    JSONArray equipmentArray = buffObject.getJSONArray("equipment");
+                                    String[] equipArr = {"무기", "칭호", "상의", "머리어깨", "하의", "신발", "벨트", "목걸이", "팔찌", "반지", "보조장비", "마법석", "귀걸이"};
+
+                                    for (int i = 0; i < equipmentArray.length(); i++) {
+                                        JSONObject equipment = equipmentArray.getJSONObject(i);
+                                        String slotName = equipment.getString("slotName");
+                                        String itemName = equipment.getString("itemName");
+                                        String itemId = equipment.getString("itemId");
+                                        if(slotName.equals(equipArr[i])) {
+                                            String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                            Bitmap bit = getBitmapFromURL(imageUrl);
+                                            bitmapArr.add(bit);
+                                            nameArr.add(itemName);
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
 
-                } catch (IOException | JSONException e) {
-                    e.printStackTrace();
+                    } catch (IOException | JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
                 }
 
-            }).start();
+                @Override
+                protected void onPostExecute(String result) {
+
+                    if(bitmapArr.size() != 0 && nameArr.size() != 0) {
+                        buffWeapon.setImageBitmap(bitmapArr.get(0));
+                        buffWeaponName.setText(nameArr.get(0));
+
+                        buffTitle.setImageBitmap(bitmapArr.get(1));
+                        buffTitleName.setText(nameArr.get(1));
+
+                        buffShirt.setImageBitmap(bitmapArr.get(2));
+                        buffShirtName.setText(nameArr.get(2));
+
+                        buffShd.setImageBitmap(bitmapArr.get(3));
+                        buffShdName.setText(nameArr.get(3));
+
+                        buffPants.setImageBitmap(bitmapArr.get(4));
+                        buffPantsName.setText(nameArr.get(4));
+
+                        buffShoe.setImageBitmap(bitmapArr.get(5));
+                        buffShoeName.setText(nameArr.get(5));
+
+                        buffBelt.setImageBitmap(bitmapArr.get(6));
+                        buffBeltName.setText(nameArr.get(6));
+
+                        buffNeck.setImageBitmap(bitmapArr.get(7));
+                        buffNeckName.setText(nameArr.get(7));
+
+                        buffHand.setImageBitmap(bitmapArr.get(8));
+                        buffHandName.setText(nameArr.get(8));
+
+                        buffRing.setImageBitmap(bitmapArr.get(9));
+                        buffRingName.setText(nameArr.get(9));
+
+                        buffSub.setImageBitmap(bitmapArr.get(10));
+                        buffSubName.setText(nameArr.get(10));
+
+                        buffStone.setImageBitmap(bitmapArr.get(11));
+                        buffStoneName.setText(nameArr.get(11));
+
+                        buffEar.setImageBitmap(bitmapArr.get(12));
+                        buffEarName.setText(nameArr.get(12));
+                    }
+                }
+            }.execute("");
 
         }
             private static Bitmap getBitmapFromURL(String url) {
