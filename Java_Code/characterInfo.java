@@ -1413,18 +1413,127 @@ public class characterInfo extends TabActivity {
 
                             if (skillObject.has("buff")) {
                                 JSONObject buffObject = skillObject.getJSONObject("buff");
+
                                 if(buffObject.has("skillInfo")){
                                     JSONObject sInfoObject = buffObject.getJSONObject("skillInfo");
-                                    String skillId = sInfoObject.getString("skillId");
-                                    String imageUrl = "https://img-api.neople.co.kr/df/items/" + skillId;
-                                    Bitmap weaponBitmap = getBitmapFromURL(imageUrl);
-                                    int width = eWeapon.getWidth();
-                                    int height = (int) (width / (float) weaponBitmap.getWidth() * weaponBitmap.getHeight());
-                                    Bitmap scaledBitmap = Bitmap.createScaledBitmap(weaponBitmap, width, height, true);
-                                    eWeapon.post(() -> {
-                                        eWeapon.setImageBitmap(scaledBitmap);
+                                    String skillName = sInfoObject.getString("name");
+                                    JSONObject optionObject = sInfoObject.getJSONObject("option");
+                                    int skillLevel = optionObject.getInt("level");
+                                    JSONArray valuesArray = optionObject.getJSONArray("values");
+                                    String skillPercentage = valuesArray.getString(1);
+                                    skillCri.post(() -> {
+                                        skillCri.setText("  + " + (skillLevel-10) +"렙 " + skillPercentage + " %");
                                     });
-
+                                    if ("오버드라이브".equals(skillName)) {
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.overdrive);
+                                        });
+                                    }
+                                    else if("폭주".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.berserker);
+                                        });
+                                    }
+                                    else if("잔영의 케이가".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.soul);
+                                        });
+                                    }else if("살의의 파동".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.asura);
+                                        });
+                                    }
+                                    else if("귀혼일체".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.sword);
+                                        });
+                                    }
+                                    else if("역혈기공".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.mannen);
+                                        });
+                                    }
+                                    else if("뒷골목 싸움법".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.manstreet);
+                                        });
+                                    }
+                                    else if("반드시 잡는다!".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.grapler);
+                                        });
+                                    }
+                                    else if("강권".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.striker);
+                                        });
+                                    }
+                                    else if("데스 바이 리볼버".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.deathbyrevolver);
+                                        });
+                                    }
+                                    else if("로보틱스".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.robotics);
+                                        });
+                                    }
+                                    else if("미라클 비전".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.miraclevision);
+                                        });
+                                    }
+                                    else if("오버차지".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.overcharge);
+                                        });
+                                    }
+                                    else if("블러드 번".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.manblood);
+                                        });
+                                    }
+                                    else if("마나 폭주".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.manelmental);
+                                        });
+                                    }
+                                    else if("공명".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.manbingyul);
+                                        });
+                                    }
+                                    else if("경계망상".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.mandimention);
+                                        });
+                                    }
+                                    else if("윈드니스".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.manswift);
+                                        });
+                                    }
+                                    else if("성령의 메이스".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.mancru);
+                                        });
+                                    }
+                                    else if("광명의 챠크라".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.manghosthunter);
+                                        });
+                                    }
+                                    else if("섀도우 박서".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.maninfighter);
+                                        });
+                                    }
+                                    else if("추락하는 영혼".equals(skillName)){
+                                        skillIcon.post(() -> {
+                                            skillIcon.setImageResource(R.drawable.manavenger);
+                                        });
+                                    }
+                                    System.out.println("스킬 이름 : " + skillName);
                                 }
 
 
