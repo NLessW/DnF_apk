@@ -56,7 +56,7 @@ public class characterInfo extends TabActivity {
         Intent intent = getIntent();
         characterName = intent.getStringExtra("nickName");
         server = intent.getStringExtra("serverSelect");
-        apiKey = "HoEacyHR7eDWpqpmxzJ2Mf1z7ZXxKcfV";
+        apiKey = "apiKey";
 
         eShd = findViewById(R.id.eShd);
         eShirt = findViewById(R.id.eShirt);
