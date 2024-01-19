@@ -130,9 +130,10 @@ Buff增強添加完成和功能實現，導致順序，照片和名稱扭曲。<
 バフ強化の追加が完了し、機能的な実装が完了し、結果として順序、写真、名前のねじれが発生します..<br/><br/>
 
 9일차 (Day 9, 第9天, 9日目)<br/>
-![image](https://github.com/NLessW/DnF_apk/assets/63160418/59064b8f-924f-4110-b09d-bb754ded0ee2)
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/a7cc0e64-f8cf-4db6-96be-590d770531bf)
 <br/>
 버프 강화 수정 완료, 매개 변수 전송 과정에서 문제 발생이였음.<br/><br/>
 Buff enhancement modification completed, problem occurred in the process of sending parameters.<br/><br/>
 Buff增強修改完成，發送參數過程中出現問題。<br/><br/>
 バッファ拡張の変更が完了しました。パラメータを送信する過程で問題が発生しました。<br/><br/>
+
