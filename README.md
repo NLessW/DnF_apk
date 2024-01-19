@@ -132,8 +132,12 @@ Buff增強添加完成和功能實現，導致順序，照片和名稱扭曲。<
 9일차 (Day 9, 第9天, 9日目)<br/>
 ![image](https://github.com/NLessW/DnF_apk/assets/63160418/a7cc0e64-f8cf-4db6-96be-590d770531bf)
 <br/>
-버프 강화 수정 완료, 매개 변수 전송 과정에서 문제 발생이였음.<br/><br/>
-Buff enhancement modification completed, problem occurred in the process of sending parameters.<br/><br/>
-Buff增強修改完成，發送參數過程中出現問題。<br/><br/>
-バッファ拡張の変更が完了しました。パラメータを送信する過程で問題が発生しました。<br/><br/>
+버프 강화 수정 완료, 매개 변수 전송 과정에서 문제 발생이였음.<br/>
+버프 레벨 및 증가 퍼센트 구현<br/><br/>
+Buff enhancement modification completed, problem occurred in the process of sending parameters.<br/>
+Implement buff level and increase percentage.<br/><br/>
+Buff增強修改完成，發送參數過程中出現問題。<br/>
+實現buff級別並增加百分比<br/><br/>
+バッファ拡張の変更が完了しました。パラメータを送信する過程で問題が発生しました。<br/>
+バフレベルの実装とパーセンテージの向上<br/>
 
