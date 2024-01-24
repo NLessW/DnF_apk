@@ -30,6 +30,8 @@ import java.util.Arrays;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import retrofit2.http.GET;
+
 public class characterInfo extends TabActivity {
     String characterName, server;
     String apiKey;
@@ -42,12 +44,16 @@ public class characterInfo extends TabActivity {
             healthStat, phyAttack, phyCritical, soloAttack, brainStat, brainPower,
             magicAttack, magicCritical, atkSpeed, moveSpeed, castingSpeed, fire, water,
             light, dark,buffWeaponName, buffShirtName, buffShdName, buffPantsName, buffBeltName, buffShoeName,
-            buffHandName, buffNeckName, buffRingName, buffSubName, buffEarName, buffStoneName,buffTitleName, skillCri;
+            buffHandName, buffNeckName, buffRingName, buffSubName, buffEarName, buffStoneName,buffTitleName, skillCri,
+            avatarWeaponName, weaponEmblem, avatarHatName, hatEmblem, avatarHairName, hairEmblem, avatarFaceName, faceEmblem,
+            avatarShirtName, shirtEmblem, avatarPantsName, pantsEmblem, avatarShoeName, shoeEmblem,
+            avatarNeckName, neckEmblem, avatarBeltName, beltEmblem, avatarSkinName, skinEmblem, avatarOraName, oraEmblem;
+            ;
 
     public static ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture,
             shdMist, shirtMist, pantsMist, beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist,
-            buffWeapon, buffTitle, buffShirt, buffPants, buffBelt, buffShoe, buffShd, buffHand, buffNeck, buffRing, buffSub, buffEar, buffStone
-            ,skillIcon;
+            buffWeapon, buffTitle, buffShirt, buffPants, buffBelt, buffShoe, buffShd, buffHand, buffNeck, buffRing, buffSub, buffEar, buffStone,
+            skillIcon, avatarWeapon, avatarHat, avatarHair, avatarFace, avatarShirt, avatarPants, avatarShoe, avatarNeck, avatarBelt, avatarSkin, avatarOra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,7 +174,40 @@ public class characterInfo extends TabActivity {
         water = findViewById(R.id.water);
         light = findViewById(R.id.light);
         dark = findViewById(R.id.dark);
+        avatarWeapon = findViewById(R.id.avatarWeapon);
+        avatarWeaponName = findViewById(R.id.avatarWeaponName);
+        weaponEmblem = findViewById(R.id.weaponEmblem);
+        avatarHat = findViewById(R.id.avatarHat);
+        avatarHatName = findViewById(R.id.avatarHatName);
+        hatEmblem = findViewById(R.id.hatEmblem);
+        avatarHair = findViewById(R.id.avatarHair);
+        avatarHairName = findViewById(R.id.avatarHairName);
+        hairEmblem = findViewById(R.id.hairEmblem);
+        avatarFace = findViewById(R.id.avatarFace);
+        avatarFaceName = findViewById(R.id.avatarFaceName);
+        avatarShirt = findViewById(R.id.avatarShirt);
+        avatarShirtName = findViewById(R.id.avatarShirtName);
+        shirtEmblem = findViewById(R.id.shirtEmblem);
+        avatarPants = findViewById(R.id.avatarPants);
+        avatarPantsName = findViewById(R.id.avatarPantsName);
+        pantsEmblem = findViewById(R.id.pantsEmblem);
+        avatarShoe = findViewById(R.id.avatarShoe);
+        avatarShoeName = findViewById(R.id.avatarShoeName);
+        shoeEmblem = findViewById(R.id.shoeEmblem);
+        avatarNeck = findViewById(R.id.avatarNeck);
+        avatarNeckName = findViewById(R.id.avatarNeckName);
+        neckEmblem = findViewById(R.id.neckEmblem);
+        avatarBelt = findViewById(R.id.avatarBelt);
+        avatarBeltName = findViewById(R.id.avatarBeltName);
+        beltEmblem = findViewById(R.id.beltEmblem);
+        avatarSkin = findViewById(R.id.avatarSkin);
+        avatarSkinName = findViewById(R.id.avatarSkinName);
+        skinEmblem = findViewById(R.id.skinEmblem);
+        avatarOra = findViewById(R.id.avatarOra);
+        avatarOraName = findViewById(R.id.avatarOraName);
+        oraEmblem = findViewById(R.id.oraEmblem);
         userName.setText(characterName);
+
         ImageView famepng = findViewById(R.id.famepng);
         famepng.setImageDrawable(getResources().getDrawable(R.drawable.fame));
         shdMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
@@ -233,6 +272,8 @@ public class characterInfo extends TabActivity {
         CharacterUtils.setCharStats(this, server, characterName,apiKey);
 
         CharacterUtils.setCharBuff(this, server, characterName, apiKey);
+
+        CharacterUtils.setAvatar(this, server, characterName, apiKey);
     }
 
     public static class CharacterUtils {
@@ -1019,7 +1060,7 @@ public class characterInfo extends TabActivity {
                                             });
                                             subSun.post(() -> subSun.setVisibility(View.VISIBLE));
                                         } else {
-                                            String upgradeName = itemName.substring(0, 3);
+                                            String upgradeName = itemName.substring(0, 2);
                                             subMix.post(() -> {
                                                 subMix.setText(upgradeName);
                                                 subMix.setVisibility(View.VISIBLE);
@@ -1092,7 +1133,7 @@ public class characterInfo extends TabActivity {
                                             });
                                             earSun.post(() -> earSun.setVisibility(View.VISIBLE));
                                         } else {
-                                            String upgradeName = itemName.substring(0, 3);
+                                            String upgradeName = itemName.substring(0, 2);
                                             earMix.post(() -> {
                                                 earMix.setText(upgradeName);
                                                 earMix.setVisibility(View.VISIBLE);
@@ -1164,7 +1205,7 @@ public class characterInfo extends TabActivity {
                                             });
                                             stoneSun.post(() -> stoneSun.setVisibility(View.VISIBLE));
                                         } else {
-                                            String upgradeName = itemName.substring(0, 3);
+                                            String upgradeName = itemName.substring(0, 2);
                                             stoneMix.post(() -> {
                                                 stoneMix.setText(upgradeName);
                                                 stoneMix.setVisibility(View.VISIBLE);
@@ -1378,7 +1419,6 @@ public class characterInfo extends TabActivity {
                 }
             }).start();
         }
-
         public static void setCharBuff(Context context, String server, String characterName, String apiKey){
 
             new ThreadTask<String, String>() {
@@ -1413,129 +1453,332 @@ public class characterInfo extends TabActivity {
 
                             if (skillObject.has("buff")) {
                                 JSONObject buffObject = skillObject.getJSONObject("buff");
+                                Connection.Response response2 = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters/" + characterId + "/skill/style")
+                                        .data("apikey", apiKey)
+                                        .ignoreContentType(true)
+                                        .method(Connection.Method.GET)
+                                        .execute();
 
-                                if(buffObject.has("skillInfo")){
-                                    JSONObject sInfoObject = buffObject.getJSONObject("skillInfo");
-                                    String skillName = sInfoObject.getString("name");
-                                    JSONObject optionObject = sInfoObject.getJSONObject("option");
-                                    int skillLevel = optionObject.getInt("level");
-                                    JSONArray valuesArray = optionObject.getJSONArray("values");
-                                    String skillPercentage = valuesArray.getString(1);
-                                    skillCri.post(() -> {
-                                        skillCri.setText("  + " + (skillLevel-10) +"렙 " + skillPercentage + " %");
-                                    });
-                                    if ("오버드라이브".equals(skillName)) {
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.overdrive);
-                                        });
-                                    }
-                                    else if("폭주".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.berserker);
-                                        });
-                                    }
-                                    else if("잔영의 케이가".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.soul);
-                                        });
-                                    }else if("살의의 파동".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.asura);
-                                        });
-                                    }
-                                    else if("귀혼일체".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.sword);
-                                        });
-                                    }
-                                    else if("역혈기공".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.mannen);
-                                        });
-                                    }
-                                    else if("뒷골목 싸움법".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.manstreet);
-                                        });
-                                    }
-                                    else if("반드시 잡는다!".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.grapler);
-                                        });
-                                    }
-                                    else if("강권".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.striker);
-                                        });
-                                    }
-                                    else if("데스 바이 리볼버".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.deathbyrevolver);
-                                        });
-                                    }
-                                    else if("로보틱스".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.robotics);
-                                        });
-                                    }
-                                    else if("미라클 비전".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.miraclevision);
-                                        });
-                                    }
-                                    else if("오버차지".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.overcharge);
-                                        });
-                                    }
-                                    else if("블러드 번".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.manblood);
-                                        });
-                                    }
-                                    else if("마나 폭주".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.manelmental);
-                                        });
-                                    }
-                                    else if("공명".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.manbingyul);
-                                        });
-                                    }
-                                    else if("경계망상".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.mandimention);
-                                        });
-                                    }
-                                    else if("윈드니스".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.manswift);
-                                        });
-                                    }
-                                    else if("성령의 메이스".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.mancru);
-                                        });
-                                    }
-                                    else if("광명의 챠크라".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.manghosthunter);
-                                        });
-                                    }
-                                    else if("섀도우 박서".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.maninfighter);
-                                        });
-                                    }
-                                    else if("추락하는 영혼".equals(skillName)){
-                                        skillIcon.post(() -> {
-                                            skillIcon.setImageResource(R.drawable.manavenger);
-                                        });
-                                    }
-                                    System.out.println("스킬 이름 : " + skillName);
-                                }
+                                JSONObject jsonResponse2 = new JSONObject(response2.body());
+                                if (jsonResponse2.has("skill")) {
+                                    JSONObject skillInfoObject = jsonResponse2.getJSONObject("skill");
 
+                                    if (skillInfoObject.has("style")) {
+                                        JSONObject styleObject = skillInfoObject.getJSONObject("style");
+
+                                        if (styleObject.has("active")) {
+                                            JSONArray activeArray = styleObject.getJSONArray("active");
+
+                                            for (int i = 0; i < activeArray.length(); i++) {
+                                                JSONObject activeObject = activeArray.getJSONObject(i);
+                                                String aSkillId = activeObject.getString("skillId");
+                                                int  aLevel = activeObject.getInt("level");
+
+                                                if (buffObject.has("skillInfo")) {
+                                                    JSONObject sInfoObject = buffObject.getJSONObject("skillInfo");
+                                                    String skillName = sInfoObject.getString("name");
+                                                    String skillId = sInfoObject.getString("skillId");
+                                                    JSONObject optionObject = sInfoObject.getJSONObject("option");
+                                                    int skillLevel = optionObject.getInt("level");
+                                                    JSONArray valuesArray = optionObject.getJSONArray("values");
+                                                    String skillPercentage = valuesArray.getString(1);
+                                                    if(skillId.equals(aSkillId)){
+                                                        skillCri.post(() -> {
+                                                            skillCri.setText("  + " + (skillLevel - aLevel) + "렙 " + skillPercentage + " %");
+                                                        });
+                                                    }
+                                                    if ("오버드라이브".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.overdrive);
+                                                        });
+                                                    }
+                                                    else if ("폭주".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.berserker);
+                                                        });
+                                                    }
+                                                    else if ("잔영의 케이가".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.soul);
+                                                        });
+                                                    }
+                                                    else if ("살의의 파동".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.asura);
+                                                        });
+                                                    }
+                                                    else if ("귀혼일체".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.sword);
+                                                        });
+                                                    }
+                                                    else if ("역혈기공".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.mannen);
+                                                        });
+                                                    }
+                                                    else if ("뒷골목 싸움법".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.manstreet);
+                                                        });
+                                                    }
+                                                    else if ("반드시 잡는다!".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.grapler);
+                                                        });
+                                                    }
+                                                    else if ("강권".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.striker);
+                                                        });
+                                                    }
+                                                    else if ("데스 바이 리볼버".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.deathbyrevolver);
+                                                        });
+                                                    }
+                                                    else if ("로보틱스".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.robotics);
+                                                        });
+                                                    }
+                                                    else if ("미라클 비전".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.miraclevision);
+                                                        });
+                                                    }
+                                                    else if ("오버차지".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.overcharge);
+                                                        });
+                                                    }
+                                                    else if ("블러드 번".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.manblood);
+                                                        });
+                                                    }
+                                                    else if ("마나 폭주".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.manelmental);
+                                                        });
+                                                    }
+                                                    else if ("공명".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.manbingyul);
+                                                        });
+                                                    }
+                                                    else if ("경계망상".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.mandimention);
+                                                        });
+                                                    }
+                                                    else if ("윈드니스".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.manswift);
+                                                        });
+                                                    }
+                                                    else if ("성령의 메이스".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.mancru);
+                                                        });
+                                                    }
+                                                    else if ("광명의 챠크라".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.manghosthunter);
+                                                        });
+                                                    }
+                                                    else if ("섀도우 박서".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.maninfighter);
+                                                        });
+                                                    }
+                                                    else if ("추락하는 영혼".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.manavenger);
+                                                        });
+                                                    }
+                                                    else if ("신검합일".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.swordmaster);
+                                                        });
+                                                    }
+                                                    else if ("광폭화".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.demonslayer);
+                                                        });
+                                                    }
+                                                    else if ("컨제스트".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.darktempler);
+                                                        });
+                                                    }
+                                                    else if ("오기조원".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.vegabond);
+                                                        });
+                                                    }
+                                                    else if ("트레이스".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.blade);
+                                                        });
+                                                    }
+                                                    else if ("카이".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.girlnen);
+                                                        });
+                                                    }
+                                                    else if ("독 바르기".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.girlstreet);
+                                                        });
+                                                    }
+                                                    else if ("엘레멘탈 번".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.elementalburn);
+                                                        });
+                                                    }
+                                                    else if ("고대의 도서관".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.ancientlibrary);
+                                                        });
+                                                    }
+                                                    else if ("환수 폭주".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.hwansupokju);
+                                                        });
+                                                    }
+                                                    else if ("전장의 여신".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.wargod);
+                                                        });
+                                                    }
+                                                    else if ("금단의 저주".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.inchantris);
+                                                        });
+                                                    }
+                                                    else if ("용맹의 축복".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.gircru);
+                                                        });
+                                                    }
+                                                    else if ("광적인 믿음".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.crazybelive);
+                                                        });
+                                                    }
+                                                    else if ("일곱개의 대죄".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.sevenbigmiss);
+                                                        });
+                                                    }
+                                                    else if ("신탁의 기원".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.godpray);
+                                                        });
+                                                    }
+                                                    else if ("셰이크 다운".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.shakedown);
+                                                        });
+                                                    }
+                                                    else if ("화둔 : 홍염".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.kunoichi);
+                                                        });
+                                                    }
+                                                    else if ("암살자의 마음가짐".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.shadowdancer);
+                                                        });
+                                                    }
+                                                    else if ("암흑의 의식".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.saryung);
+                                                        });
+                                                    }
+                                                    else if ("워크라이".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.warcry);
+                                                        });
+                                                    }
+                                                    else if ("브레인 스톰".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.chaos);
+                                                        });
+                                                    }
+                                                    else if ("폭음폭식".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.dragonknight);
+                                                        });
+                                                    }
+                                                    else if ("페이스풀".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.facepull);
+                                                        });
+                                                    }
+                                                    else if ("마창 해방".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.bangguard);
+                                                        });
+                                                    }
+                                                    else if ("오러 랜스".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.oralance);
+                                                        });
+                                                    }
+                                                    else if ("다크니스".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.darkness);
+                                                        });
+                                                    }
+                                                    else if ("마나 익스트랙트".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.manaextract);
+                                                        });
+                                                    }
+                                                    else if ("임무 시작".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.missionstart);
+                                                        });
+                                                    }
+                                                    else if ("역전의 숭부사".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.troubleshooter);
+                                                        });
+                                                    }
+                                                    else if ("전술 지휘".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.hitman);
+                                                        });
+                                                    }
+                                                    else if ("코어 프렉시스".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.speciallist);
+                                                        });
+                                                    }
+                                                    else if ("러블리 템포".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.lovelytempo);
+                                                        });
+                                                    }
+                                                    else if ("익사이팅".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.exiting);
+                                                        });
+                                                    }
+                                                    else if ("오버플로우".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.overflow);
+                                                        });
+                                                    }
+                                                    else if ("증폭".equals(skillName)) {
+                                                        skillIcon.post(() -> {
+                                                            skillIcon.setImageResource(R.drawable.creator);
+                                                        });
+                                                    }
+                                                }
+                                            }
 
                                 if (buffObject.has("equipment")) {
                                     JSONArray equipmentArray = buffObject.getJSONArray("equipment");
@@ -1551,6 +1794,10 @@ public class characterInfo extends TabActivity {
                                             Bitmap bit = getBitmapFromURL(imageUrl);
                                             bitmapArr.add(bit);
                                             nameArr.add(itemName);
+
+                                        }
+                                        }
+                                    }
                                         }
                                     }
                                 }
@@ -1610,7 +1857,321 @@ public class characterInfo extends TabActivity {
             }.execute("");
 
         }
-            private static Bitmap getBitmapFromURL(String url) {
+        public static void setAvatar(Context context, String server, String characterName, String apiKey) {
+            new Thread(() -> {
+                try {
+                    CharacterInfo characterInfo = getCharacterInfo(context, server, characterName, apiKey);
+                    String characterId = "";
+                    if (characterInfo != null) {
+                        characterId = characterInfo.getCharacterId();
+                    }
+
+                    Connection.Response response = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters/" + characterId + "/equip/avatar")
+                            .data("apikey", apiKey)
+                            .ignoreContentType(true)
+                            .method(Connection.Method.GET)
+                            .execute();
+
+                    JSONObject jsonResponse = new JSONObject(response.body());
+                    JSONArray avatarArray = jsonResponse.getJSONArray("avatar");
+
+                    if (avatarArray.length() == 0) {
+                        setAvatarInvisible();
+                    }else {
+
+                        boolean headgearFound = false;
+                        boolean hairFound = false;
+                        boolean faceFound = false;
+                        boolean shirtFound = false;
+                        boolean pantsFound = false;
+                        boolean shoesFound = false;
+                        boolean neckFound = false;
+                        boolean beltFound = false;
+                        boolean skinFound = false;
+                        boolean oraFound = false;
+                        boolean weaponFound = false;
+                        for (int i = 0; i < avatarArray.length(); i++) {
+                            JSONObject avatar = avatarArray.getJSONObject(i);
+                            String slotId = avatar.getString("slotId");
+                            String itemId = avatar.getString("itemId");
+                            String itemName = avatar.getString("itemName");
+                            JSONObject clone = avatar.optJSONObject("clone");
+                            String itemIdClone = null;
+                            String itemNameClone = null;
+
+                            if (clone != null) {
+                                itemIdClone = clone.optString("itemId");
+                                itemNameClone = clone.optString("itemName");
+                            }
+
+                            if ("HEADGEAR".equals(slotId)) {
+                                headgearFound = true;
+
+                                String imageUrl;
+                                Bitmap headBitmap;
+
+                                if (itemIdClone == null || "null".equals(itemIdClone)) {
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    headBitmap = getBitmapFromURL(imageUrl);
+                                    avatarHatName.setText(itemName);
+                                } else {
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    headBitmap = getBitmapFromURL(imageUrl);
+                                    avatarHatName.setText(itemName + "\nㄴ " + itemNameClone);
+                                }
+                                if (headBitmap != null) {
+                                    avatarHat.setImageBitmap(headBitmap);
+                                }
+                            }
+                            else if("HAIR".equals(slotId)){
+                                hairFound = true;
+
+                                String imageUrl;
+                                Bitmap hairBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    hairBitmap = getBitmapFromURL(imageUrl);
+                                    avatarHairName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    hairBitmap = getBitmapFromURL(imageUrl);
+                                    avatarHairName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (hairBitmap != null){
+                                    avatarHair.setImageBitmap(hairBitmap);
+                                }
+                            }
+                            else if("FACE".equals(slotId)){
+                                faceFound = true;
+
+                                String imageUrl;
+                                Bitmap faceBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    faceBitmap = getBitmapFromURL(imageUrl);
+                                    avatarFaceName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    faceBitmap = getBitmapFromURL(imageUrl);
+                                    avatarFaceName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (faceBitmap != null){
+                                    avatarFace.setImageBitmap(faceBitmap);
+                                }
+                            }
+                            else if("JACKET".equals(slotId)){
+                                shirtFound = true;
+
+                                String imageUrl;
+                                Bitmap shirtBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    shirtBitmap = getBitmapFromURL(imageUrl);
+                                    avatarShirtName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    shirtBitmap = getBitmapFromURL(imageUrl);
+                                    avatarShirtName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (shirtBitmap != null){
+                                    avatarShirt.setImageBitmap(shirtBitmap);
+                                }
+                            }
+                            else if("PANTS".equals(slotId)){
+                                pantsFound = true;
+
+                                String imageUrl;
+                                Bitmap pantsBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    pantsBitmap = getBitmapFromURL(imageUrl);
+                                    avatarPantsName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    pantsBitmap = getBitmapFromURL(imageUrl);
+                                    avatarPantsName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (pantsBitmap != null){
+                                    avatarPants.setImageBitmap(pantsBitmap);
+                                }
+                            }
+                            else if("SHOES".equals(slotId)){
+                                shoesFound = true;
+
+                                String imageUrl;
+                                Bitmap shoesBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    shoesBitmap = getBitmapFromURL(imageUrl);
+                                    avatarShoeName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    shoesBitmap = getBitmapFromURL(imageUrl);
+                                    avatarShoeName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (shoesBitmap != null){
+                                    avatarShoe.setImageBitmap(shoesBitmap);
+                                }
+                            }
+                            else if("BREAST".equals(slotId)){
+                                neckFound = true;
+
+                                String imageUrl;
+                                Bitmap neckBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    neckBitmap = getBitmapFromURL(imageUrl);
+                                    avatarNeckName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    neckBitmap = getBitmapFromURL(imageUrl);
+                                    avatarNeckName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (neckBitmap != null){
+                                    avatarNeck.setImageBitmap(neckBitmap);
+                                }
+                            }
+                            else if("WAIST".equals(slotId)){
+                                beltFound = true;
+
+                                String imageUrl;
+                                Bitmap beltBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    beltBitmap = getBitmapFromURL(imageUrl);
+                                    avatarBeltName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    beltBitmap = getBitmapFromURL(imageUrl);
+                                    avatarBeltName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (beltBitmap != null){
+                                    avatarBelt.setImageBitmap(beltBitmap);
+                                }
+                            }
+                            else if("SKIN".equals(slotId)){
+                                skinFound = true;
+
+                                String imageUrl;
+                                Bitmap skinBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    skinBitmap = getBitmapFromURL(imageUrl);
+                                    avatarSkinName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    skinBitmap = getBitmapFromURL(imageUrl);
+                                    avatarSkinName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (skinBitmap != null){
+                                    avatarSkin.setImageBitmap(skinBitmap);
+                                }
+                            }
+                            
+                            else if("WEAPON".equals(slotId)){
+                                weaponFound = true;
+
+                                String imageUrl;
+                                Bitmap weaponBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    weaponBitmap = getBitmapFromURL(imageUrl);
+                                    avatarWeaponName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    weaponBitmap = getBitmapFromURL(imageUrl);
+                                    avatarWeaponName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (weaponBitmap != null){
+                                    avatarWeapon.setImageBitmap(weaponBitmap);
+                                }
+                            }
+                        }
+
+                        if (!headgearFound) {
+                            avatarHat.setVisibility(View.INVISIBLE);
+                            avatarHatName.setText("모자 아바타 없음");
+                        }else if(!hairFound){
+                            avatarHair.setVisibility(View.INVISIBLE);
+                            avatarHairName.setText("머리 아바타 없음");
+                        }else if(!faceFound){
+                            avatarFace.setVisibility(View.INVISIBLE);
+                            avatarFaceName.setText("얼굴 아바타 없음");
+                        }else if(!shirtFound){
+                            avatarShirt.setVisibility(View.INVISIBLE);
+                            avatarShirtName.setText("상의 아바타 없음");
+                        }else if(!pantsFound){
+                            avatarPants.setVisibility(View.INVISIBLE);
+                            avatarPantsName.setText("하의 아바타 없음");
+                        }else if(!shoesFound){
+                            avatarShoe.setVisibility(View.INVISIBLE);
+                            avatarShoeName.setText("신발 아바타 없음");
+                        }else if(!neckFound){
+                            avatarNeck.setVisibility(View.INVISIBLE);
+                            avatarNeckName.setText("목가슴 아바타 없음");
+                        }else if(!beltFound){
+                            avatarBelt.setVisibility(View.INVISIBLE);
+                            avatarBeltName.setText("허리 아바타 없음");
+                        }else if(!skinFound){
+                            avatarSkin.setVisibility(View.INVISIBLE);
+                            avatarSkinName.setText("피부 아바타 없음");
+                        }else if(!weaponFound){
+                            avatarWeapon.setVisibility(View.INVISIBLE);
+                            avatarWeaponName.setText("무기 아바타 없음");
+                        }
+
+                    }
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }).start();
+        }
+
+        private static void setAvatarInvisible() {
+            avatarWeapon.setVisibility(View.INVISIBLE);
+            avatarWeaponName.setText("무기 아바타 없음");
+            weaponEmblem.setVisibility(View.INVISIBLE);
+            avatarHat.setVisibility(View.INVISIBLE);
+            avatarHatName.setText("모자 아바타 없음");
+            hatEmblem.setVisibility(View.INVISIBLE);
+            avatarHair.setVisibility(View.INVISIBLE);
+            avatarHairName.setText("머리 아바타 없음");
+            hairEmblem.setVisibility(View.INVISIBLE);
+            avatarFace.setVisibility(View.INVISIBLE);
+            avatarFaceName.setText("얼굴 아바타 없음");
+            faceEmblem.setVisibility(View.INVISIBLE);
+            avatarShirt.setVisibility(View.INVISIBLE);
+            avatarShirtName.setText("상의 아바타 없음");
+            shirtEmblem.setVisibility(View.INVISIBLE);
+            avatarPants.setVisibility(View.INVISIBLE);
+            avatarPantsName.setText("하의 아바타 없음");
+            pantsEmblem.setVisibility(View.INVISIBLE);
+            avatarNeck.setVisibility(View.INVISIBLE);
+            avatarNeckName.setText("목가슴 아바타 없음");
+            neckEmblem.setVisibility(View.INVISIBLE);
+            avatarBelt.setVisibility(View.INVISIBLE);
+            avatarBeltName.setText("허리 아바타 없음");
+            beltEmblem.setVisibility(View.INVISIBLE);
+            avatarSkin.setVisibility(View.INVISIBLE);
+            avatarSkinName.setText("피부 아바타 없음");
+            skinEmblem.setVisibility(View.INVISIBLE);
+            avatarOra.setVisibility(View.INVISIBLE);
+            avatarOraName.setText("오라 없음");
+            oraEmblem.setVisibility(View.INVISIBLE);
+        }
+
+
+        private static Bitmap getBitmapFromURL(String url) {
             try {
                 HttpsURLConnection httpURLConnection = (HttpsURLConnection) new URL(url).openConnection();
                 httpURLConnection.setConnectTimeout(3000);
