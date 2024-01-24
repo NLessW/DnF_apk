@@ -140,4 +140,17 @@ Buff增強修改完成，發送參數過程中出現問題。<br/>
 實現buff級別並增加百分比<br/><br/>
 バッファ拡張の変更が完了しました。パラメータを送信する過程で問題が発生しました。<br/>
 バフレベルの実装とパーセンテージの向上<br/>
+<br/>
+
+10일차 (Day 10, 第10天, 10日目)<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/ec151c06-9a32-452e-b349-75082eda143d)
+<br/>
+아바타 탭 추가 <br/><br/>
+Add Avatar Tab<br/><br/>
+添加頭像選項卡<br/><br/>
+[Add Avatar] タブ <br/><br/>
+발견된 버그 : 버프강화 탭의 scrollview가 작동 안함<br/>
+Bug found: scrollview of buff reinforcement tab does not work<br/>
+發現錯誤: 滾動視圖的 buff reforcement 選項卡不起作用<br/>
+バグが見つかりました:バフ強化タブのスクロールビューが機能しません<br/>
 
