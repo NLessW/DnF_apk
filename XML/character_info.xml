@@ -2,7 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:anroid="http://schemas.android.com/tools"
     android:orientation="vertical">
 
 
@@ -1324,6 +1323,7 @@
                             android:fontFamily="@font/dnfmidium"
                             android:text="수(0) / "
                             android:textColor="#ffffff" />
+
                         <TextView
                             android:id="@+id/light"
                             android:layout_width="wrap_content"
@@ -1332,6 +1332,7 @@
                             android:fontFamily="@font/dnfmidium"
                             android:text="명(0) / "
                             android:textColor="#ffffff" />
+
                         <TextView
                             android:id="@+id/dark"
                             android:layout_width="wrap_content"
@@ -1343,368 +1344,365 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <ScrollView
+                <LinearLayout
+                    android:id="@+id/tab2"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:fillViewport="true">
+                    android:background="#000000"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/tab2"
+                    <ScrollView
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:background="#000000"
-                        android:orientation="vertical">
+                        android:fillViewport="true">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="#000000"
+                            android:orientation="vertical">
 
-                            <ImageView
-                                android:id="@+id/buffWeapon"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/buffWeaponName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 무기"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/buffWeapon"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
 
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/buffWeaponName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 무기"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <ImageView
-                                android:id="@+id/buffTitle"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/buffTitleName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 칭호"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffTitle"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffShirt"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffTitleName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 칭호"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffShirtName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 상의"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffShirt"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffShd"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffShirtName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 상의"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffShdName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 머리어깨"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffShd"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffPants"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffShdName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 머리어깨"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffPantsName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 하의"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/buffPants"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/buffPantsName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 하의"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <ImageView
-                                android:id="@+id/buffBelt"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/buffBeltName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 벨트"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffBelt"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffShoe"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffBeltName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 벨트"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffShoeName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 신발"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffShoe"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffHand"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffShoeName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 신발"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffHandName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 팔찌"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffHand"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffNeck"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffHandName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 팔찌"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffNeckName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 목걸이"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffNeck"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffRing"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffNeckName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 목걸이"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffRingName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 반지"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffRing"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffSub"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffRingName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 반지"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffSubName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 보조장비"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffSub"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffEar"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffSubName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 보조장비"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffEarName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 귀걸이"
-                                android:textColor="#ffffff" />
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/buffEar"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
 
-                            <ImageView
-                                android:id="@+id/buffStone"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/buffEarName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 귀걸이"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/buffStoneName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="버프 강화 마법석"
-                                android:textColor="#ffffff" />
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/buffStone"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+
+                                <TextView
+                                    android:id="@+id/buffStoneName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="40dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="버프 강화 마법석"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
-                </ScrollView>
-
-
-
-                <ScrollView
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:fillViewport="true">
+                    </ScrollView>
+                </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/tab3"
@@ -1713,421 +1711,469 @@
                         android:background="#000000"
                         android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                        <ScrollView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:fillViewport="true">
 
-                            <ImageView
-                                android:id="@+id/avatarWeapon"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:background="#000000"
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/avatarWeaponName"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="무기 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/weaponEmblem"
-                                android:layout_width="wrap_content"
+                                <ImageView
+                                    android:id="@+id/avatarWeapon"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:id="@+id/avatarWeaponName"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="40dp"
+                                            android:fontFamily="@font/dnfmidium"
+                                            android:text="무기 아바타\nㄴ 아바타"
+                                            android:textColor="#ffffff" />
+
+                                        <TextView
+                                            android:id="@+id/weaponEmblem"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="40dp"
+                                            android:text="엠블렘\n엠블렘"
+                                            android:textSize="10dp"
+                                            android:textColor="#ffffff"
+                                            android:visibility="visible"
+                                            android:fontFamily="@font/dnfmidium"/>
+                                    </LinearLayout>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+0 \n + 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/avatarHat"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/avatarHatName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="모자 아바타\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
 
-                            <ImageView
-                                android:id="@+id/avatarHat"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
+                                    <TextView
+                                        android:id="@+id/hatEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible"
+                                        android:textSize="10dp"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/avatarHatName"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="모자 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/hatEmblem"
-                                android:layout_width="wrap_content"
+                                <ImageView
+                                    android:id="@+id/avatarHair"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/avatarHairName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="머리 아바타\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/hairEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:textSize="10dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n + 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/avatarFace"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/avatarFaceName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="얼굴 아바타\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/faceEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:textSize="10dp"
+                                        android:visibility="visible"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
 
-                            <ImageView
-                                android:id="@+id/avatarHair"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
 
-                            <TextView
-                                android:id="@+id/avatarHairName"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="머리 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
-                            <TextView
-                                android:id="@+id/hairEmblem"
-                                android:layout_width="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/avatarShirt"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/avatarShirtName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="상의 아바타\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/shirtEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible"
+                                        android:textSize="10dp"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n+ 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/avatarPants"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
 
-                            <ImageView
-                                android:id="@+id/avatarFace"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
+                                    <TextView
+                                        android:id="@+id/avatarPantsName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="하의 아바타\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
 
-                            <TextView
-                                android:id="@+id/avatarFaceName"
-                                android:layout_width="wrap_content"
+                                    <TextView
+                                        android:id="@+id/pantsEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:textSize="10dp"
+                                        android:visibility="visible"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="얼굴 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
-                            <TextView
-                                android:id="@+id/faceEmblem"
-                                android:layout_width="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/avatarShoe"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/avatarShoeName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="신발 아바타\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
+
+                                    <TextView
+                                        android:id="@+id/shoeEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible"
+                                        android:textSize="10dp"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                    </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n + 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/avatarNeck"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/avatarNeckName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="목가슴 아바타\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/neckEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible"
+                                        android:textSize="10dp"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/avatarShirt"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/avatarShirtName"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="상의 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
-                            <TextView
-                                android:id="@+id/shirtEmblem"
-                                android:layout_width="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/avatarBelt"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/avatarBeltName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="허리 아바타\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/beltEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible"
+                                        android:textSize="10dp"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n+ 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/avatarSkin"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/avatarSkinName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="피부 아바타"
+                                        android:textColor="#ffffff" />
 
-                            <ImageView
-                                android:id="@+id/avatarPants"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
+                                    <TextView
+                                        android:id="@+id/skinEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible"
+                                        android:textSize="10dp"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/avatarPantsName"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="하의 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/pantsEmblem"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n+ 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/avatarOra"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/weapon" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/avatarOraName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="오라\nㄴ 아바타"
+                                        android:textColor="#ffffff" />
 
-                            <ImageView
-                                android:id="@+id/avatarShoe"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/avatarShoeName"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="신발 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
-
-                            <TextView
-                                android:id="@+id/shoeEmblem"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n+ 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/avatarNeck"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/avatarNeckName"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="목가슴 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
-                            <TextView
-                                android:id="@+id/neckEmblem"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n+ 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/avatarBelt"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/avatarBeltName"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="허리 아바타\nㄴ 아바타"
-                                android:textColor="#ffffff" />
-                            <TextView
-                                android:id="@+id/beltEmblem"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n+ 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/avatarSkin"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/avatarSkinName"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="피부 아바타"
-                                android:textColor="#ffffff" />
-
-                            <TextView
-                                android:id="@+id/skinEmblem"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n+ 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/borderbottom"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/avatarOra"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:visibility="visible"
-                                app:srcCompat="@drawable/weapon" />
-
-                            <TextView
-                                android:id="@+id/avatarOraName"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:fontFamily="@font/dnfmidium"
-                                android:text="오라\nㄴ 아바타"
-                                android:textColor="#ffffff" />
-
-                            <TextView
-                                android:id="@+id/oraEmblem"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="40dp"
-                                android:text="+ 0\n+ 0"
-                                android:textColor="#ffffff"
-                                android:visibility="visible"
-                                android:fontFamily="@font/dnfmidium"/>
-                        </LinearLayout>
-
+                                    <TextView
+                                        android:id="@+id/oraEmblem"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="40dp"
+                                        android:text="엠블렘\n엠블렘"
+                                        android:textColor="#ffffff"
+                                        android:visibility="visible"
+                                        android:textSize="10dp"
+                                        android:fontFamily="@font/dnfmidium"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                            </LinearLayout>
+                        </ScrollView>
                     </LinearLayout>
-                </ScrollView>
+
             </FrameLayout>
         </LinearLayout>
 
