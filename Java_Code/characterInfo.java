@@ -27,6 +27,7 @@ import java.net.URL;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -62,7 +63,7 @@ public class characterInfo extends TabActivity {
         Intent intent = getIntent();
         characterName = intent.getStringExtra("nickName");
         server = intent.getStringExtra("serverSelect");
-        apiKey = "apiKey";
+        apiKey = "apikey";
 
         eShd = findViewById(R.id.eShd);
         eShirt = findViewById(R.id.eShirt);
@@ -230,7 +231,7 @@ public class characterInfo extends TabActivity {
         TabHost.TabSpec spec2 = tabHost.newTabSpec("버프강화").setIndicator("버프강화");
         spec2.setContent(R.id.tab2);
 
-        TabHost.TabSpec spec3 = tabHost.newTabSpec("tab3").setIndicator("Tab 3");
+        TabHost.TabSpec spec3 = tabHost.newTabSpec("아바타").setIndicator("아바타");
         spec3.setContent(R.id.tab3);
 
         tabHost.addTab(spec1);
@@ -277,7 +278,6 @@ public class characterInfo extends TabActivity {
     }
 
     public static class CharacterUtils {
-        // 캐릭터 정보를 담는 클래스 정의
         public static class CharacterInfo {
             private final String characterId;
             private final int fame;
@@ -297,11 +297,10 @@ public class characterInfo extends TabActivity {
         }
         public static CharacterInfo getCharacterInfo(Context context, String server, String characterName, String apiKey) {
             try {
-                // 캐릭터 정보를 조회하는 API 호출
                 Connection.Response response = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters")
                         .data("characterName", characterName)
-                        .data("limit", "1")  // 최대 1개의 결과만 필요
-                        .data("wordType", "full")  // 전체 일치 검색
+                        .data("limit", "1") 
+                        .data("wordType", "full")  
                         .data("apikey", apiKey)
                         .ignoreContentType(true)
                         .method(Connection.Method.GET)
@@ -1895,9 +1894,22 @@ public class characterInfo extends TabActivity {
                             String slotId = avatar.getString("slotId");
                             String itemId = avatar.getString("itemId");
                             String itemName = avatar.getString("itemName");
+                            String rairity = avatar.getString("itemRarity");
                             JSONObject clone = avatar.optJSONObject("clone");
+                            JSONObject emblems = avatar.optJSONObject("emblems");
+
                             String itemIdClone = null;
                             String itemNameClone = null;
+
+                            String itemIdEmblems = null;
+                            String itemNameEmblems = null;
+                            String itemRarityEmblems = null;
+
+                            if (emblems != null){
+                                itemIdEmblems = emblems.optString("itemId");
+                                itemNameEmblems = emblems.optString("itemName");
+                                itemRarityEmblems = emblems.optString("itemRarity");
+                            }
 
                             if (clone != null) {
                                 itemIdClone = clone.optString("itemId");
@@ -2095,6 +2107,25 @@ public class characterInfo extends TabActivity {
                                     avatarWeapon.setImageBitmap(weaponBitmap);
                                 }
                             }
+                            else if("AURORA".equals(slotId)){
+                                oraFound = true;
+                                
+                                String imageUrl;
+                                Bitmap oraBitmap;
+
+                                if(itemIdClone == null || "null".equals(itemIdClone)){
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
+                                    oraBitmap = getBitmapFromURL(imageUrl);
+                                    avatarOraName.setText(itemName);
+                                }else{
+                                    imageUrl = "https://img-api.neople.co.kr/df/items/" + itemIdClone;
+                                    oraBitmap = getBitmapFromURL(imageUrl);
+                                    avatarOraName.setText(itemName +"\nㄴ "+ itemNameClone);
+                                }
+                                if (oraBitmap != null){
+                                    avatarOra.setImageBitmap(oraBitmap);
+                                }
+                            }
                         }
 
                         if (!headgearFound) {
@@ -2127,6 +2158,9 @@ public class characterInfo extends TabActivity {
                         }else if(!weaponFound){
                             avatarWeapon.setVisibility(View.INVISIBLE);
                             avatarWeaponName.setText("무기 아바타 없음");
+                        }else if(!oraFound){
+                            avatarOra.setVisibility(View.INVISIBLE);
+                            avatarOraName.setText("오라 아바타 없음");
                         }
 
                     }
