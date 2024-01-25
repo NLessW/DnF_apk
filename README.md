@@ -154,3 +154,10 @@ Bug found: scrollview of buff reinforcement tab does not work<br/>
 發現錯誤: 滾動視圖的 buff reforcement 選項卡不起作用<br/>
 バグが見つかりました:バフ強化タブのスクロールビューが機能しません<br/>
 
+11일차 (Day 11, 第11天, 11日目)<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/5ccc9060-3e0e-4505-81a6-673ed20459b8)
+<br/>
+scrollview 버그 수정 및 아바타 출력 양식 변경<br/><br/>
+Fix scrollview bugs and change avatar output forms<br/><br/>
+修復scrollview錯誤並更改頭像輸出表單<br/><br/>
+スクロールビューのバグを修正し、アバター出力フォームを変更する<br/>
