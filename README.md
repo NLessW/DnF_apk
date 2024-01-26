@@ -161,3 +161,11 @@ scrollview 버그 수정 및 아바타 출력 양식 변경<br/><br/>
 Fix scrollview bugs and change avatar output forms<br/><br/>
 修復scrollview錯誤並更改頭像輸出表單<br/><br/>
 スクロールビューのバグを修正し、アバター出力フォームを変更する<br/>
+
+12일차 (Day 12, 第12天, 12日目)<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/94a5fa86-23de-44ad-8b05-931f280e3780)<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/eb987759-2ed1-4daf-8541-44b2f7aaed91)<br/>
+앱 아이콘 및 이름 변경, 아바타 엠블렘 구현 <br/><br/>
+App icon and name change, Avatar Emblem implementation <br/><br/>
+應用程序圖標和名稱更改，頭像徽章實現 <br/><br/>
+アプリアイコンと名称変更、アバターエンブレム実装<br/>
