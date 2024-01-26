@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eShd"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -70,7 +70,7 @@
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                 </RelativeLayout>
@@ -105,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eShirt"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -123,7 +123,7 @@
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
                 </RelativeLayout>
             </LinearLayout>
@@ -163,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/ePants"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -181,7 +181,7 @@
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
                 </RelativeLayout>
 
@@ -214,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eBelt"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -232,7 +232,7 @@
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                 </RelativeLayout>
@@ -277,7 +277,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eShoe"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -289,13 +289,13 @@
                         android:id="@+id/shoeMix"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="28.5dp"
+                        android:layout_marginLeft="26dp"
                         android:layout_marginTop="39dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                 </RelativeLayout>
@@ -519,7 +519,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eWeapon"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -537,7 +537,7 @@
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합융"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
 
@@ -604,7 +604,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eHand"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -616,13 +616,13 @@
                         android:id="@+id/handMix"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="28dp"
+                        android:layout_marginLeft="27dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                     <TextView
@@ -674,7 +674,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eNeck"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -686,13 +686,13 @@
                         android:id="@+id/neckMix"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="28dp"
+                        android:layout_marginLeft="27dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                     <TextView
@@ -749,7 +749,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eSub"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -761,13 +761,13 @@
                         android:id="@+id/subMix"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="28dp"
+                        android:layout_marginLeft="27dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                     <TextView
@@ -819,7 +819,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eRing"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -831,13 +831,13 @@
                         android:id="@+id/ringMix"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="28dp"
+                        android:layout_marginLeft="27dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                     <TextView
@@ -894,7 +894,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eEar"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:gravity="top"
@@ -906,13 +906,13 @@
                         android:id="@+id/earMix"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="28dp"
+                        android:layout_marginLeft="27dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                     <TextView
@@ -963,7 +963,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/eStone"
                         android:layout_marginLeft="1dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="5dp"
                         android:background="#80000000"
                         android:gravity="top"
                         android:text="+0"
@@ -974,13 +974,13 @@
                         android:id="@+id/stoneMix"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="28dp"
+                        android:layout_marginLeft="27dp"
                         android:layout_marginTop="38dp"
                         android:background="#80000000"
                         android:fontFamily="@font/dnfmidium"
                         android:text="융합"
                         android:textColor="#ffffff"
-                        android:textSize="13sp"
+                        android:textSize="11sp"
                         android:visibility="visible" />
 
                     <TextView
@@ -1043,7 +1043,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="30dp"
                             android:layout_marginBottom="4dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -1071,7 +1071,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="5dp"
                             android:layout_marginBottom="4dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -1109,7 +1109,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="30dp"
                             android:layout_marginBottom="7dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -1148,7 +1148,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="3dp"
                                 android:fontFamily="@font/dnfmidium"
-                                android:text="💥 물리크리티컬   + 0.0 %"
+                                android:text="💥 물리크리티컬  + 0.0 %"
                                 android:textColor="#ffffff" />
 
 
@@ -1166,7 +1166,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="5dp"
                             android:layout_marginBottom="7dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -1205,7 +1205,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="3dp"
                                 android:fontFamily="@font/dnfmidium"
-                                android:text="🧿 마법크리티컬   0"
+                                android:text="🧿 마법크리티컬  0"
                                 android:textColor="#ffffff" />
 
                             <TextView
@@ -1232,7 +1232,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="30dp"
                             android:layout_marginBottom="7dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -1260,7 +1260,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="25dp"
+                            android:layout_marginLeft="5dp"
                             android:layout_marginBottom="7dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -1299,7 +1299,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="30dp"
                             android:layout_marginRight="20dp"
                             android:layout_marginBottom="3dp"
                             android:fontFamily="@font/dnfmidium"
