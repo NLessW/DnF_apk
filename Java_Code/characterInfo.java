@@ -186,6 +186,7 @@ public class characterInfo extends TabActivity {
         hairEmblem = findViewById(R.id.hairEmblem);
         avatarFace = findViewById(R.id.avatarFace);
         avatarFaceName = findViewById(R.id.avatarFaceName);
+        faceEmblem = findViewById(R.id.faceEmblem);
         avatarShirt = findViewById(R.id.avatarShirt);
         avatarShirtName = findViewById(R.id.avatarShirtName);
         shirtEmblem = findViewById(R.id.shirtEmblem);
@@ -278,6 +279,7 @@ public class characterInfo extends TabActivity {
     }
 
     public static class CharacterUtils {
+        // 캐릭터 정보를 담는 클래스 정의
         public static class CharacterInfo {
             private final String characterId;
             private final int fame;
@@ -297,10 +299,11 @@ public class characterInfo extends TabActivity {
         }
         public static CharacterInfo getCharacterInfo(Context context, String server, String characterName, String apiKey) {
             try {
+                // 캐릭터 정보를 조회하는 API 호출
                 Connection.Response response = Jsoup.connect("https://api.neople.co.kr/df/servers/" + server + "/characters")
                         .data("characterName", characterName)
-                        .data("limit", "1") 
-                        .data("wordType", "full")  
+                        .data("limit", "1")  // 최대 1개의 결과만 필요
+                        .data("wordType", "full")  // 전체 일치 검색
                         .data("apikey", apiKey)
                         .ignoreContentType(true)
                         .method(Connection.Method.GET)
@@ -1364,12 +1367,12 @@ public class characterInfo extends TabActivity {
                         }
                         else if("물리 크리티컬".equals(name)){
                             phyCritical.post(() -> {
-                                phyCritical.setText("\uD83D\uDCA5 물리크리티컬   +"+ fValue + "%");
+                                phyCritical.setText("\uD83D\uDCA5 물리크리티컬  +"+ fValue + "%");
                             });
                         }
                         else if("마법 크리티컬".equals(name)){
                             magicCritical.post(() -> {
-                               magicCritical.setText("\uD83E\uDDFF 마법크리티컬   +"+fValue+"%");
+                               magicCritical.setText("\uD83E\uDDFF 마법크리티컬  +"+fValue+"%");
                             });
                         }
                         else if("독립 공격".equals(name)){
@@ -1894,27 +1897,17 @@ public class characterInfo extends TabActivity {
                             String slotId = avatar.getString("slotId");
                             String itemId = avatar.getString("itemId");
                             String itemName = avatar.getString("itemName");
-                            String rairity = avatar.getString("itemRarity");
-                            JSONObject clone = avatar.optJSONObject("clone");
-                            JSONObject emblems = avatar.optJSONObject("emblems");
 
+                            JSONObject clone = avatar.optJSONObject("clone");
                             String itemIdClone = null;
                             String itemNameClone = null;
-
-                            String itemIdEmblems = null;
-                            String itemNameEmblems = null;
-                            String itemRarityEmblems = null;
-
-                            if (emblems != null){
-                                itemIdEmblems = emblems.optString("itemId");
-                                itemNameEmblems = emblems.optString("itemName");
-                                itemRarityEmblems = emblems.optString("itemRarity");
-                            }
 
                             if (clone != null) {
                                 itemIdClone = clone.optString("itemId");
                                 itemNameClone = clone.optString("itemName");
                             }
+
+                            JSONArray emblemsArray = avatar.optJSONArray("emblems");
 
                             if ("HEADGEAR".equals(slotId)) {
                                 headgearFound = true;
@@ -1931,10 +1924,35 @@ public class characterInfo extends TabActivity {
                                     headBitmap = getBitmapFromURL(imageUrl);
                                     avatarHatName.setText(itemName + "\nㄴ " + itemNameClone);
                                 }
+
                                 if (headBitmap != null) {
                                     avatarHat.setImageBitmap(headBitmap);
                                 }
+
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        hatEmblem.setVisibility(View.VISIBLE);
+                                        hatEmblem.setText(emblemText.toString());
+                                    } else {
+                                        hatEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    hatEmblem.setText("엠블렘 없음");
+                                }
                             }
+
+
+
                             else if("HAIR".equals(slotId)){
                                 hairFound = true;
 
@@ -1952,6 +1970,26 @@ public class characterInfo extends TabActivity {
                                 }
                                 if (hairBitmap != null){
                                     avatarHair.setImageBitmap(hairBitmap);
+                                }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        hairEmblem.setVisibility(View.VISIBLE);
+                                        hairEmblem.setText(emblemText.toString());
+                                    } else {
+                                        hairEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    hairEmblem.setText("엠블렘 없음");
                                 }
                             }
                             else if("FACE".equals(slotId)){
@@ -1972,6 +2010,25 @@ public class characterInfo extends TabActivity {
                                 if (faceBitmap != null){
                                     avatarFace.setImageBitmap(faceBitmap);
                                 }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        faceEmblem.setVisibility(View.VISIBLE);
+                                        faceEmblem.setText(emblemText.toString());
+                                    } else {
+                                        faceEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    faceEmblem.setText("엠블렘 없음");
+                                }
                             }
                             else if("JACKET".equals(slotId)){
                                 shirtFound = true;
@@ -1991,7 +2048,28 @@ public class characterInfo extends TabActivity {
                                 if (shirtBitmap != null){
                                     avatarShirt.setImageBitmap(shirtBitmap);
                                 }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2 || emblemSlotNo == 3) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        shirtEmblem.setVisibility(View.VISIBLE);
+                                        shirtEmblem.setText(emblemText.toString());
+                                    } else {
+                                        shirtEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    shirtEmblem.setText("엠블렘 없음");
+                                }
                             }
+
                             else if("PANTS".equals(slotId)){
                                 pantsFound = true;
 
@@ -2009,6 +2087,26 @@ public class characterInfo extends TabActivity {
                                 }
                                 if (pantsBitmap != null){
                                     avatarPants.setImageBitmap(pantsBitmap);
+                                }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2 || emblemSlotNo == 3) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        pantsEmblem.setVisibility(View.VISIBLE);
+                                        pantsEmblem.setText(emblemText.toString());
+                                    } else {
+                                        pantsEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    pantsEmblem.setText("엠블렘 없음");
                                 }
                             }
                             else if("SHOES".equals(slotId)){
@@ -2029,6 +2127,26 @@ public class characterInfo extends TabActivity {
                                 if (shoesBitmap != null){
                                     avatarShoe.setImageBitmap(shoesBitmap);
                                 }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        shoeEmblem.setVisibility(View.VISIBLE);
+                                        shoeEmblem.setText(emblemText.toString());
+                                    } else {
+                                        shoeEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    shoeEmblem.setText("엠블렘 없음");
+                                }
                             }
                             else if("BREAST".equals(slotId)){
                                 neckFound = true;
@@ -2047,6 +2165,26 @@ public class characterInfo extends TabActivity {
                                 }
                                 if (neckBitmap != null){
                                     avatarNeck.setImageBitmap(neckBitmap);
+                                }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        neckEmblem.setVisibility(View.VISIBLE);
+                                        neckEmblem.setText(emblemText.toString());
+                                    } else {
+                                        neckEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    neckEmblem.setText("엠블렘 없음");
                                 }
                             }
                             else if("WAIST".equals(slotId)){
@@ -2067,6 +2205,26 @@ public class characterInfo extends TabActivity {
                                 if (beltBitmap != null){
                                     avatarBelt.setImageBitmap(beltBitmap);
                                 }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        beltEmblem.setVisibility(View.VISIBLE);
+                                        beltEmblem.setText(emblemText.toString());
+                                    } else {
+                                        beltEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    beltEmblem.setText("엠블렘 없음");
+                                }
                             }
                             else if("SKIN".equals(slotId)){
                                 skinFound = true;
@@ -2086,8 +2244,28 @@ public class characterInfo extends TabActivity {
                                 if (skinBitmap != null){
                                     avatarSkin.setImageBitmap(skinBitmap);
                                 }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        skinEmblem.setVisibility(View.VISIBLE);
+                                        skinEmblem.setText(emblemText.toString());
+                                    } else {
+                                        skinEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    skinEmblem.setText("엠블렘 없음");
+                                }
                             }
-                            
+
                             else if("WEAPON".equals(slotId)){
                                 weaponFound = true;
 
@@ -2106,10 +2284,30 @@ public class characterInfo extends TabActivity {
                                 if (weaponBitmap != null){
                                     avatarWeapon.setImageBitmap(weaponBitmap);
                                 }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        weaponEmblem.setVisibility(View.VISIBLE);
+                                        weaponEmblem.setText(emblemText.toString());
+                                    } else {
+                                        weaponEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    weaponEmblem.setText("엠블렘 없음");
+                                }
                             }
                             else if("AURORA".equals(slotId)){
                                 oraFound = true;
-                                
+
                                 String imageUrl;
                                 Bitmap oraBitmap;
 
@@ -2124,6 +2322,26 @@ public class characterInfo extends TabActivity {
                                 }
                                 if (oraBitmap != null){
                                     avatarOra.setImageBitmap(oraBitmap);
+                                }
+                                if (emblemsArray != null && emblemsArray.length() > 0) {
+                                    StringBuilder emblemText = new StringBuilder();
+                                    for (int j = 0; j < emblemsArray.length(); j++) {
+                                        JSONObject emblem = emblemsArray.getJSONObject(j);
+                                        int emblemSlotNo = emblem.optInt("slotNo");
+                                        String emblemName = emblem.optString("itemName");
+
+                                        if (emblemSlotNo == 1 || emblemSlotNo == 2) {
+                                            emblemText.append("- " + emblemName).append("\n");
+                                        }
+                                    }
+                                    if (emblemText.length() > 0) {
+                                        oraEmblem.setVisibility(View.VISIBLE);
+                                        oraEmblem.setText(emblemText.toString());
+                                    } else {
+                                        oraEmblem.setText("엠블렘 없음");
+                                    }
+                                } else {
+                                    oraEmblem.setText("엠블렘 없음");
                                 }
                             }
                         }
