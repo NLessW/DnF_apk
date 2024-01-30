@@ -48,13 +48,22 @@ public class characterInfo extends TabActivity {
             buffHandName, buffNeckName, buffRingName, buffSubName, buffEarName, buffStoneName,buffTitleName, skillCri,
             avatarWeaponName, weaponEmblem, avatarHatName, hatEmblem, avatarHairName, hairEmblem, avatarFaceName, faceEmblem,
             avatarShirtName, shirtEmblem, avatarPantsName, pantsEmblem, avatarShoeName, shoeEmblem,
-            avatarNeckName, neckEmblem, avatarBeltName, beltEmblem, avatarSkinName, skinEmblem, avatarOraName, oraEmblem;
+            avatarNeckName, neckEmblem, avatarBeltName, beltEmblem, avatarSkinName, skinEmblem, avatarOraName, oraEmblem,
+
+            eqWeaponName, eqWeaponRein, eqTitleName, eqShirtName, eqShirtRein, eqPantsName, eqPantsRein, eqShdName, eqShdRein, eqBeltName, eqBeltRein,
+
+            eqShoeName, eqShoeRein, eqHandName, eqHandRein, eqNeckName, eqNeckRein, eqRingName, eqRingRein, eqSubName, eqSubRein, eqEarName, eqEarRein, eqStoneName, eqStoneRein,
+
+            weaponInchant, titleInchant, shirtInchant, shdInchant, pantsInchant, beltInchant, shoeInchant, handInchant, neckInchant, ringInchant, subInchant, earInchant, stoneInchant;
             ;
 
     public static ImageView eShd, eShirt, ePants, eBelt, eShoe, eWeapon, eTitle, eHand, eNeck, eSub, eRing, eEar, eStone, charPicture,
             shdMist, shirtMist, pantsMist, beltMist, shoeMist, handMist, neckMist, subMist, ringMist, earMist, stoneMist,
             buffWeapon, buffTitle, buffShirt, buffPants, buffBelt, buffShoe, buffShd, buffHand, buffNeck, buffRing, buffSub, buffEar, buffStone,
-            skillIcon, avatarWeapon, avatarHat, avatarHair, avatarFace, avatarShirt, avatarPants, avatarShoe, avatarNeck, avatarBelt, avatarSkin, avatarOra;
+            skillIcon, avatarWeapon, avatarHat, avatarHair, avatarFace, avatarShirt, avatarPants, avatarShoe, avatarNeck, avatarBelt, avatarSkin, avatarOra,
+            eqWeapon, eqTitle, eqShirt, eqShd, eqPants, eqBelt, eqShoe, eqHand, eqNeck, eqRing, eqSub, eqEar, eqStone, eShirtMist, eShdMist, ePantsMist, eBeltMist,
+
+            eShoeMist, eHandMist, eNeckMist, eRingMist, eSubMist, eEarMist, eStoneMist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -208,6 +217,68 @@ public class characterInfo extends TabActivity {
         avatarOra = findViewById(R.id.avatarOra);
         avatarOraName = findViewById(R.id.avatarOraName);
         oraEmblem = findViewById(R.id.oraEmblem);
+        eqWeapon = findViewById(R.id.eqWeapon);
+        eqWeaponName = findViewById(R.id.eqWeaponName);
+        eqWeaponRein = findViewById(R.id.eqWeaponRein);
+        weaponInchant = findViewById(R.id.weaponInchant);
+        eqTitle = findViewById(R.id.eqTitle);
+        eqTitleName = findViewById(R.id.eqTitleName);
+        titleInchant = findViewById(R.id.titleInchant);
+        eqShd = findViewById(R.id.eqShd);
+        eqShdName = findViewById(R.id.eqShdName);
+        eqShdRein = findViewById(R.id.eqShdRein);
+        shdInchant = findViewById(R.id.shdInchant);
+        eqShirt = findViewById(R.id.eqShirt);
+        eqShirtName = findViewById(R.id.eqShirtName);
+        eqShirtRein = findViewById(R.id.eqShirtRein);
+        shirtInchant = findViewById(R.id.shirtInchant);
+        eqPants = findViewById(R.id.eqPants);
+        eqPantsName = findViewById(R.id.eqPantsName);
+        eqPantsRein = findViewById(R.id.eqPantsRein);
+        pantsInchant = findViewById(R.id.pantsInchant);
+        eqBelt = findViewById(R.id.eqBelt);
+        eqBeltName = findViewById(R.id.eqBeltName);
+        eqBeltRein = findViewById(R.id.eqBeltRein);
+        beltInchant = findViewById(R.id.beltInchant);
+        eqShoe = findViewById(R.id.eqShoe);
+        eqShoeName = findViewById(R.id.eqShoeName);
+        eqShoeRein = findViewById(R.id.eqShoeRein);
+        shoeInchant = findViewById(R.id.shoeInchant);
+        eqHand = findViewById(R.id.eqHand);
+        eqHandName = findViewById(R.id.eqHandName);
+        eqHandRein = findViewById(R.id.eqHandRein);
+        handInchant = findViewById(R.id.handInchant);
+        eqNeck = findViewById(R.id.eqNeck);
+        eqNeckName = findViewById(R.id.eqNeckName);
+        eqNeckRein = findViewById(R.id.eqNeckRein);
+        neckInchant = findViewById(R.id.neckInchant);
+        eqRing = findViewById(R.id.eqRing);
+        eqRingName = findViewById(R.id.eqRingName);
+        eqRingRein = findViewById(R.id.eqRingRein);
+        ringInchant = findViewById(R.id.ringInchant);
+        eqSub = findViewById(R.id.eqSub);
+        eqSubName = findViewById(R.id.eqSubName);
+        eqSubRein = findViewById(R.id.eqSubRein);
+        subInchant = findViewById(R.id.subInchant);
+        eqEar = findViewById(R.id.eqEar);
+        eqEarName = findViewById(R.id.eqEarName);
+        eqEarRein = findViewById(R.id.eqEarRein);
+        earInchant = findViewById(R.id.earInchant);
+        eqStone = findViewById(R.id.eqStone);
+        eqStoneName = findViewById(R.id.eqStoneName);
+        eqStoneRein = findViewById(R.id.eqStoneRein);
+        stoneInchant = findViewById(R.id.stoneInchant);
+        eShirtMist = findViewById(R.id.eShirtMist);
+        eShdMist = findViewById(R.id.eShdMist);
+        ePantsMist = findViewById(R.id.ePantsMist);
+        eBeltMist = findViewById(R.id.eBeltMist);
+        eShoeMist = findViewById(R.id.eShoeMist);
+        eHandMist = findViewById(R.id.eHandMist);
+        eNeckMist = findViewById(R.id.eNeckMist);
+        eRingMist = findViewById(R.id.eRingMist);
+        eSubMist = findViewById(R.id.eSubMist);
+        eEarMist = findViewById(R.id.eEarMist);
+        eStoneMist = findViewById(R.id.eStoneMist);
         userName.setText(characterName);
 
         ImageView famepng = findViewById(R.id.famepng);
@@ -223,21 +294,35 @@ public class characterInfo extends TabActivity {
         subMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
         earMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
         stoneMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
-
+        eShdMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eShirtMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        ePantsMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eBeltMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eShoeMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eHandMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eNeckMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eRingMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eSubMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eEarMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
+        eStoneMist.setImageDrawable(getResources().getDrawable(R.drawable.mist));
         TabHost tabHost = getTabHost();
 
         TabHost.TabSpec spec1 = tabHost.newTabSpec("Stats").setIndicator("Stats");;
         spec1.setContent(R.id.tab1);
 
-        TabHost.TabSpec spec2 = tabHost.newTabSpec("버프강화").setIndicator("버프강화");
+        TabHost.TabSpec spec2 = tabHost.newTabSpec("장비").setIndicator("장비");
         spec2.setContent(R.id.tab2);
 
-        TabHost.TabSpec spec3 = tabHost.newTabSpec("아바타").setIndicator("아바타");
+        TabHost.TabSpec spec3 = tabHost.newTabSpec("버프강화").setIndicator("버프강화");
         spec3.setContent(R.id.tab3);
+
+        TabHost.TabSpec spec4 = tabHost.newTabSpec("아바타").setIndicator("아바타");
+        spec4.setContent(R.id.tab4);
 
         tabHost.addTab(spec1);
         tabHost.addTab(spec2);
         tabHost.addTab(spec3);
+        tabHost.addTab(spec4);
         tabHost.setCurrentTab(0);
 
         if(server.equals("cain")){
@@ -395,6 +480,7 @@ public class characterInfo extends TabActivity {
                             JSONObject equipment = equipmentArray.getJSONObject(i);
                             String itemId = equipment.getString("itemId");
                             String slotName = equipment.getString("slotName");
+                            String eItemName = equipment.getString("itemName");
                             String upgradeInfo = equipment.isNull("upgradeInfo") ? null : equipment.getString("upgradeInfo");
                             String amplificationName = equipment.isNull("amplificationName") ? null : equipment.getString("amplificationName");
                             boolean pureMistGear = equipment.isNull("pureMistGear") ? false : equipment.getBoolean("pureMistGear");
@@ -403,6 +489,9 @@ public class characterInfo extends TabActivity {
                             int reinforce = equipment.getInt("reinforce");
                             int refine = equipment.getInt("refine");
                             if ("무기".equals(slotName)) {
+                                eqWeaponName.post(() ->{
+                                   eqWeaponName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap weaponBitmap = getBitmapFromURL(imageUrl);
                                 int width = eWeapon.getWidth();
@@ -410,6 +499,9 @@ public class characterInfo extends TabActivity {
                                 Bitmap scaledBitmap = Bitmap.createScaledBitmap(weaponBitmap, width, height, true);
                                 eWeapon.post(() -> {
                                     eWeapon.setImageBitmap(scaledBitmap);
+                                });
+                                eqWeapon.post(() -> {
+                                    eqWeapon.setImageBitmap(weaponBitmap);
                                 });
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
@@ -430,10 +522,8 @@ public class characterInfo extends TabActivity {
                                         });
                                     }
                                 } else {
-                                    weaponMix.post(() -> {
-                                        weaponMix.setText("");
-                                        weaponMix.setVisibility(View.INVISIBLE);  // Hide weaponMix
-                                    });
+                                    weaponMix.setText("");
+                                    weaponMix.setVisibility(View.INVISIBLE);
                                 }
 
                                 if (reinforce > 0) {
@@ -441,9 +531,16 @@ public class characterInfo extends TabActivity {
                                         weaponReinForce.setText("+" + reinforce);
                                         weaponReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqWeaponRein.post(() -> {
+                                       eqWeaponRein.setText("+" + reinforce);
+                                       eqWeaponRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     weaponReinForce.post(() -> {
                                         weaponReinForce.setText("+0");
+                                    });
+                                    eqWeaponRein.post(() -> {
+                                       eqWeaponRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -451,11 +548,20 @@ public class characterInfo extends TabActivity {
                                         weaponReinForce.setText("+" + reinforce);
                                         weaponReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqWeaponRein.post(() ->{
+                                       eqWeaponRein.setText("+" + reinforce);
+                                       eqWeaponRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     weaponReinForce.post(() -> {
                                         weaponReinForce.setText("+" + reinforce);
                                         weaponReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqWeaponRein.post(() -> {
+                                        eqWeaponRein.setText("+" + reinforce);
+                                        eqWeaponRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
+
                                 }
                                 if (refine > 0) {
                                     weaponInfo.post(() -> {
@@ -478,8 +584,18 @@ public class characterInfo extends TabActivity {
                                 eTitle.post(() -> {
                                     eTitle.setImageBitmap(scaledBitmap);
                                 });
+                                eqTitle.post(() -> {
+                                   eqTitle.setImageBitmap(titleBitmap);
+                                });
+                                eqTitleName.post(() -> {
+                                   eqTitleName.setText(eItemName);
+                                });
                             }
                             else if ("상의".equals(slotName)) {
+                                eqShirtName.post(() -> {
+                                   eqShirtName.setText(eItemName);
+                                });
+
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap shirtBitmap = getBitmapFromURL(imageUrl);
                                 int width = eShirt.getWidth();
@@ -488,14 +604,22 @@ public class characterInfo extends TabActivity {
                                 eShirt.post(() -> {
                                     eShirt.setImageBitmap(scaledBitmap);
                                 });
-
+                                eqShirt.post(() -> {
+                                   eqShirt.setImageBitmap(shirtBitmap);
+                                });
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     shirtMist.post(() -> {
                                         shirtMist.setVisibility(View.VISIBLE);
                                     });
+                                    eShirtMist.post(() -> {
+                                       eShirtMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     shirtMist.post(() -> {
                                         shirtMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eShirtMist.post(() -> {
+                                        eShirtMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -527,9 +651,17 @@ public class characterInfo extends TabActivity {
                                         shirtReinForce.setText("+" + reinforce);
                                         shirtReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqShirtRein.post(() -> {
+                                       eqShirtRein.setText("+" + reinforce);
+                                       eqShirtRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     shirtReinForce.post(() -> {
                                         shirtReinForce.setText("+0");
+                                    });
+
+                                    eqShirtRein.post(() -> {
+                                        eqShirtRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -537,14 +669,25 @@ public class characterInfo extends TabActivity {
                                         shirtReinForce.setText("+" + reinforce);
                                         shirtReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqShirtRein.post(() -> {
+                                        eqShirtRein.setText("+" + reinforce);
+                                        eqShirtRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     shirtReinForce.post(() -> {
                                         shirtReinForce.setText("+" + reinforce);
                                         shirtReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqShirtRein.post(() -> {
+                                        eqShirtRein.setText("+" + reinforce);
+                                        eqShirtRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
                             }
                             else if ("하의".equals(slotName)) {
+                                eqPantsName.post(() -> {
+                                   eqPantsName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap pantsBitmap = getBitmapFromURL(imageUrl);
                                 int width = ePants.getWidth();
@@ -553,16 +696,22 @@ public class characterInfo extends TabActivity {
                                 ePants.post(() -> {
                                     ePants.setImageBitmap(scaledBitmap);
                                 });
-                                ePants.post(() -> {
-                                    ePants.setImageBitmap(scaledBitmap);
+                                eqPants.post(() -> {
+                                    eqPants.setImageBitmap(pantsBitmap);
                                 });
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     pantsMist.post(() -> {
                                         pantsMist.setVisibility(View.VISIBLE);
                                     });
+                                    ePantsMist.post(() -> {
+                                        ePantsMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     pantsMist.post(() -> {
                                         pantsMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    ePantsMist.post(() -> {
+                                        ePantsMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -593,9 +742,16 @@ public class characterInfo extends TabActivity {
                                         pantsReinForce.setText("+" + reinforce);
                                         pantsReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqPantsRein.post(() -> {
+                                       eqPantsRein.setText("+"+reinforce);
+                                       eqPantsRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     pantsReinForce.post(() -> {
                                         pantsReinForce.setText("+0");
+                                    });
+                                    eqPantsRein.post(() -> {
+                                        eqPantsRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -603,15 +759,26 @@ public class characterInfo extends TabActivity {
                                         pantsReinForce.setText("+" + reinforce);
                                         pantsReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqPantsRein.post(() -> {
+                                        eqPantsRein.setText("+"+reinforce);
+                                        eqPantsRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     pantsReinForce.post(() -> {
                                         pantsReinForce.setText("+" + reinforce);
                                         pantsReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqPantsRein.post(() -> {
+                                        eqPantsRein.setText("+"+reinforce);
+                                        eqPantsRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
 
                             }
                             else if ("머리어깨".equals(slotName)) {
+                                eqShdName.post(() -> {
+                                   eqShdName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap shdBitmap = getBitmapFromURL(imageUrl);
                                 int width = eShd.getWidth();
@@ -620,13 +787,22 @@ public class characterInfo extends TabActivity {
                                 eShd.post(() -> {
                                     eShd.setImageBitmap(scaledBitmap);
                                 });
+                                eqShd.post(() -> {
+                                   eqShd.setImageBitmap(shdBitmap);
+                                });
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     shdMist.post(() -> {
                                         shdMist.setVisibility(View.VISIBLE);
                                     });
+                                    eShdMist.post(() -> {
+                                        eShdMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     shdMist.post(() -> {
                                         shdMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eShdMist.post(() -> {
+                                        eShdMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -657,9 +833,16 @@ public class characterInfo extends TabActivity {
                                         shdReinForce.setText("+" + reinforce);
                                         shdReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqShdRein.post(() -> {
+                                       eqShdRein.setText("+" + reinforce);
+                                       eqShdRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     shdReinForce.post(() -> {
                                         shdReinForce.setText("+0");
+                                    });
+                                    eqShdRein.post(() -> {
+                                        eqShdRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -667,14 +850,25 @@ public class characterInfo extends TabActivity {
                                         shdReinForce.setText("+" + reinforce);
                                         shdReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqShdRein.post(() -> {
+                                        eqShdRein.setText("+" + reinforce);
+                                        eqShdRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     shdReinForce.post(() -> {
                                         shdReinForce.setText("+" + reinforce);
                                         shdReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqShdRein.post(() -> {
+                                        eqShdRein.setText("+" + reinforce);
+                                        eqShdRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
                             }
                             else if ("신발".equals(slotName)) {
+                                eqShoeName.post(() ->{
+                                   eqShoeName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap shoeBitmap = getBitmapFromURL(imageUrl);
                                 int width = eShoe.getWidth();
@@ -683,13 +877,22 @@ public class characterInfo extends TabActivity {
                                 eShoe.post(() -> {
                                     eShoe.setImageBitmap(scaledBitmap);
                                 });
+                                eqShoe.post(() -> {
+                                   eqShoe.setImageBitmap(shoeBitmap);
+                                });
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     shoeMist.post(() -> {
                                         shoeMist.setVisibility(View.VISIBLE);
                                     });
+                                    eShoeMist.post(() -> {
+                                        eShoeMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     shoeMist.post(() -> {
                                         shoeMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eShoeMist.post(() -> {
+                                        eShoeMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -720,9 +923,16 @@ public class characterInfo extends TabActivity {
                                         shoeReinForce.setText("+" + reinforce);
                                         shoeReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqShoeRein.post(() -> {
+                                       eqShoeRein.setText("+" + reinforce);
+                                       eqShoeRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     shoeReinForce.post(() -> {
                                         shoeReinForce.setText("+0");
+                                    });
+                                    eqShoeRein.post(() -> {
+                                        eqShoeRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -730,14 +940,25 @@ public class characterInfo extends TabActivity {
                                         shoeReinForce.setText("+" + reinforce);
                                         shoeReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqShoeRein.post(() -> {
+                                        eqShoeRein.setText("+" + reinforce);
+                                        eqShoeRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     shoeReinForce.post(() -> {
                                         shoeReinForce.setText("+" + reinforce);
                                         shoeReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqShoeRein.post(() -> {
+                                        eqShoeRein.setText("+" + reinforce);
+                                        eqShoeRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
                             }
                             else if ("벨트".equals(slotName)) {
+                                eqBeltName.post(() ->{
+                                   eqBeltName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap beltBitmap = getBitmapFromURL(imageUrl);
                                 int width = eBelt.getWidth();
@@ -747,13 +968,24 @@ public class characterInfo extends TabActivity {
                                 eBelt.post(() -> {
                                     eBelt.setImageBitmap(scaledBitmap);
                                 });
+                                eqBelt.post(() ->{
+                                    eqBelt.setImageBitmap(beltBitmap);
+                                });
+
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     beltMist.post(() -> {
                                         beltMist.setVisibility(View.VISIBLE);
                                     });
+                                    eBeltMist.post(() -> {
+                                        eBeltMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     beltMist.post(() -> {
                                         beltMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eBeltMist.post(() -> {
+                                        eBeltMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -786,9 +1018,16 @@ public class characterInfo extends TabActivity {
                                         beltReinForce.setText("+" + reinforce);
                                         beltReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqBeltRein.post(() -> {
+                                       eqBeltRein.setText("+" + reinforce);
+                                       eqBeltRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     beltReinForce.post(() -> {
                                         beltReinForce.setText("+0");
+                                    });
+                                    eqBeltRein.post(() -> {
+                                        eqBeltRein.setText("+0");
                                     });
                                 }
 
@@ -797,14 +1036,25 @@ public class characterInfo extends TabActivity {
                                         beltReinForce.setText("+" + reinforce);
                                         beltReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqBeltRein.post(() -> {
+                                        eqBeltRein.setText("+" + reinforce);
+                                        eqBeltRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     beltReinForce.post(() -> {
                                         beltReinForce.setText("+" + reinforce);
                                         beltReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqBeltRein.post(() -> {
+                                        eqBeltRein.setText("+" + reinforce);
+                                        eqBeltRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
                             }
                             else if ("팔찌".equals(slotName)) {
+                                eqHandName.post(() -> {
+                                   eqHandName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap handBitmap = getBitmapFromURL(imageUrl);
                                 int width = eHand.getWidth();
@@ -813,13 +1063,23 @@ public class characterInfo extends TabActivity {
                                 eHand.post(() -> {
                                     eHand.setImageBitmap(scaledBitmap);
                                 });
+                                eqHand.post(() -> {
+                                   eqHand.setImageBitmap(handBitmap);
+                                });
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     handMist.post(() -> {
                                         handMist.setVisibility(View.VISIBLE);
                                     });
+                                    eHandMist.post(() -> {
+                                        eHandMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     handMist.post(() -> {
                                         handMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eHandMist.post(() -> {
+                                        eHandMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -859,34 +1119,43 @@ public class characterInfo extends TabActivity {
                                         handReinForce.setText("+" + reinforce);
                                         handReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
-                                } else {
-                                    handReinForce.post(() -> {
-                                        handReinForce.setText("+0");
-                                    });
-                                }
-                                if (reinforce > 0) {
-                                    handReinForce.post(() -> {
-                                        handReinForce.setText("+" + reinforce);
-                                        handReinForce.setTextColor(context.getResources().getColor(R.color.white));
+                                    eqHandRein.post(() -> {
+                                       eqHandRein.setText("+" + reinforce);
+                                       eqHandRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     handReinForce.post(() -> {
                                         handReinForce.setText("+0");
                                     });
+                                    eqHandRein.post(() -> {
+                                        eqHandRein.setText("+0");
+                                    });
                                 }
+
                                 if (amplificationName != null) {
                                     handReinForce.post(() -> {
                                         handReinForce.setText("+" + reinforce);
                                         handReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqHandRein.post(() -> {
+                                        eqHandRein.setText("+" + reinforce);
+                                        eqHandRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     handReinForce.post(() -> {
                                         handReinForce.setText("+" + reinforce);
                                         handReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqHandRein.post(() -> {
+                                        eqHandRein.setText("+" + reinforce);
+                                        eqHandRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
                             }
                             else if ("목걸이".equals(slotName)) {
+                                eqNeckName.post(() -> {
+                                   eqNeckName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap neckBitmap = getBitmapFromURL(imageUrl);
                                 int width = eNeck.getWidth();
@@ -895,13 +1164,23 @@ public class characterInfo extends TabActivity {
                                 eNeck.post(() -> {
                                     eNeck.setImageBitmap(scaledBitmap);
                                 });
+                                eqNeck.post(() -> {
+                                   eqNeck.setImageBitmap(neckBitmap);
+                                });
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     neckMist.post(() -> {
                                         neckMist.setVisibility(View.VISIBLE);
                                     });
+                                    eNeckMist.post(() -> {
+                                        eNeckMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     neckMist.post(() -> {
                                         neckMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eNeckMist.post(() -> {
+                                        eNeckMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -941,9 +1220,16 @@ public class characterInfo extends TabActivity {
                                         neckReinForce.setText("+" + reinforce);
                                         neckReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqNeckRein.post(() -> {
+                                       eqNeckRein.setText("+" + reinforce);
+                                       eqNeckRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     neckReinForce.post(() -> {
                                         neckReinForce.setText("+0");
+                                    });
+                                    eqNeckRein.post(() -> {
+                                       eqNeckRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -951,15 +1237,26 @@ public class characterInfo extends TabActivity {
                                         neckReinForce.setText("+" + reinforce);
                                         neckReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqNeckRein.post(() -> {
+                                       eqNeckRein.setText("+" + reinforce);
+                                       eqNeckRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     neckReinForce.post(() -> {
                                         neckReinForce.setText("+" + reinforce);
                                         neckReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqNeckRein.post(() -> {
+                                        eqNeckRein.setText("+" + reinforce);
+                                        eqNeckRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
 
                             }
                             else if ("반지".equals(slotName)) {
+                                eqRingName.post(() -> {
+                                   eqRingName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap ringBitmap = getBitmapFromURL(imageUrl);
                                 int width = eRing.getWidth();
@@ -968,13 +1265,23 @@ public class characterInfo extends TabActivity {
                                 eRing.post(() -> {
                                     eRing.setImageBitmap(scaledBitmap);
                                 });
+                                eqRing.post(() -> {
+                                   eqRing.setImageBitmap(ringBitmap);
+                                });
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     ringMist.post(() -> {
                                         ringMist.setVisibility(View.VISIBLE);
                                     });
+                                    eRingMist.post(() -> {
+                                        eRingMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     ringMist.post(() -> {
                                         ringMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eRingMist.post(() -> {
+                                        eRingMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -1014,9 +1321,16 @@ public class characterInfo extends TabActivity {
                                         ringReinForce.setText("+" + reinforce);
                                         ringReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqRingRein.post(() -> {
+                                        eqRingRein.setText("+" + reinforce);
+                                        eqRingRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     ringReinForce.post(() -> {
                                         ringReinForce.setText("+0");
+                                    });
+                                    eqRingRein.post(() -> {
+                                       eqRingRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -1024,15 +1338,26 @@ public class characterInfo extends TabActivity {
                                         ringReinForce.setText("+" + reinforce);
                                         ringReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqRingRein.post(() -> {
+                                        eqRingRein.setText("+" + reinforce);
+                                        eqRingRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     ringReinForce.post(() -> {
                                         ringReinForce.setText("+" + reinforce);
                                         ringReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqRingRein.post(() -> {
+                                        eqRingRein.setText("+" + reinforce);
+                                        eqRingRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
 
                             }
                             else if ("보조장비".equals(slotName)) {
+                                eqSubName.post(() -> {
+                                   eqSubName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap subBitmap = getBitmapFromURL(imageUrl);
                                 int width = eSub.getWidth();
@@ -1041,13 +1366,22 @@ public class characterInfo extends TabActivity {
                                 eSub.post(() -> {
                                     eSub.setImageBitmap(scaledBitmap);
                                 });
+                                eqSub.post(() -> {
+                                   eqSub.setImageBitmap(subBitmap);
+                                });
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     subMist.post(() -> {
                                         subMist.setVisibility(View.VISIBLE);
                                     });
+                                    eSubMist.post(() -> {
+                                        eSubMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     subMist.post(() -> {
                                         subMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eSubMist.post(() -> {
+                                        eSubMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -1087,9 +1421,16 @@ public class characterInfo extends TabActivity {
                                         subReinForce.setText("+" + reinforce);
                                         subReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqSubRein.post(() -> {
+                                       eqSubRein.setText("+" + reinforce);
+                                       eqSubRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     subReinForce.post(() -> {
                                         subReinForce.setText("+0");
+                                    });
+                                    eqSubRein.post(() -> {
+                                        eqSubRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -1097,15 +1438,26 @@ public class characterInfo extends TabActivity {
                                         subReinForce.setText("+" + reinforce);
                                         subReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqSubRein.post(() -> {
+                                        eqSubRein.setText("+" + reinforce);
+                                        eqSubRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     subReinForce.post(() -> {
                                         subReinForce.setText("+" + reinforce);
                                         subReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqSubRein.post(() -> {
+                                        eqSubRein.setText("+" + reinforce);
+                                        eqSubRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
 
                             }
                             else if ("귀걸이".equals(slotName)) {
+                                eqEarName.post(() -> {
+                                   eqEarName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap earBitmap = getBitmapFromURL(imageUrl);
                                 int width = eEar.getWidth();
@@ -1114,13 +1466,22 @@ public class characterInfo extends TabActivity {
                                 eEar.post(() -> {
                                     eEar.setImageBitmap(scaledBitmap);
                                 });
+                                eqEar.post(() -> {
+                                   eqEar.setImageBitmap(earBitmap);
+                                });
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     earMist.post(() -> {
                                         earMist.setVisibility(View.VISIBLE);
                                     });
+                                    eEarMist.post(() -> {
+                                        eEarMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     earMist.post(() -> {
                                         earMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eEarMist.post(() -> {
+                                        eEarMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -1160,9 +1521,16 @@ public class characterInfo extends TabActivity {
                                         earReinForce.setText("+" + reinforce);
                                         earReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqEarRein.post(() -> {
+                                       eqEarRein.setText("+" + reinforce);
+                                       eqEarRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     earReinForce.post(() -> {
                                         earReinForce.setText("+0");
+                                    });
+                                    eqEarRein.post(() -> {
+                                        eqEarRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -1170,14 +1538,25 @@ public class characterInfo extends TabActivity {
                                         earReinForce.setText("+" + reinforce);
                                         earReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+                                    eqEarRein.post(() -> {
+                                        eqEarRein.setText("+" + reinforce);
+                                        eqEarRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     earReinForce.post(() -> {
                                         earReinForce.setText("+" + reinforce);
                                         earReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqEarRein.post(() -> {
+                                        eqEarRein.setText("+" + reinforce);
+                                        eqEarRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 }
                             }
                             else if ("마법석".equals(slotName)) {
+                                eqStoneName.post(() -> {
+                                   eqStoneName.setText(eItemName);
+                                });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap stoneBitmap = getBitmapFromURL(imageUrl);
                                 int width = eStone.getWidth();
@@ -1186,13 +1565,22 @@ public class characterInfo extends TabActivity {
                                 eStone.post(() -> {
                                     eStone.setImageBitmap(scaledBitmap);
                                 });
+                                eqStone.post(() -> {
+                                   eqStone.setImageBitmap(stoneBitmap);
+                                });
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     stoneMist.post(() -> {
                                         stoneMist.setVisibility(View.VISIBLE);
                                     });
+                                    eStoneMist.post(() -> {
+                                        eStoneMist.setVisibility(View.VISIBLE);
+                                    });
                                 } else {
                                     stoneMist.post(() -> {
                                         stoneMist.setVisibility(View.INVISIBLE);
+                                    });
+                                    eStoneMist.post(() -> {
+                                        eStoneMist.setVisibility(View.INVISIBLE);
                                     });
                                 }
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
@@ -1232,9 +1620,16 @@ public class characterInfo extends TabActivity {
                                         stoneReinForce.setText("+" + reinforce);
                                         stoneReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
+                                    eqStoneRein.post(() -> {
+                                        eqStoneRein.setText("+" + reinforce);
+                                        eqStoneRein.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
                                 } else {
                                     stoneReinForce.post(() -> {
                                         stoneReinForce.setText("+0");
+                                    });
+                                    eqStoneRein.post(() -> {
+                                        eqStoneRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -1242,10 +1637,19 @@ public class characterInfo extends TabActivity {
                                         stoneReinForce.setText("+" + reinforce);
                                         stoneReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
+
+                                    eqStoneRein.post(() -> {
+                                        eqStoneRein.setText("+" + reinforce);
+                                        eqStoneRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                    });
                                 } else {
                                     stoneReinForce.post(() -> {
                                         stoneReinForce.setText("+" + reinforce);
                                         stoneReinForce.setTextColor(context.getResources().getColor(R.color.white));
+                                    });
+                                    eqStoneRein.post(() -> {
+                                        eqStoneRein.setText("+" + reinforce);
+                                        eqStoneRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 }
                             }
