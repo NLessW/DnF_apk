@@ -1010,14 +1010,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
+            <HorizontalScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none" >
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             </TabWidget>
-
+            </HorizontalScrollView>
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
@@ -1346,6 +1350,771 @@
 
                 <LinearLayout
                     android:id="@+id/tab2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#000000"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:fillViewport="true">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="#000000"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqWeapon"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqWeaponRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eWeaponMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="invisible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/eqWeaponName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="장착 무기"
+                                        android:textColor="#ffffff" />
+
+                                    <TextView
+                                        android:id="@+id/weaponInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="무기 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqTitle"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <ImageView
+                                    android:id="@+id/eTitleMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="invisible"
+                                    app:srcCompat="@drawable/mist" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/eqTitleName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="62dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 칭호"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/titleInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="62dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="칭호 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqShirt"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+
+                                <TextView
+                                    android:id="@+id/eqShirtRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textColor="#ffffff"
+                                    android:textSize="20sp" />
+                                <ImageView
+                                    android:id="@+id/eShirtMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/eqShirtName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="장착 상의"
+                                        android:textColor="#ffffff" />
+
+                                    <TextView
+                                        android:id="@+id/shirtInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="상의 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqShd"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqShdRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eShdMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqShdName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 머리어깨"
+                                    android:textColor="#ffffff" />
+
+                                    <TextView
+                                        android:id="@+id/shdInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="어깨 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqPants"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqPantsRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/ePantsMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqPantsName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 하의"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/pantsInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="하의 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqBelt"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqBeltRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eBeltMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqBeltName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 벨트"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/beltInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="벨트 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqShoe"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqShoeRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eShoeMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqShoeName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 신발"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/shoeInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="신발 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqHand"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqHandRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eHandMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqHandName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 팔찌"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/handInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="팔찌 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqNeck"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqNeckRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eNeckMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqNeckName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 목걸이"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/neckInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="목걸이 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqRing"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqRingRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eRingMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqRingName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 반지"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/ringInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="반지 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqSub"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqSubRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eSubMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqSubName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 보조장비"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/subInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="보조장비 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqEar"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqEarRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eEarMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqEarName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 귀걸이"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/earInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="귀걸이 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/borderbottom"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/eqStone"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:srcCompat="@drawable/weapon" />
+                                <TextView
+                                    android:id="@+id/eqStoneRein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="+ 0"
+                                    android:textSize="20sp"
+                                    android:textColor="#ffffff" />
+                                <ImageView
+                                    android:id="@+id/eStoneMist"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center"
+                                    android:visibility="visible"
+                                    app:srcCompat="@drawable/mist" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/eqStoneName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/dnfmidium"
+                                    android:text="장착 마법석"
+                                    android:textColor="#ffffff" />
+                                    <TextView
+                                        android:id="@+id/stoneInchant"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="15dp"
+                                        android:fontFamily="@font/dnfmidium"
+                                        android:text="마법석 마법부여"
+                                        android:textColor="#86BB9D" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/tab3"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:background="#000000"
@@ -1705,7 +2474,7 @@
                 </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/tab3"
+                        android:id="@+id/tab4"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:background="#000000"
