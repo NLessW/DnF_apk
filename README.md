@@ -169,3 +169,10 @@ Fix scrollview bugs and change avatar output forms<br/><br/>
 App icon and name change, Avatar Emblem implementation <br/><br/>
 應用程序圖標和名稱更改，頭像徽章實現 <br/><br/>
 アプリアイコンと名称変更、アバターエンブレム実装<br/>
+
+13일차 (Day 13, 第13天, 13日目)<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/59410b42-ef49-49d4-aefc-bf1c4051c4c4)<br/>
+장비탭 추가 및 장비 강화 수치, 이미지, 이름, 미스트 기어 여부 구현 <br/><br/>
+Add equipment tabs and implement equipment enhancement figures, images, names, mist gears.<br/><br/>
+添加設備選項卡和實施設備增強數字, 圖像, 名稱, 霧齒輪.<br/><br/>
+機器タブを追加し、機器拡張図、画像、名前、ミストギアを実装します。<br/>
