@@ -176,3 +176,10 @@ App icon and name change, Avatar Emblem implementation <br/><br/>
 Add equipment tabs and implement equipment enhancement figures, images, names, mist gears.<br/><br/>
 添加設備選項卡和實施設備增強數字, 圖像, 名稱, 霧齒輪.<br/><br/>
 機器タブを追加し、機器拡張図、画像、名前、ミストギアを実装します。<br/>
+
+14일차 (Day 14, 第14天, 14日目)<br/>
+![image](https://github.com/NLessW/DnF_apk/assets/63160418/347e75e5-d9a6-40ab-9b22-fbdfebdd9455)<br/>
+장비 마법부여 구현 완료 <br/><br/>
+Equipment Enchanted Implementation Completed<br/><br/>
+裝備魔法實施完成<br/><br/>
+機器の実装が完了<br/><br/>
