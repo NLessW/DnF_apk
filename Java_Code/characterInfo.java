@@ -27,7 +27,9 @@ import java.net.URL;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -475,7 +477,6 @@ public class characterInfo extends TabActivity {
                         });
 
 
-
                         for (int i = 0; i < equipmentArray.length(); i++) {
                             JSONObject equipment = equipmentArray.getJSONObject(i);
                             String itemId = equipment.getString("itemId");
@@ -488,10 +489,12 @@ public class characterInfo extends TabActivity {
                             boolean mistGear = equipment.isNull("mistGear") ? false : equipment.getBoolean("mistGear");
                             int reinforce = equipment.getInt("reinforce");
                             int refine = equipment.getInt("refine");
+
                             if ("무기".equals(slotName)) {
                                 eqWeaponName.post(() ->{
-                                   eqWeaponName.setText(eItemName);
+                                    eqWeaponName.setText(eItemName);
                                 });
+
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap weaponBitmap = getBitmapFromURL(imageUrl);
                                 int width = eWeapon.getWidth();
@@ -503,6 +506,62 @@ public class characterInfo extends TabActivity {
                                 eqWeapon.post(() -> {
                                     eqWeapon.setImageBitmap(weaponBitmap);
                                 });
+
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            Set<String> attackValues = new HashSet<>();
+                                            Set<String> statValues = new HashSet<>();
+                                            String castingSpeedValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                String convertedEnchantName = convertEnchantName(enchantName);
+                                                finalEnchantText.append(convertedEnchantName).append(" +").append(enchantValue).append("  ");
+
+                                                if (enchantName.equals("힘") || enchantName.equals("지능") || enchantName.equals("정신력") || enchantName.equals("체력")) {
+                                                    statValues.add(enchantValue);
+                                                } else if (enchantName.equals("물리 공격력") || enchantName.equals("마법 공격력") || enchantName.equals("독립 공격력")) {
+                                                    attackValues.add(enchantValue);
+                                                } else if (enchantName.equals("캐스트속도")) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (attackValues.size() == 1) {
+                                                String valueToAdd = attackValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("공격력"), finalEnchantText.length(), "공격력 + " + valueToAdd);
+                                            }
+
+                                            if (statValues.size() == 1) {
+                                                String valueToStat = statValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("스탯"), finalEnchantText.length(), "스탯 + " + valueToStat+ " ") ;
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐속 + " + castingSpeedValue);
+                                            }
+
+                                            weaponInchant.post(() -> {
+                                                weaponInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
                                 if (upgradeInfo != null && !upgradeInfo.isEmpty()) {
                                     try {
                                         JSONObject upgradeInfoJson = new JSONObject(upgradeInfo);
@@ -532,15 +591,15 @@ public class characterInfo extends TabActivity {
                                         weaponReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqWeaponRein.post(() -> {
-                                       eqWeaponRein.setText("+" + reinforce);
-                                       eqWeaponRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqWeaponRein.setText("+" + reinforce);
+                                        eqWeaponRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     weaponReinForce.post(() -> {
                                         weaponReinForce.setText("+0");
                                     });
                                     eqWeaponRein.post(() -> {
-                                       eqWeaponRein.setText("+0");
+                                        eqWeaponRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -549,8 +608,8 @@ public class characterInfo extends TabActivity {
                                         weaponReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
                                     eqWeaponRein.post(() ->{
-                                       eqWeaponRein.setText("+" + reinforce);
-                                       eqWeaponRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                        eqWeaponRein.setText("+" + reinforce);
+                                        eqWeaponRein.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
                                 } else {
                                     weaponReinForce.post(() -> {
@@ -585,15 +644,69 @@ public class characterInfo extends TabActivity {
                                     eTitle.setImageBitmap(scaledBitmap);
                                 });
                                 eqTitle.post(() -> {
-                                   eqTitle.setImageBitmap(titleBitmap);
+                                    eqTitle.setImageBitmap(titleBitmap);
                                 });
                                 eqTitleName.post(() -> {
-                                   eqTitleName.setText(eItemName);
+                                    eqTitleName.setText(eItemName);
                                 });
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            Set<String> attackValues = new HashSet<>();
+                                            Set<String> statValues = new HashSet<>();
+                                            String castingSpeedValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                String convertedEnchantName = convertEnchantName(enchantName);
+                                                finalEnchantText.append(convertedEnchantName).append(" +").append(enchantValue).append("  ");
+
+                                                if (enchantName.equals("힘") || enchantName.equals("지능") || enchantName.equals("정신력") || enchantName.equals("체력")) {
+                                                    statValues.add(enchantValue);
+                                                } else if (enchantName.equals("물리 공격력") || enchantName.equals("마법 공격력") || enchantName.equals("독립 공격력")) {
+                                                    attackValues.add(enchantValue);
+                                                } else if (enchantName.equals("캐스트속도")) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (attackValues.size() == 1) {
+                                                String valueToAdd = attackValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("공격력"), finalEnchantText.length(), "공격력 + " + valueToAdd);
+                                            }
+
+                                            if (statValues.size() == 1) {
+                                                String valueToStat = statValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("스탯"), finalEnchantText.length(), "스탯 + " + valueToStat+ " ") ;
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐속 + " + castingSpeedValue);
+                                            }
+
+                                            titleInchant.post(() -> {
+                                                titleInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
                             }
                             else if ("상의".equals(slotName)) {
                                 eqShirtName.post(() -> {
-                                   eqShirtName.setText(eItemName);
+                                    eqShirtName.setText(eItemName);
                                 });
 
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
@@ -605,14 +718,81 @@ public class characterInfo extends TabActivity {
                                     eShirt.setImageBitmap(scaledBitmap);
                                 });
                                 eqShirt.post(() -> {
-                                   eqShirt.setImageBitmap(shirtBitmap);
+                                    eqShirt.setImageBitmap(shirtBitmap);
                                 });
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            boolean hasCriticalHit = false;
+                                            String castingSpeedValue = "";
+                                            String statValue = "";
+                                            String attackValue = "";
+                                            String criticalHitValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                if ("힘".equals(enchantName) || "지능".equals(enchantName) || "정신력".equals(enchantName) || "체력".equals(enchantName)) {
+                                                    statValue = enchantValue;
+                                                } else if ("물리 공격력".equals(enchantName) || "마법 공격력".equals(enchantName) || "독립 공격력".equals(enchantName)) {
+                                                    attackValue = enchantValue;
+                                                } else if ("캐스트속도".equals(enchantName)) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                } else if ("물리 크리티컬 히트".equals(enchantName) || "마법 크리티컬 히트".equals(enchantName)) {
+                                                    hasCriticalHit = true;
+                                                    criticalHitValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (enchantObject.has("explain")) {
+                                                String explainValue = enchantObject.getString("explain");
+                                                finalEnchantText.append("스증").append(explainValue.substring(explainValue.indexOf("+"), explainValue.length())).append("  ");
+                                            }
+
+                                            if (!statValue.isEmpty()) {
+                                                finalEnchantText.append("스탯 + ").append(statValue).append("  ");
+                                            }
+
+                                            if (!attackValue.isEmpty()) {
+                                                finalEnchantText.append("공격력 + ").append(attackValue).append("  ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐스트속도 + " + castingSpeedValue + "  ");
+                                            }
+
+                                            if (hasCriticalHit) {
+                                                finalEnchantText.append("크리 + " + criticalHitValue);
+                                            }
+
+                                            shirtInchant.post(() -> {
+                                                shirtInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+
+
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     shirtMist.post(() -> {
                                         shirtMist.setVisibility(View.VISIBLE);
                                     });
                                     eShirtMist.post(() -> {
-                                       eShirtMist.setVisibility(View.VISIBLE);
+                                        eShirtMist.setVisibility(View.VISIBLE);
                                     });
                                 } else {
                                     shirtMist.post(() -> {
@@ -652,8 +832,8 @@ public class characterInfo extends TabActivity {
                                         shirtReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqShirtRein.post(() -> {
-                                       eqShirtRein.setText("+" + reinforce);
-                                       eqShirtRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqShirtRein.setText("+" + reinforce);
+                                        eqShirtRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     shirtReinForce.post(() -> {
@@ -686,7 +866,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("하의".equals(slotName)) {
                                 eqPantsName.post(() -> {
-                                   eqPantsName.setText(eItemName);
+                                    eqPantsName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap pantsBitmap = getBitmapFromURL(imageUrl);
@@ -699,6 +879,70 @@ public class characterInfo extends TabActivity {
                                 eqPants.post(() -> {
                                     eqPants.setImageBitmap(pantsBitmap);
                                 });
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            boolean hasCriticalHit = false;
+                                            String castingSpeedValue = "";
+                                            String statValue = "";
+                                            String attackValue = "";
+                                            String criticalHitValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                if ("힘".equals(enchantName) || "지능".equals(enchantName) || "정신력".equals(enchantName) || "체력".equals(enchantName)) {
+                                                    statValue = enchantValue;
+                                                } else if ("물리 공격력".equals(enchantName) || "마법 공격력".equals(enchantName) || "독립 공격력".equals(enchantName)) {
+                                                    attackValue = enchantValue;
+                                                } else if ("캐스트속도".equals(enchantName)) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                } else if ("물리 크리티컬 히트".equals(enchantName) || "마법 크리티컬 히트".equals(enchantName)) {
+                                                    hasCriticalHit = true;
+                                                    criticalHitValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (enchantObject.has("explain")) {
+                                                String explainValue = enchantObject.getString("explain");
+                                                finalEnchantText.append("스증").append(explainValue.substring(explainValue.indexOf("+"), explainValue.length())).append("  ");
+                                            }
+
+                                            if (!statValue.isEmpty()) {
+                                                finalEnchantText.append("스탯 + ").append(statValue).append("  ");
+                                            }
+
+                                            if (!attackValue.isEmpty()) {
+                                                finalEnchantText.append("공격력 + ").append(attackValue).append("  ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐스트속도 + " + castingSpeedValue + "  ");
+                                            }
+
+                                            if (hasCriticalHit) {
+                                                finalEnchantText.append("크리 + " + criticalHitValue);
+                                            }
+
+                                            pantsInchant.post(() -> {
+                                                pantsInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     pantsMist.post(() -> {
                                         pantsMist.setVisibility(View.VISIBLE);
@@ -743,8 +987,8 @@ public class characterInfo extends TabActivity {
                                         pantsReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqPantsRein.post(() -> {
-                                       eqPantsRein.setText("+"+reinforce);
-                                       eqPantsRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqPantsRein.setText("+"+reinforce);
+                                        eqPantsRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     pantsReinForce.post(() -> {
@@ -777,7 +1021,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("머리어깨".equals(slotName)) {
                                 eqShdName.post(() -> {
-                                   eqShdName.setText(eItemName);
+                                    eqShdName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap shdBitmap = getBitmapFromURL(imageUrl);
@@ -788,8 +1032,72 @@ public class characterInfo extends TabActivity {
                                     eShd.setImageBitmap(scaledBitmap);
                                 });
                                 eqShd.post(() -> {
-                                   eqShd.setImageBitmap(shdBitmap);
+                                    eqShd.setImageBitmap(shdBitmap);
                                 });
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            boolean hasCriticalHit = false;
+                                            String castingSpeedValue = "";
+                                            String statValue = "";
+                                            String attackValue = "";
+                                            String criticalHitValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                if ("힘".equals(enchantName) || "지능".equals(enchantName) || "정신력".equals(enchantName) || "체력".equals(enchantName)) {
+                                                    statValue = enchantValue;
+                                                } else if ("물리 공격력".equals(enchantName) || "마법 공격력".equals(enchantName) || "독립 공격력".equals(enchantName)) {
+                                                    attackValue = enchantValue;
+                                                } else if ("캐스트속도".equals(enchantName)) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                } else if ("물리 크리티컬 히트".equals(enchantName) || "마법 크리티컬 히트".equals(enchantName)) {
+                                                    hasCriticalHit = true;
+                                                    criticalHitValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (enchantObject.has("explain")) {
+                                                String explainValue = enchantObject.getString("explain");
+                                                finalEnchantText.append("스증").append(explainValue.substring(explainValue.indexOf("+"), explainValue.length())).append("  ");
+                                            }
+
+                                            if (!statValue.isEmpty()) {
+                                                finalEnchantText.append("스탯 + ").append(statValue).append("  ");
+                                            }
+
+                                            if (!attackValue.isEmpty()) {
+                                                finalEnchantText.append("공격력 + ").append(attackValue).append("  ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐스트속도 + " + castingSpeedValue + "  ");
+                                            }
+
+                                            if (hasCriticalHit) {
+                                                finalEnchantText.append("크리 + " + criticalHitValue);
+                                            }
+
+                                            shdInchant.post(() -> {
+                                                shdInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     shdMist.post(() -> {
                                         shdMist.setVisibility(View.VISIBLE);
@@ -834,8 +1142,8 @@ public class characterInfo extends TabActivity {
                                         shdReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqShdRein.post(() -> {
-                                       eqShdRein.setText("+" + reinforce);
-                                       eqShdRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqShdRein.setText("+" + reinforce);
+                                        eqShdRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     shdReinForce.post(() -> {
@@ -867,7 +1175,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("신발".equals(slotName)) {
                                 eqShoeName.post(() ->{
-                                   eqShoeName.setText(eItemName);
+                                    eqShoeName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap shoeBitmap = getBitmapFromURL(imageUrl);
@@ -878,8 +1186,72 @@ public class characterInfo extends TabActivity {
                                     eShoe.setImageBitmap(scaledBitmap);
                                 });
                                 eqShoe.post(() -> {
-                                   eqShoe.setImageBitmap(shoeBitmap);
+                                    eqShoe.setImageBitmap(shoeBitmap);
                                 });
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            boolean hasCriticalHit = false;
+                                            String castingSpeedValue = "";
+                                            String statValue = "";
+                                            String attackValue = "";
+                                            String criticalHitValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                if ("힘".equals(enchantName) || "지능".equals(enchantName) || "정신력".equals(enchantName) || "체력".equals(enchantName)) {
+                                                    statValue = enchantValue;
+                                                } else if ("물리 공격력".equals(enchantName) || "마법 공격력".equals(enchantName) || "독립 공격력".equals(enchantName)) {
+                                                    attackValue = enchantValue;
+                                                } else if ("캐스트속도".equals(enchantName)) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                } else if ("물리 크리티컬 히트".equals(enchantName) || "마법 크리티컬 히트".equals(enchantName)) {
+                                                    hasCriticalHit = true;
+                                                    criticalHitValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (enchantObject.has("explain")) {
+                                                String explainValue = enchantObject.getString("explain");
+                                                finalEnchantText.append("스증").append(explainValue.substring(explainValue.indexOf("+"), explainValue.length())).append("  ");
+                                            }
+
+                                            if (!statValue.isEmpty()) {
+                                                finalEnchantText.append("스탯 + ").append(statValue).append("  ");
+                                            }
+
+                                            if (!attackValue.isEmpty()) {
+                                                finalEnchantText.append("공격력 + ").append(attackValue).append("  ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐스트속도 + " + castingSpeedValue + "  ");
+                                            }
+
+                                            if (hasCriticalHit) {
+                                                finalEnchantText.append("크리 + " + criticalHitValue);
+                                            }
+
+                                            shoeInchant.post(() -> {
+                                                shoeInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     shoeMist.post(() -> {
                                         shoeMist.setVisibility(View.VISIBLE);
@@ -924,8 +1296,8 @@ public class characterInfo extends TabActivity {
                                         shoeReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqShoeRein.post(() -> {
-                                       eqShoeRein.setText("+" + reinforce);
-                                       eqShoeRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqShoeRein.setText("+" + reinforce);
+                                        eqShoeRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     shoeReinForce.post(() -> {
@@ -957,7 +1329,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("벨트".equals(slotName)) {
                                 eqBeltName.post(() ->{
-                                   eqBeltName.setText(eItemName);
+                                    eqBeltName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap beltBitmap = getBitmapFromURL(imageUrl);
@@ -972,6 +1344,69 @@ public class characterInfo extends TabActivity {
                                     eqBelt.setImageBitmap(beltBitmap);
                                 });
 
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            boolean hasCriticalHit = false;
+                                            String castingSpeedValue = "";
+                                            String statValue = "";
+                                            String attackValue = "";
+                                            String criticalHitValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                if ("힘".equals(enchantName) || "지능".equals(enchantName) || "정신력".equals(enchantName) || "체력".equals(enchantName)) {
+                                                    statValue = enchantValue;
+                                                } else if ("물리 공격력".equals(enchantName) || "마법 공격력".equals(enchantName) || "독립 공격력".equals(enchantName)) {
+                                                    attackValue = enchantValue;
+                                                } else if ("캐스트속도".equals(enchantName)) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                } else if ("물리 크리티컬 히트".equals(enchantName) || "마법 크리티컬 히트".equals(enchantName)) {
+                                                    hasCriticalHit = true;
+                                                    criticalHitValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (enchantObject.has("explain")) {
+                                                String explainValue = enchantObject.getString("explain");
+                                                finalEnchantText.append("스증").append(explainValue.substring(explainValue.indexOf("+"), explainValue.length())).append("  ");
+                                            }
+
+                                            if (!statValue.isEmpty()) {
+                                                finalEnchantText.append("스탯 + ").append(statValue).append("  ");
+                                            }
+
+                                            if (!attackValue.isEmpty()) {
+                                                finalEnchantText.append("공격력 + ").append(attackValue).append("  ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐스트속도 + " + castingSpeedValue + "  ");
+                                            }
+
+                                            if (hasCriticalHit) {
+                                                finalEnchantText.append("크리 + " + criticalHitValue);
+                                            }
+
+                                            beltInchant.post(() -> {
+                                                beltInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
 
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     beltMist.post(() -> {
@@ -1019,8 +1454,8 @@ public class characterInfo extends TabActivity {
                                         beltReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqBeltRein.post(() -> {
-                                       eqBeltRein.setText("+" + reinforce);
-                                       eqBeltRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqBeltRein.setText("+" + reinforce);
+                                        eqBeltRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     beltReinForce.post(() -> {
@@ -1053,7 +1488,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("팔찌".equals(slotName)) {
                                 eqHandName.post(() -> {
-                                   eqHandName.setText(eItemName);
+                                    eqHandName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap handBitmap = getBitmapFromURL(imageUrl);
@@ -1064,8 +1499,63 @@ public class characterInfo extends TabActivity {
                                     eHand.setImageBitmap(scaledBitmap);
                                 });
                                 eqHand.post(() -> {
-                                   eqHand.setImageBitmap(handBitmap);
+                                    eqHand.setImageBitmap(handBitmap);
                                 });
+
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            Set<String> attackValues = new HashSet<>();
+                                            Set<String> statValues = new HashSet<>();
+                                            String castingSpeedValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                String convertedEnchantName = convertEnchantName(enchantName);
+                                                finalEnchantText.append(convertedEnchantName).append(" +").append(enchantValue).append("  ");
+
+                                                if (enchantName.equals("힘") || enchantName.equals("지능") || enchantName.equals("정신력") || enchantName.equals("체력")) {
+                                                    statValues.add(enchantValue);
+                                                } else if (enchantName.equals("물리 공격력") || enchantName.equals("마법 공격력") || enchantName.equals("독립 공격력")) {
+                                                    attackValues.add(enchantValue);
+                                                } else if (enchantName.equals("캐스트속도")) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (attackValues.size() == 1) {
+                                                String valueToAdd = attackValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("공격력"), finalEnchantText.length(), "공격력 + " + valueToAdd);
+                                            }
+
+                                            if (statValues.size() == 1) {
+                                                String valueToStat = statValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("스탯"), finalEnchantText.length(), "스탯 + " + valueToStat + " ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐속 + " + castingSpeedValue);
+                                            }
+
+                                            handInchant.post(() -> {
+                                                handInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
 
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     handMist.post(() -> {
@@ -1120,8 +1610,8 @@ public class characterInfo extends TabActivity {
                                         handReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqHandRein.post(() -> {
-                                       eqHandRein.setText("+" + reinforce);
-                                       eqHandRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqHandRein.setText("+" + reinforce);
+                                        eqHandRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     handReinForce.post(() -> {
@@ -1154,7 +1644,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("목걸이".equals(slotName)) {
                                 eqNeckName.post(() -> {
-                                   eqNeckName.setText(eItemName);
+                                    eqNeckName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap neckBitmap = getBitmapFromURL(imageUrl);
@@ -1165,9 +1655,63 @@ public class characterInfo extends TabActivity {
                                     eNeck.setImageBitmap(scaledBitmap);
                                 });
                                 eqNeck.post(() -> {
-                                   eqNeck.setImageBitmap(neckBitmap);
+                                    eqNeck.setImageBitmap(neckBitmap);
                                 });
 
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            Set<String> attackValues = new HashSet<>();
+                                            Set<String> statValues = new HashSet<>();
+                                            String castingSpeedValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                String convertedEnchantName = convertEnchantName(enchantName);
+                                                finalEnchantText.append(convertedEnchantName).append(" +").append(enchantValue).append("  ");
+
+                                                if (enchantName.equals("힘") || enchantName.equals("지능") || enchantName.equals("정신력") || enchantName.equals("체력")) {
+                                                    statValues.add(enchantValue);
+                                                } else if (enchantName.equals("물리 공격력") || enchantName.equals("마법 공격력") || enchantName.equals("독립 공격력")) {
+                                                    attackValues.add(enchantValue);
+                                                } else if (enchantName.equals("캐스트속도")) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (attackValues.size() == 1) {
+                                                String valueToAdd = attackValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("공격력"), finalEnchantText.length(), "공격력 + " + valueToAdd);
+                                            }
+
+                                            if (statValues.size() == 1) {
+                                                String valueToStat = statValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("스탯"), finalEnchantText.length(), "스탯 + " + valueToStat + " ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐속 + " + castingSpeedValue);
+                                            }
+
+                                            neckInchant.post(() -> {
+                                                neckInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     neckMist.post(() -> {
                                         neckMist.setVisibility(View.VISIBLE);
@@ -1221,15 +1765,15 @@ public class characterInfo extends TabActivity {
                                         neckReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqNeckRein.post(() -> {
-                                       eqNeckRein.setText("+" + reinforce);
-                                       eqNeckRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqNeckRein.setText("+" + reinforce);
+                                        eqNeckRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     neckReinForce.post(() -> {
                                         neckReinForce.setText("+0");
                                     });
                                     eqNeckRein.post(() -> {
-                                       eqNeckRein.setText("+0");
+                                        eqNeckRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -1238,8 +1782,8 @@ public class characterInfo extends TabActivity {
                                         neckReinForce.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
                                     eqNeckRein.post(() -> {
-                                       eqNeckRein.setText("+" + reinforce);
-                                       eqNeckRein.setTextColor(context.getResources().getColor(R.color.magenta));
+                                        eqNeckRein.setText("+" + reinforce);
+                                        eqNeckRein.setTextColor(context.getResources().getColor(R.color.magenta));
                                     });
                                 } else {
                                     neckReinForce.post(() -> {
@@ -1255,7 +1799,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("반지".equals(slotName)) {
                                 eqRingName.post(() -> {
-                                   eqRingName.setText(eItemName);
+                                    eqRingName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap ringBitmap = getBitmapFromURL(imageUrl);
@@ -1266,9 +1810,63 @@ public class characterInfo extends TabActivity {
                                     eRing.setImageBitmap(scaledBitmap);
                                 });
                                 eqRing.post(() -> {
-                                   eqRing.setImageBitmap(ringBitmap);
+                                    eqRing.setImageBitmap(ringBitmap);
                                 });
 
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            Set<String> attackValues = new HashSet<>();
+                                            Set<String> statValues = new HashSet<>();
+                                            String castingSpeedValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                String convertedEnchantName = convertEnchantName(enchantName);
+                                                finalEnchantText.append(convertedEnchantName).append(" +").append(enchantValue).append("  ");
+
+                                                if (enchantName.equals("힘") || enchantName.equals("지능") || enchantName.equals("정신력") || enchantName.equals("체력")) {
+                                                    statValues.add(enchantValue);
+                                                } else if (enchantName.equals("물리 공격력") || enchantName.equals("마법 공격력") || enchantName.equals("독립 공격력")) {
+                                                    attackValues.add(enchantValue);
+                                                } else if (enchantName.equals("캐스트속도")) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                }
+                                            }
+
+                                            if (attackValues.size() == 1) {
+                                                String valueToAdd = attackValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("공격력"), finalEnchantText.length(), "공격력 + " + valueToAdd);
+                                            }
+
+                                            if (statValues.size() == 1) {
+                                                String valueToStat = statValues.iterator().next();
+                                                finalEnchantText.replace(finalEnchantText.indexOf("스탯"), finalEnchantText.length(), "스탯 + " + valueToStat + " ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐속 + " + castingSpeedValue);
+                                            }
+
+                                            ringInchant.post(() -> {
+                                                ringInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     ringMist.post(() -> {
                                         ringMist.setVisibility(View.VISIBLE);
@@ -1330,7 +1928,7 @@ public class characterInfo extends TabActivity {
                                         ringReinForce.setText("+0");
                                     });
                                     eqRingRein.post(() -> {
-                                       eqRingRein.setText("+0");
+                                        eqRingRein.setText("+0");
                                     });
                                 }
                                 if (amplificationName != null) {
@@ -1356,7 +1954,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("보조장비".equals(slotName)) {
                                 eqSubName.post(() -> {
-                                   eqSubName.setText(eItemName);
+                                    eqSubName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap subBitmap = getBitmapFromURL(imageUrl);
@@ -1367,8 +1965,81 @@ public class characterInfo extends TabActivity {
                                     eSub.setImageBitmap(scaledBitmap);
                                 });
                                 eqSub.post(() -> {
-                                   eqSub.setImageBitmap(subBitmap);
+                                    eqSub.setImageBitmap(subBitmap);
                                 });
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            boolean hasCriticalHit = false;
+                                            String castingSpeedValue = "";
+                                            String statValue = "";
+                                            String attackValue = "";
+                                            String criticalHitValue = "";
+                                            String allAttributeUpValue = "";
+                                            String damageUpValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                if ("힘".equals(enchantName) || "지능".equals(enchantName) || "정신력".equals(enchantName) || "체력".equals(enchantName)) {
+                                                    statValue = enchantValue;
+                                                } else if ("물리 공격력".equals(enchantName) || "마법 공격력".equals(enchantName) || "독립 공격력".equals(enchantName)) {
+                                                    attackValue = enchantValue;
+                                                } else if ("캐스트속도".equals(enchantName)) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                } else if ("물리 크리티컬 히트".equals(enchantName) || "마법 크리티컬 히트".equals(enchantName)) {
+                                                    hasCriticalHit = true;
+                                                    criticalHitValue = enchantValue;
+                                                } else if ("모든 속성 강화".equals(enchantName)) {
+                                                    allAttributeUpValue = convertEnchantName(enchantName) + " + " + enchantValue;
+                                                } else if ("피해 증가".equals(enchantName)) {
+                                                    damageUpValue = convertEnchantName(enchantName) + " + " + enchantValue;
+                                                }
+                                            }
+
+                                            if (!allAttributeUpValue.isEmpty()) {
+                                                finalEnchantText.append(allAttributeUpValue).append("  ");
+                                            }
+
+                                            if (!damageUpValue.isEmpty()) {
+                                                finalEnchantText.append(damageUpValue).append("  ");
+                                            }
+
+                                            if (!statValue.isEmpty()) {
+                                                finalEnchantText.append("스탯 + ").append(statValue).append("  ");
+                                            }
+
+                                            if (!attackValue.isEmpty()) {
+                                                finalEnchantText.append("공격력 + ").append(attackValue).append("  ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐스트속도 + ").append(castingSpeedValue).append("  ");
+                                            }
+
+                                            if (hasCriticalHit) {
+                                                finalEnchantText.append("크리 + ").append(criticalHitValue);
+                                            }
+
+                                            subInchant.post(() -> {
+                                                subInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     subMist.post(() -> {
                                         subMist.setVisibility(View.VISIBLE);
@@ -1422,8 +2093,8 @@ public class characterInfo extends TabActivity {
                                         subReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqSubRein.post(() -> {
-                                       eqSubRein.setText("+" + reinforce);
-                                       eqSubRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqSubRein.setText("+" + reinforce);
+                                        eqSubRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     subReinForce.post(() -> {
@@ -1456,7 +2127,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("귀걸이".equals(slotName)) {
                                 eqEarName.post(() -> {
-                                   eqEarName.setText(eItemName);
+                                    eqEarName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap earBitmap = getBitmapFromURL(imageUrl);
@@ -1467,8 +2138,80 @@ public class characterInfo extends TabActivity {
                                     eEar.setImageBitmap(scaledBitmap);
                                 });
                                 eqEar.post(() -> {
-                                   eqEar.setImageBitmap(earBitmap);
+                                    eqEar.setImageBitmap(earBitmap);
                                 });
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            boolean hasCriticalHit = false;
+                                            String castingSpeedValue = "";
+                                            String statValue = "";
+                                            String attackValue = "";
+                                            String criticalHitValue = "";
+                                            String allAttributeUpValue = "";
+                                            String damageUpValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                if ("힘".equals(enchantName) || "지능".equals(enchantName) || "정신력".equals(enchantName) || "체력".equals(enchantName)) {
+                                                    statValue = enchantValue;
+                                                } else if ("물리 공격력".equals(enchantName) || "마법 공격력".equals(enchantName) || "독립 공격력".equals(enchantName)) {
+                                                    attackValue = enchantValue;
+                                                } else if ("캐스트속도".equals(enchantName)) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                } else if ("물리 크리티컬 히트".equals(enchantName) || "마법 크리티컬 히트".equals(enchantName)) {
+                                                    hasCriticalHit = true;
+                                                    criticalHitValue = enchantValue;
+                                                } else if ("모든 속성 강화".equals(enchantName)) {
+                                                    allAttributeUpValue = convertEnchantName(enchantName) + " + " + enchantValue;
+                                                } else if ("피해 증가".equals(enchantName)) {
+                                                    damageUpValue = convertEnchantName(enchantName) + " + " + enchantValue;
+                                                }
+                                            }
+
+                                            if (!allAttributeUpValue.isEmpty()) {
+                                                finalEnchantText.append(allAttributeUpValue).append("  ");
+                                            }
+
+                                            if (!damageUpValue.isEmpty()) {
+                                                finalEnchantText.append(damageUpValue).append("  ");
+                                            }
+
+                                            if (!statValue.isEmpty()) {
+                                                finalEnchantText.append("스탯 + ").append(statValue).append("  ");
+                                            }
+
+                                            if (!attackValue.isEmpty()) {
+                                                finalEnchantText.append("공격력 + ").append(attackValue).append("  ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐스트속도 + ").append(castingSpeedValue).append("  ");
+                                            }
+
+                                            if (hasCriticalHit) {
+                                                finalEnchantText.append("크리 + ").append(criticalHitValue);
+                                            }
+
+                                            earInchant.post(() -> {
+                                                earInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     earMist.post(() -> {
                                         earMist.setVisibility(View.VISIBLE);
@@ -1522,8 +2265,8 @@ public class characterInfo extends TabActivity {
                                         earReinForce.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                     eqEarRein.post(() -> {
-                                       eqEarRein.setText("+" + reinforce);
-                                       eqEarRein.setTextColor(context.getResources().getColor(R.color.white));
+                                        eqEarRein.setText("+" + reinforce);
+                                        eqEarRein.setTextColor(context.getResources().getColor(R.color.white));
                                     });
                                 } else {
                                     earReinForce.post(() -> {
@@ -1555,7 +2298,7 @@ public class characterInfo extends TabActivity {
                             }
                             else if ("마법석".equals(slotName)) {
                                 eqStoneName.post(() -> {
-                                   eqStoneName.setText(eItemName);
+                                    eqStoneName.setText(eItemName);
                                 });
                                 String imageUrl = "https://img-api.neople.co.kr/df/items/" + itemId;
                                 Bitmap stoneBitmap = getBitmapFromURL(imageUrl);
@@ -1566,8 +2309,80 @@ public class characterInfo extends TabActivity {
                                     eStone.setImageBitmap(scaledBitmap);
                                 });
                                 eqStone.post(() -> {
-                                   eqStone.setImageBitmap(stoneBitmap);
+                                    eqStone.setImageBitmap(stoneBitmap);
                                 });
+                                StringBuilder enchantText = new StringBuilder();
+                                final StringBuilder finalEnchantText = enchantText;
+
+                                if (equipment.has("enchant")) {
+                                    try {
+                                        JSONObject enchantObject = equipment.getJSONObject("enchant");
+                                        if (enchantObject.has("status")) {
+                                            JSONArray statusArray = enchantObject.getJSONArray("status");
+
+                                            boolean hasCastingSpeed = false;
+                                            boolean hasCriticalHit = false;
+                                            String castingSpeedValue = "";
+                                            String statValue = "";
+                                            String attackValue = "";
+                                            String criticalHitValue = "";
+                                            String allAttributeUpValue = "";
+                                            String damageUpValue = "";
+
+                                            for (int j = 0; j < statusArray.length(); j++) {
+                                                JSONObject status = statusArray.getJSONObject(j);
+                                                String enchantName = status.getString("name");
+                                                String enchantValue = status.getString("value");
+
+                                                if ("힘".equals(enchantName) || "지능".equals(enchantName) || "정신력".equals(enchantName) || "체력".equals(enchantName)) {
+                                                    statValue = enchantValue;
+                                                } else if ("물리 공격력".equals(enchantName) || "마법 공격력".equals(enchantName) || "독립 공격력".equals(enchantName)) {
+                                                    attackValue = enchantValue;
+                                                } else if ("캐스트속도".equals(enchantName)) {
+                                                    hasCastingSpeed = true;
+                                                    castingSpeedValue = enchantValue;
+                                                } else if ("물리 크리티컬 히트".equals(enchantName) || "마법 크리티컬 히트".equals(enchantName)) {
+                                                    hasCriticalHit = true;
+                                                    criticalHitValue = enchantValue;
+                                                } else if ("모든 속성 강화".equals(enchantName)) {
+                                                    allAttributeUpValue = convertEnchantName(enchantName) + " + " + enchantValue;
+                                                } else if ("피해 증가".equals(enchantName)) {
+                                                    damageUpValue = convertEnchantName(enchantName) + " + " + enchantValue;
+                                                }
+                                            }
+
+                                            if (!allAttributeUpValue.isEmpty()) {
+                                                finalEnchantText.append(allAttributeUpValue).append("  ");
+                                            }
+
+                                            if (!damageUpValue.isEmpty()) {
+                                                finalEnchantText.append(damageUpValue).append("  ");
+                                            }
+
+                                            if (!statValue.isEmpty()) {
+                                                finalEnchantText.append("스탯 + ").append(statValue).append("  ");
+                                            }
+
+                                            if (!attackValue.isEmpty()) {
+                                                finalEnchantText.append("공격력 + ").append(attackValue).append("  ");
+                                            }
+
+                                            if (hasCastingSpeed) {
+                                                finalEnchantText.append("캐스트속도 + ").append(castingSpeedValue).append("  ");
+                                            }
+
+                                            if (hasCriticalHit) {
+                                                finalEnchantText.append("크리 + ").append(criticalHitValue);
+                                            }
+
+                                            stoneInchant.post(() -> {
+                                                stoneInchant.setText(finalEnchantText.toString());
+                                            });
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
                                 if (mistGear || pureMistGear || refinedMistGear) {
                                     stoneMist.post(() -> {
                                         stoneMist.setVisibility(View.VISIBLE);
@@ -1653,7 +2468,6 @@ public class characterInfo extends TabActivity {
                                     });
                                 }
                             }
-
                         }
 
                         String charUrl = "https://img-api.neople.co.kr/df/servers/" + server + "/characters/" + characterId + "?zoom=1";
@@ -1698,6 +2512,42 @@ public class characterInfo extends TabActivity {
 
             }).start();
         }
+        private static String convertEnchantName(String originalName) {
+            // 이름에 따라 변환된 이름을 반환
+            switch (originalName) {
+                case "화속성강화":
+                    return "화속강";
+                case "수속성강화":
+                    return "수속강";
+                case "명속성강화":
+                    return "명속강";
+                case "암속성강화":
+                    return "암속강";
+                case "모든 속성 강화":
+                    return "모속강";
+                case "물리 공격력":
+                case "마법 공격력":
+                case "독립 공격력":
+                    return "공격력";
+                case "힘":
+                    return "스탯";
+                case "지능":
+                    return "스탯";
+                case "체력":
+                    return "스탯";
+                case "정신력":
+                    return "스탯";
+                case "피해 증가":
+                    return "피증";
+                case "캐스트속도":
+                    return "캐속";
+                default:
+                    return originalName;
+            }
+        }
+
+
+
         public static void setCharStats(Context context, String server, String characterName, String apiKey) {
             new Thread(() -> {
                 try {
@@ -1956,6 +2806,10 @@ public class characterInfo extends TabActivity {
                                                     else if ("오버차지".equals(skillName)) {
                                                         skillIcon.post(() -> {
                                                             skillIcon.setImageResource(R.drawable.overcharge);
+                                                        });
+                                                    }else if("액티베이션".equals(skillName)){
+                                                        skillIcon.post(() -> {
+                                                           skillIcon.setImageResource(R.drawable.manassult);
                                                         });
                                                     }
                                                     else if ("블러드 번".equals(skillName)) {
